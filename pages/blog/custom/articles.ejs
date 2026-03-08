@@ -1,0 +1,66 @@
+<%- include("../components/_head", { title: 'MedFocus Blog - Atualizações Médicas' }) %>
+<body class="flex flex-col h-screen overflow-hidden bg-white antialiased">
+    <%- include("../components/_header") %>
+
+    <div class="flex flex-1 overflow-hidden">
+        <%- include("../components/_sidebar", { currentPath: typeof categorySlug !== 'undefined' ? '/blog/' + categorySlug : (typeof categoryTitle !== 'undefined' ? '/blog/' + categoryTitle.toLowerCase().replace(/ /g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "") : '/blog/articles') }) %>
+
+        <!-- Main Content Area: Recent Updates Grid -->
+        <main class="flex-1 flex flex-col overflow-y-auto bg-white p-6 md:p-12 lg:p-16">
+            <div class="max-w-7xl mx-auto w-full mb-16">
+                
+                <!-- Breadcrumb -->
+                <%- include("../components/_breadcrumb", { items: [
+                    { label: 'Início', url: '/blog' },
+                    { label: typeof categoryTitle !== 'undefined' ? categoryTitle : 'Atualizações Recentes', url: '' }
+                ] }) %>
+
+                <!-- Section Header -->
+                <div class="mb-12">
+                    <div class="flex items-center gap-2 mb-2">
+                        <h1 class="text-4xl font-black text-gray-900 tracking-tighter"><%= typeof categoryTitle !== 'undefined' ? categoryTitle : 'Atualizações Recentes' %></h1>
+                        <div class="ml-auto flex items-center gap-2 text-xs font-bold text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                            <span><%= new Date().toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }) %></span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 font-medium"><%= typeof categoryDescription !== 'undefined' ? categoryDescription : 'Mantenha-se atualizado com as últimas mudanças nas diretrizes médicas.' %></p>
+                </div>
+
+                <!-- Articles Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <% articles.slice(0, 6).forEach(post => { %>
+                        <%- include("../components/_article-card", { 
+                            url: post.postUrl, 
+                            title: post.postName, 
+                            date: post.postDate, 
+                            description: post.postDescription,
+                            coverImage: post.coverImage,
+                            tags: post.tags || [],
+                            readingTime: post.postTime || '10 min'
+                        }) %>
+                    <% }) %>
+                </div>
+            </div>
+            
+            <%- include("../components/_footer") %>
+        </main>
+    </div>
+
+    <%- include("../components/_scripts") %>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D1D5DB;
+            border-radius: 10px;
+        }
+    </style>
+</body>
+</html>

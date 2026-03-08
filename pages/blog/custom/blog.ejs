@@ -1,0 +1,37 @@
+<%- include("../components/_head", { title: postName }) %>
+<body class="flex flex-col h-screen overflow-hidden bg-white antialiased">
+    <%- include("../components/_header") %>
+
+    <div class="flex flex-1 overflow-hidden">
+        <%- include("../components/_sidebar", { currentPath: '/blog/articles' }) %>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col overflow-y-auto bg-white <%= (typeof iframeOnly !== 'undefined' && iframeOnly) ? 'p-0' : 'p-6 md:p-12 lg:p-24 lg:pt-16' %>">
+            <% if (typeof iframeOnly !== 'undefined' && iframeOnly) { %>
+                <iframe src="<%= iframeSrc %>" class="w-full flex-1 border-0" style="min-height: 100%;" loading="lazy"></iframe>
+            <% } else { %>
+                <div class="max-w-4xl mx-auto w-full mb-16">
+                    <%- include("../components/_article-header", { postName: postName, postDate: postDate, coverImage: typeof coverImage !== 'undefined' ? coverImage : null }) %>
+                    <%- include("../components/_article-content", { content: post, iframeSrc: typeof iframeSrc !== 'undefined' ? iframeSrc : null }) %>
+                </div>
+                <%- include("../components/_footer") %>
+            <% } %>
+        </main>
+    </div>
+
+    <%- include("../components/_scripts") %>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D1D5DB;
+            border-radius: 10px;
+        }
+    </style>
+</body>
+</html>

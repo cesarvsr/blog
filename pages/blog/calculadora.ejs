@@ -1,0 +1,144 @@
+<%- include("components/_head", { title: 'Calculadoras Médicas - MedFocus' }) %>
+<body class="flex flex-col h-screen overflow-hidden bg-white antialiased">
+    
+    <%- include("components/_header") %>
+
+    <div class="flex flex-1 overflow-hidden">
+        
+        <%- include("components/_sidebar", { currentPath: '/blog/calculadora' }) %>
+
+        <!-- Main Content Area: Calculators -->
+        <main class="flex-1 flex flex-col overflow-y-auto bg-white p-6 md:p-12 lg:p-20">
+            <div class="max-w-5xl mx-auto w-full mb-16">
+                
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-border pb-12">
+                    <div class="space-y-4">
+                        <%- include("components/_breadcrumb", { items: [
+                            { label: 'Guia', url: '/blog/articles' },
+                            { label: 'Suporte à Decisão', url: '' }
+                        ] }) %>
+                        <h1 class="text-6xl font-black text-gray-900 leading-tight tracking-tighter">Calculadoras</h1>
+                        <p class="text-gray-500 font-bold max-w-xl">Ferramentas de precisão para auxílio no diagnóstico e planejamento terapêutico.</p>
+                    </div>
+                </div>
+
+                <!-- Calculators Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    
+                    <!-- IMC Calculator -->
+                    <section class="bg-[#FBFBFB] border-2 border-border rounded-[3rem] p-10 hover:border-primary transition-colors shadow-sm">
+                        <div class="w-16 h-16 bg-black text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+                        </div>
+                        <h2 class="text-3xl font-black text-gray-900 mb-6 tracking-tight">IMC - Índice de Massa Corporal</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="flex flex-col gap-2">
+                                <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Peso (kg)</label>
+                                <input type="number" id="imcWeight" placeholder="Ex: 75.5" class="w-full bg-white border border-border rounded-xl px-4 py-3 text-lg font-bold outline-none focus:border-black transition-colors">
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Altura (cm)</label>
+                                <input type="number" id="imcHeight" placeholder="Ex: 175" class="w-full bg-white border border-border rounded-xl px-4 py-3 text-lg font-bold outline-none focus:border-black transition-colors">
+                            </div>
+                            <button onclick="calculateIMC()" class="w-full bg-black text-white font-black py-4 rounded-2xl text-sm uppercase tracking-[0.2em] hover:bg-gray-800 transition-all shadow-xl active:scale-95">Calcular agora</button>
+                        </div>
+                        
+                        <div id="imcResult" class="mt-8 p-6 bg-white border-2 border-dashed border-border rounded-2xl hidden animate-pulse">
+                            <p class="text-[10px] font-black text-primary uppercase tracking-widest mb-1">Resultado:</p>
+                            <p class="text-3xl font-black text-gray-900" id="imcValue">--</p>
+                            <p class="text-xs font-bold text-gray-500 mt-2" id="imcCategory">--</p>
+                        </div>
+                    </section>
+
+                    <!-- DPP Calculator (Nägele) -->
+                    <section class="bg-[#FBFBFB] border-2 border-border rounded-[3rem] p-10 hover:border-primary transition-colors shadow-sm">
+                        <div class="w-16 h-16 bg-black text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h2 class="text-3xl font-black text-gray-900 mb-6 tracking-tight">DPP - Data Provável do Parto</h2>
+                        <p class="text-[10px] text-gray-400 font-bold mb-6 uppercase tracking-widest">Regra de Nägele</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex flex-col gap-2">
+                                <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Data da última menstruação (DUM)</label>
+                                <input type="date" id="dumDate" class="w-full bg-white border border-border rounded-xl px-4 py-3 text-lg font-bold outline-none focus:border-black transition-colors">
+                            </div>
+                            <button onclick="calculateDPP()" class="w-full bg-primary text-white font-black py-4 rounded-2xl text-sm uppercase tracking-[0.2em] hover:bg-opacity-90 transition-all shadow-xl active:scale-95">Prever Parto</button>
+                        </div>
+                        
+                        <div id="dppResult" class="mt-8 p-6 bg-white border-2 border-dashed border-border rounded-2xl hidden">
+                            <p class="text-[10px] font-black text-primary uppercase tracking-widest mb-1">DPP estimada:</p>
+                            <p class="text-3xl font-black text-gray-900" id="dppValue">--</p>
+                            <p class="text-xs font-bold text-gray-500 mt-2" id="dppGestation">Idade Gestacional: --</p>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+            
+            <%- include("components/_footer") %>
+        </main>
+    </div>
+
+    <%- include("components/_scripts") %>
+
+    <script>
+        function calculateIMC() {
+            const weight = parseFloat(document.getElementById('imcWeight').value);
+            const height = parseFloat(document.getElementById('imcHeight').value) / 100;
+            const resDiv = document.getElementById('imcResult');
+            const valP = document.getElementById('imcValue');
+            const catP = document.getElementById('imcCategory');
+            
+            if (weight > 0 && height > 0) {
+                const imc = weight / (height * height);
+                valP.innerText = imc.toFixed(1);
+                resDiv.classList.remove('hidden');
+                resDiv.classList.remove('animate-pulse');
+                
+                if (imc < 18.5) catP.innerText = 'Abaixo do peso';
+                else if (imc < 25) catP.innerText = 'Peso normal';
+                else if (imc < 30) catP.innerText = 'Sobrepeso';
+                else catP.innerText = 'Obesidade';
+            }
+        }
+
+        function calculateDPP() {
+            const dumStr = document.getElementById('dumDate').value;
+            const resDiv = document.getElementById('dppResult');
+            const valP = document.getElementById('dppValue');
+            const gestP = document.getElementById('dppGestation');
+            
+            if (dumStr) {
+                const dum = new Date(dumStr);
+                
+                // Nägele Rule: LMP + 7 days - 3 months + 1 year
+                const dpp = new Date(dum);
+                dpp.setDate(dpp.getDate() + 7);
+                dpp.setMonth(dpp.getMonth() + 9); // same as -3 months + 1 year
+                
+                const options = { day: 'numeric', month: 'long', year: 'numeric' };
+                valP.innerText = dpp.toLocaleDateString('pt-BR', options);
+                
+                // Gestational Age
+                const today = new Date();
+                const diffTime = today - dum;
+                const totalWeeks = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 7));
+                const remainingDays = Math.floor((diffTime / (1000 * 60 * 60 * 24)) % 7);
+                gestP.innerText = `Idade Gestacional: ${totalWeeks} semanas e ${remainingDays} dias`;
+                
+                resDiv.classList.remove('hidden');
+            }
+        }
+    </script>
+
+    <style>
+        h1 { letter-spacing: -0.05em; }
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
+    </style>
+</body>
+</html>

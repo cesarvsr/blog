@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artrite Reumatoide: Domínio Clínico Interativo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Slate & Soft Blue (Harmonia e Profissionalismo) -->
+    <!-- Application Structure Plan: A aplicação está organizada seguindo a lógica da consulta reumatológica: 1. Identificação de Padrão (Clínica) -> 2. Calculadora de Critérios ACR/EULAR 2010 (Interatividade central) -> 3. Manifestações Extra-articulares -> 4. Escalonamento Terapêutico (DMARDs) -> 5. Flashcards. Esta estrutura foi desenhada para transformar a decoreba dos critérios em raciocínio aplicado. -->
+    <!-- Visualization & Content Choices: 
+         1. Distribuição de Pontos -> Goal: Compare -> Viz: Radar Chart (Chart.js) -> Interaction: Atualiza conforme o usuário seleciona critérios -> Justif: Visualiza qual domínio está pesando mais no diagnóstico.
+         2. Matriz de Tratamento -> Goal: Organize -> Viz: Flex Grid -> Interaction: Hover para ver doses e efeitos secundários -> Justif: Diferencia DMARDs sintéticos de biológicos.
+         3. Flashcards de Deformidades -> Goal: Inform -> Viz: Flip Cards -> Interaction: Click para revelar -> Justif: Memorização de nomes clássicos (Pescoço de Cisne, Botoeira). 
+         Confirming NO SVG/Mermaid used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .chart-container { position: relative; width: 100%; max-width: 500px; margin: auto; height: 350px; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(226, 232, 240, 0.8); }
+        
+        /* Flashcard Animation */
+        .flashcard-inner { transition: transform 0.6s; transform-style: preserve-3d; }
+        .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        
+        input[type="checkbox"]:checked + label { background-color: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+    </style>
+</head>
+<body class="antialiased text-slate-900">
+
+    <!-- Header -->
+    <header class="bg-slate-900 text-white py-12 px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 opacity-10 rounded-full -mr-20 -mt-20"></div>
+        <div class="max-w-5xl mx-auto relative z-10">
+            <span class="bg-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Reumatologia</span>
+            <h1 class="text-4xl md:text-5xl font-bold mt-4">Artrite Reumatoide</h1>
+            <p class="text-slate-400 text-lg mt-2 max-w-2xl">Guia Interativo de Diagnóstico e Conduta focado em Provas de Residência Médica.</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-12 space-y-12">
+
+        <!-- Section 1: Clínica e Padrão Articular -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="space-y-4">
+                <h2 class="text-3xl font-bold text-slate-800">O Padrão Clássico</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    A AR é uma <strong>Poliartrite Crônica Simétrica</strong> que acomete preferencialmente pequenas articulações. O diagnóstico precoce é fundamental para evitar a formação do <em>pannus</em> e erosões irreversíveis.
+                </p>
+                <div class="bg-white p-4 rounded-xl border-l-4 border-blue-600 shadow-sm">
+                    <p class="text-sm font-semibold text-slate-700">⚠️ Regra de Ouro:</p>
+                    <p class="text-sm text-slate-500">A AR <strong>POUPA</strong> as Interfalângicas Distais (IFD). Se houver acometimento de IFD, pense em Osteoartrite ou Artrite Psoriásica.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-blue-50 p-6 rounded-2xl text-center">
+                    <span class="text-3xl block mb-2">⏱️</span>
+                    <span class="font-bold text-blue-900">Rigidez Matinal</span>
+                    <p class="text-xs text-blue-700 mt-1">> 1 hora de duração</p>
+                </div>
+                <div class="bg-slate-100 p-6 rounded-2xl text-center">
+                    <span class="text-3xl block mb-2">🤝</span>
+                    <span class="font-bold text-slate-900">Simetria</span>
+                    <p class="text-xs text-slate-700 mt-1">Acometimento bilateral</p>
+                </div>
+                <div class="bg-slate-100 p-6 rounded-2xl text-center">
+                    <span class="text-3xl block mb-2">🤲</span>
+                    <span class="font-bold text-slate-900">Mãos e Pés</span>
+                    <p class="text-xs text-slate-700 mt-1">MCP, IFP e MTP</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-2xl text-center">
+                    <span class="text-3xl block mb-2">🦴</span>
+                    <span class="font-bold text-blue-900">Erosiva</span>
+                    <p class="text-xs text-blue-700 mt-1">Potencial deformante</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: ACR/EULAR 2010 Scoring Tool -->
+        <section class="bg-white p-8 rounded-3xl shadow-xl border border-slate-200">
+            <div class="mb-8 text-center">
+                <h2 class="text-3xl font-bold text-slate-800">Calculadora de Critérios ACR/EULAR 2010</h2>
+                <p class="text-slate-500 mt-2">Selecione os achados do paciente para verificar a classificação (Necessário ≥ 6 pontos)</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <!-- Joint Involvement -->
+                    <div>
+                        <h4 class="font-bold text-blue-600 text-sm uppercase tracking-wider mb-3">I. Envolvimento Articular</h4>
+                        <select id="jointScore" onchange="calculateScore()" class="w-full p-3 rounded-lg border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="0">1 Grande articulação (0 pts)</option>
+                            <option value="1">2-10 Grandes articulações (1 pt)</option>
+                            <option value="2">1-3 Pequenas articulações (2 pts)</option>
+                            <option value="3">4-10 Pequenas articulações (3 pts)</option>
+                            <option value="5">> 10 Articulações (pelo menos 1 pequena) (5 pts)</option>
+                        </select>
+                    </div>
+
+                    <!-- Serology -->
+                    <div>
+                        <h4 class="font-bold text-blue-600 text-sm uppercase tracking-wider mb-3">II. Sorologia (FR ou anti-CCP)</h4>
+                        <select id="seroScore" onchange="calculateScore()" class="w-full p-3 rounded-lg border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="0">Ambos Negativos (0 pts)</option>
+                            <option value="2">Pelo menos 1 Positivo Baixo Título (2 pts)</option>
+                            <option value="3">Pelo menos 1 Positivo Alto Título (3 pts)</option>
+                        </select>
+                    </div>
+
+                    <!-- Acute Phase Reactants -->
+                    <div>
+                        <h4 class="font-bold text-blue-600 text-sm uppercase tracking-wider mb-3">III. Provas de Fase Aguda (VHS ou PCR)</h4>
+                        <select id="aprScore" onchange="calculateScore()" class="w-full p-3 rounded-lg border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="0">Ambos Normais (0 pts)</option>
+                            <option value="1">VHS ou PCR Alterados (1 pt)</option>
+                        </select>
+                    </div>
+
+                    <!-- Duration -->
+                    <div>
+                        <h4 class="font-bold text-blue-600 text-sm uppercase tracking-wider mb-3">IV. Duração dos Sintomas</h4>
+                        <select id="durScore" onchange="calculateScore()" class="w-full p-3 rounded-lg border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="0">< 6 semanas (0 pts)</option>
+                            <option value="1">≥ 6 semanas (1 pt)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center justify-center bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                    <div class="chart-container mb-4">
+                        <canvas id="scoreChart"></canvas>
+                    </div>
+                    <div class="text-center">
+                        <span class="text-sm text-slate-400 font-bold uppercase">Pontuação Total</span>
+                        <div id="totalScore" class="text-6xl font-black text-slate-800">0</div>
+                        <div id="diagResult" class="mt-2 font-bold px-4 py-1 rounded-full text-sm">Aguardando dados...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Manifestações Extra-articulares -->
+        <section>
+            <h2 class="text-3xl font-bold text-slate-800 mb-6">Manifestações Extra-articulares</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-blue-600 mb-2">Pulmonar</h4>
+                    <p class="text-sm text-slate-600">Derrame pleural (glicose muito baixa!) e Doença Intersticial. <strong>Síndrome de Caplan</strong>: AR + Nódulos Pulmonares + Pneumoconiose.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-blue-600 mb-2">Hematológica</h4>
+                    <p class="text-sm text-slate-600">Anemia de doença crônica. <strong>Síndrome de Felty</strong>: AR + Esplenomegalia + Neutropenia.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-blue-600 mb-2">Cardiovascular</h4>
+                    <p class="text-sm text-slate-600">Pericardite (mais comum) e maior risco de eventos ateroscleróticos (IAM/AVC).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Tratamento (DMARDs) -->
+        <section class="bg-slate-900 text-white p-8 rounded-3xl">
+            <h2 class="text-2xl font-bold mb-6 text-blue-400">Escalonamento Terapêutico (Target-to-Treat)</h2>
+            <div class="space-y-6">
+                <div class="flex gap-6 items-start">
+                    <div class="bg-blue-600 text-white font-bold w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">01</div>
+                    <div>
+                        <h4 class="font-bold text-lg">Início Imediato: DMARD Sintético (MTX)</h4>
+                        <p class="text-slate-400 text-sm mt-1">O <strong>Metotrexato</strong> é a droga âncora. Pode ser associado a Corticoides como "terapia de ponte" (bridge therapy) até o efeito pleno do MTX (4-12 semanas).</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="bg-slate-700 text-white font-bold w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">02</div>
+                    <div>
+                        <h4 class="font-bold text-lg">Falha após 3-6 meses: Combinação ou Biológico</h4>
+                        <p class="text-slate-400 text-sm mt-1">Adicionar outro DMARD sintético (Leflunomida, Sulfassalazina) ou partir para <strong>Anti-TNF</strong> (Infliximab, Adalimumab) ou Outros Biológicos (Rituximab, Tocilizumab).</p>
+                    </div>
+                </div>
+                <div class="bg-blue-900/40 p-4 rounded-xl border border-blue-800 text-xs mt-4">
+                    <strong>💡 Atenção Prova:</strong> Antes de iniciar Biológicos, deve-se sempre rastrear <strong>Tuberculose Latente</strong> (PPD/IGRA) e Hepatites Virais.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Flashcards de Ativação -->
+        <section id="flashcards" class="space-y-8 pb-10">
+            <h2 class="text-3xl font-bold text-slate-800">Revisão Rápida (Flashcards)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="flashcard h-48 perspective-1000 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner relative w-full h-full duration-500 transform-style-3d">
+                        <div class="flashcard-front absolute inset-0 backface-hidden bg-white border border-slate-200 rounded-2xl flex flex-col items-center justify-center p-6 text-center shadow-sm">
+                            <span class="text-blue-600 font-bold text-xs uppercase mb-2">Deformidade</span>
+                            <p class="text-slate-800 font-semibold italic">Flexão da IFP com Hiperextensão da IFD</p>
+                        </div>
+                        <div class="flashcard-back absolute inset-0 backface-hidden bg-blue-600 text-white rounded-2xl flex flex-col items-center justify-center p-6 text-center rotate-y-180 shadow-xl">
+                            <p class="font-bold text-xl uppercase tracking-widest">Botoeira (Boutonnière)</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="flashcard h-48 perspective-1000 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner relative w-full h-full duration-500 transform-style-3d">
+                        <div class="flashcard-front absolute inset-0 backface-hidden bg-white border border-slate-200 rounded-2xl flex flex-col items-center justify-center p-6 text-center shadow-sm">
+                            <span class="text-blue-600 font-bold text-xs uppercase mb-2">Sorologia</span>
+                            <p class="text-slate-800 font-semibold italic">Qual anticorpo é MAIS ESPECÍFICO para AR?</p>
+                        </div>
+                        <div class="flashcard-back absolute inset-0 backface-hidden bg-blue-600 text-white rounded-2xl flex flex-col items-center justify-center p-6 text-center rotate-y-180 shadow-xl">
+                            <p class="font-bold text-xl uppercase tracking-widest">Anti-CCP (Anticorpo antipeptídeo citrulinado cíclico)</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="flashcard h-48 perspective-1000 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner relative w-full h-full duration-500 transform-style-3d">
+                        <div class="flashcard-front absolute inset-0 backface-hidden bg-white border border-slate-200 rounded-2xl flex flex-col items-center justify-center p-6 text-center shadow-sm">
+                            <span class="text-blue-600 font-bold text-xs uppercase mb-2">Coluna</span>
+                            <p class="text-slate-800 font-semibold italic">Qual o único segmento da coluna acometido na AR?</p>
+                        </div>
+                        <div class="flashcard-back absolute inset-0 backface-hidden bg-blue-600 text-white rounded-2xl flex flex-col items-center justify-center p-6 text-center rotate-y-180 shadow-xl">
+                            <p class="font-bold text-xl uppercase tracking-widest">Coluna Cervical (Subluxação Atlanto-axial)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-100 py-12 text-center text-slate-400 text-sm">
+        <p>Conteúdo Estruturado para Alto Desempenho em Residência Médica.</p>
+        <p class="mt-2">&copy; 2025 - Guia Interativo de Artrite Reumatoide</p>
+    </footer>
+
+    <script>
+        // Score Chart State
+        let myChart;
+
+        function initChart() {
+            const ctx = document.getElementById('scoreChart').getContext('2d');
+            myChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Articulações', 'Sorologia', 'Fase Aguda', 'Duração'],
+                    datasets: [{
+                        label: 'Pontos Atuais',
+                        data: [0, 0, 0, 0],
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 5,
+                            ticks: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+        function calculateScore() {
+            const joint = parseInt(document.getElementById('jointScore').value);
+            const sero = parseInt(document.getElementById('seroScore').value);
+            const apr = parseInt(document.getElementById('aprScore').value);
+            const dur = parseInt(document.getElementById('durScore').value);
+
+            const total = joint + sero + apr + dur;
+            
+            document.getElementById('totalScore').innerText = total;
+
+            const resDiv = document.getElementById('diagResult');
+            if (total >= 6) {
+                resDiv.innerText = "CLASSIFICADO COMO AR";
+                resDiv.className = "mt-2 font-bold px-4 py-1 rounded-full text-sm bg-blue-600 text-white";
+            } else {
+                resDiv.innerText = "NÃO CLASSIFICADO";
+                resDiv.className = "mt-2 font-bold px-4 py-1 rounded-full text-sm bg-slate-200 text-slate-500";
+            }
+
+            // Update Chart
+            myChart.data.datasets[0].data = [joint, sero, apr, dur];
+            myChart.update();
+        }
+
+        window.onload = function() {
+            initChart();
+            calculateScore();
+        };
+    </script>
+</body>
+</html>

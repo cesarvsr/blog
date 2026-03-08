@@ -1,0 +1,15 @@
+<% if (typeof items !== 'undefined' && items.length > 0) { %>
+<nav class="flex items-center gap-2 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-6">
+    <% items.forEach((item, index) => { %>
+        <% if (item.url) { %>
+            <a href="<%= item.url %>" class="hover:text-black transition-colors"><%= item.label %></a>
+        <% } else { %>
+            <span class="text-black"><%= item.label %></span>
+        <% } %>
+        
+        <% if (index < items.length - 1) { %>
+            <span>/</span>
+        <% } %>
+    <% }) %>
+</nav>
+<% } %>

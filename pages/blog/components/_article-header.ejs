@@ -1,0 +1,25 @@
+<%- include("_breadcrumb", { items: [
+    { label: 'Início', url: '/blog' },
+    { label: categoryTitle, url: '/blog/' + categorySlug },
+    { label: postName, url: '' }
+] }) %>
+
+<h1 class="text-6xl font-black text-gray-900 leading-[1.05] tracking-tighter mb-8"><%= postName %></h1>
+
+<div class="flex items-center gap-6 mb-16">
+    <div class="flex flex-col gap-1">
+        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest">AUTORIA</p>
+        <p class="text-sm font-bold text-gray-900 border-b-2 border-primary">Conselho MedFocus</p>
+    </div>
+    <div class="h-8 w-px bg-border"></div>
+    <div class="flex flex-col gap-1 text-gray-400">
+        <p class="text-[10px] font-black uppercase tracking-widest">ÚLTIMA ATUALIZAÇÃO</p>
+        <p class="text-sm font-bold text-gray-900"><%= postDate %></p>
+    </div>
+</div>
+
+<% if (typeof coverImage !== 'undefined' && coverImage) { %>
+<div class="mb-16 rounded-[2.5rem] overflow-hidden border border-border shadow-lg h-96">
+    <img class="w-full h-full object-cover" src="<%= coverImage.startsWith('http') || coverImage.startsWith('/blog/') ? coverImage : '/blog/assets/' + coverImage %>" alt="<%= postName %>">
+</div>
+<% } %>

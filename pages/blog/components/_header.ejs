@@ -1,0 +1,19 @@
+<header class="h-12 border-b border-border flex items-center justify-between px-3 shrink-0 bg-white z-20">
+    <div class="flex items-center gap-3">
+        <button id="mobile-menu-btn" class="p-1.5 hover:bg-gray-100 rounded-lg lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <a href="/blog" class="flex items-center gap-2">
+            <div class="flex items-center gap-1.5 bg-black text-white font-bold px-1.5 py-0.5 rounded text-xs tracking-tight border border-white/20 shadow-sm">
+                <img src="/blog/assets/logo.svg" alt="MedFocus" class="w-3.5 h-3.5 invert">
+                <span>MEDFOCUS</span>
+            </div>
+        </a>
+    </div>
+    
+    <div class="flex-1 flex justify-end ml-2 sm:ml-4 items-center">
+        <%- include('_search') %>
+    </div>
+</header>

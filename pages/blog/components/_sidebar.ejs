@@ -1,0 +1,40 @@
+<!-- Sidebar Overlay for mobile -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
+
+<aside id="sidebar" class="fixed inset-y-0 left-0 w-72 border-r border-border overflow-y-auto flex flex-col bg-[#FBFBFB] shrink-0 z-40 transform -translate-x-full transition-transform duration-300 lg:static lg:translate-x-0">
+    <div class="pt-6 pb-4 px-6 mb-4">
+        <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-6">ÁREAS</h3>
+        <nav class="space-y-1.5">
+            <% 
+                const links = [
+                    { href: '/blog/clinica-medica', label: 'Clínica Médica', icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10' },
+                    { href: '/blog/cirurgia', label: 'Cirurgia', icon: 'M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758L5 19m0-14l4.121 4.121' },
+                    { href: '/blog/pediatria', label: 'Pediatria', icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' },
+                    { href: '/blog/ginecologia', label: 'Ginecologia', icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z' }
+                ];
+            %>
+            <% links.forEach(link => { %>
+                <% const isActive = typeof currentPath !== 'undefined' && currentPath === link.href; %>
+                <a href="<%= link.href %>" class="flex items-center gap-4 px-4 py-3.5 text-sm font-bold <%= isActive ? 'text-primary bg-blue-50 border-l-4 border-primary shadow-sm' : 'text-gray-500 hover:bg-white hover:text-primary hover:shadow-sm' %> rounded-2xl transition-all group border border-transparent hover:border-border">
+                    <div class="w-10 h-10 rounded-xl <%= isActive ? 'bg-white text-primary' : 'bg-gray-50 text-gray-400 group-hover:text-primary' %> flex items-center justify-center transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="<%= link.icon %>"/></svg>
+                    </div>
+                    <%= link.label %>
+                </a>
+            <% }) %>
+        </nav>
+    </div>
+
+    <div class="mt-auto p-6">
+        <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-6">FERRAMENTAS</h3>
+        <nav class="space-y-1.5">
+            <% const isCalcActive = typeof currentPath !== 'undefined' && currentPath === '/blog/calculadora'; %>
+            <a href="/blog/calculadora" class="flex items-center gap-4 px-4 py-3 text-sm font-bold <%= isCalcActive ? 'text-primary bg-blue-50 border-l-4 border-primary shadow-sm' : 'text-gray-500 hover:bg-white hover:text-primary hover:shadow-sm' %> rounded-2xl transition-all group border border-transparent hover:border-border">
+                <div class="w-10 h-10 rounded-xl <%= isCalcActive ? 'bg-white text-primary' : 'bg-gray-50 text-gray-400 group-hover:text-primary' %> flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                </div>
+                Calculadoras
+            </a>
+        </nav>
+    </div>
+</aside>
