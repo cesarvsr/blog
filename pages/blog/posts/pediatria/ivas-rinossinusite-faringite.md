@@ -39,9 +39,18 @@ O diagnóstico é clínico quando houver **pelo menos um** dos seguintes:
 | **Celulite Orbitária** | Edema + **Proptose** + **Oftalmoplegia**. | **Internação Imediata** + ATB venoso + Drenagem. |
 
 ### Tratamento Medicamentoso
-*   **1ª Linha:** Amoxicilina (45-50 mg/kg/dia).
-*   **Dose Alta (80-90 mg/kg/dia) ou Amoxicilina+Clavulanato:** Indicado para < 2 anos, creches, uso recente de ATB ou falta de resposta em 72h.
-*   **Adjuvantes:** Lavagem nasal com solução fisiológica (essencial). **Evitar anti-histamínicos** (exceto em rinite alérgica confirmada).
+
+| Cenário | Antibiótico de Escolha | Dose / Observação |
+| :--- | :--- | :--- |
+| **1ª Linha** | Amoxicilina | 45-50 mg/kg/dia. |
+| **Dose Alta / Resistência** | Amoxicilina + Clavulanato | 80-90 mg/kg/dia. Indicado se: < 2 anos, creche, ATB nos últimos 3 meses ou sem resposta em 72h. |
+| **Sinusite Frontal** | Ceftriaxona | **EV** nos primeiros dias (risco de disseminação intracraniana). Transição para VO após melhora. |
+| **Subaguda / Crônica** | Amoxicilina + Clavulanato | Tempo de tratamento prolongado (**≥ 4 semanas**). |
+| **Alternativas** | Cefuroxima, Cefpodoxima | Levofloxacino para alérgicos graves a penicilinas. |
+
+*   **Tempo de Tratamento:** Manter por **7 dias após a melhora clínica**.
+*   **Adjuvantes (Lavagem Nasal):** Fundamental com solução fisiológica para remoção de muco e restauração da função ciliar.
+*   **Anti-histamínicos:** **Não usar**, pois causam espessamento da secreção. *Exceção: Pacientes com Rinite Alérgica.*
 
 ---
 
