@@ -3,7 +3,7 @@ title: "Espondilite Anquilosante: Guia Acadêmico Completo"
 date: "14/03/2026"
 author: "Equipe MedFocus"
 description: "Estudo detalhado sobre Espondilite Anquilosante e Espondiloartropatias Soronegativas, abrangendo desde a fisiopatologia entesítica até o manejo biológico."
-coverImage: "/blog/assets/Espondilite Anquilosante - CAPA.webp"
+coverImage: "/blog/assets/EspondiliteAnquilosante-CAPA.webp"
 ---
 
 O conteúdo a seguir foi estruturado de forma canônica, seguindo rigorosamente a hierarquia e os temas apresentados na literatura técnica de referência do setor.
