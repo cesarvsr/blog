@@ -108,4 +108,56 @@ O sucesso do tratamento depende da técnica correta. Para crianças, o uso de **
 *   **Técnica:** Agitar o inalador, acoplar ao espaçador, disparar 1 jato (puff) por vez e realizar 5 a 10 respirações profundas.
 
 ---
+
+## 5. Asma Exacerbada (Crise Aguda)
+
+A exacerbação é definida como uma piora aguda ou subaguda dos sintomas, suficiente para causar desconforto ou risco à saúde do paciente.
+
+### Diagnóstico e Sinais Precoces:
+*   Início de sintomas de infecção respiratória;
+*   Aumento agudo de sibilância e falta de ar;
+*   Tosse aumentada (especialmente durante o sono);
+*   Letargia ou redução da tolerância ao exercício;
+*   Prejuízo nas atividades diárias (incluindo alimentação);
+*   Má resposta ao medicamento de alívio.
+
+> 🚨 **Preditores de Crise Iminente (Próximas 24h):** O conjunto de **Tosse diurna aumentada + Sibilância diurna + Uso de beta-agonista noturno** tem alto valor preditivo (70%).
+
+### Fatores Desencadeantes:
+*   Infecções respiratórias virais;
+*   Alérgenos e poluição ambiental;
+*   Alterações climáticas e retorno às aulas;
+*   Má adesão ao Corticoide Inalatório (ICS).
+
+---
+
+## 6. Avaliação de Gravidade e Manejo
+
+### A. Crianças Menores de 6 Anos
+
+| Classificação | Critérios (Pelo menos um) | Conduta Inicial |
+| :--- | :--- | :--- |
+| **Leve a Moderada** | Alerta; Capaz de falar/beber; SpO₂ ≥ 92% | **Salbutamol (100mcg):** 2-6 jatos a cada 20 min na 1ª hora. |
+| **Grave / Risco de Vida** | Cianose central; Confuso/Sonolento; Incapaz de falar/beber; **FR > 40**; **FC > 180** (0-3a) ou **> 150** (4-5a); SpO₂ < 92%; Tórax Silencioso. | Salbutamol + Ipatrópio + Oxigênio + Corticoide Sistêmico. **Hospitalizar.** |
+
+*   **Salbutamol na Manutenção:** Após 1ª hora, se persistirem os sintomas: 2-3 jatos/hora.
+*   **Brometo de Ipatrópio:** 1-2 jatos a cada 20 min por apenas 1 hora (em crises moderadas/graves).
+*   **Metas:** Saturação alvo ≥ 94%.
+
+#### Indicações de Hospitalização (< 6 anos):
+1.  **Sinais de Gravidade:** Incapaz de beber/falar, cianose, FR > 40, SpO₂ < 92%, tórax silencioso.
+2.  **Falta de Resposta:** Após 12 inalações de Salbutamol (4 jatos a cada 20 min, 3x em 1h).
+3.  **Taquipneia Persistente:** FR > 50 (2-12 meses) ou > 40 (1-5 anos) mesmo com melhora clínica.
+4.  **Ambiente Social:** Dificuldade de administração ou acompanhamento em casa.
+
+---
+
+### B. Crianças e Adolescentes Maiores de 6 Anos
+
+| Classificação | Critérios (Pelo menos um) | Conduta Inicial |
+| :--- | :--- | :--- |
+| **Leve a Moderada** | Frases completas; Prefere sentar; **FC 100-120**; **FR 20-30**; SpO₂ 90-95%; PFE > 50%. | **Salbutamol:** 4-10 jatos a cada 20 min na 1ª hora. *(Alt: ICS-Formoterol)*. |
+| **Grave / Risco de Vida** | Palavras/Incapaz de falar; Agitado; Musculatura acessória; **FC > 120**; **FR > 30**; SpO₂ < 90%; PFE ≤ 50%; Tórax Silencioso. | Salbutamol + Corticoide Sistêmico + O₂. **Referência imediata.** |
+
+---
 *Publicado por MedFocus Editorial. Revisão teórica baseada nas diretrizes GINA (Global Initiative for Asthma) 2024.*
