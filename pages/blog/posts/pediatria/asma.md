@@ -41,9 +41,8 @@ A **Espirometria** é o exame de escolha para demonstrar a limitação variável
 | Parâmetro | Critério para Asma |
 | :--- | :--- |
 | **Relação VEF1/CVF** | < 0,90 (valor previsto) |
-| **Prova Broncodilatadora** | Aumento do VEF1 ≥ 12% |
-| **PFE (Pico de Fluxo)** | Variabilidade diurna > 13% |
-| **Broncoprovocação** | Queda do VEF1 > 12% (ou PFE > 15%) |
+| **Prova Broncodilatadora (VEF1)** | • **Imediato:** Aumento ≥ 12%<br>• **Após 4 semanas / Entre consultas:** Aumento ≥ 12%<br>• **Broncoprovocação (Exercício):** Queda > 12% |
+| **Pico de Fluxo (PFE)** | • **Após 4 semanas / Entre consultas:** Aumento ≥ 15%<br>• **Broncoprovocação:** Queda > 15%<br>• **Variabilidade Diurna:** > 13% (2 medidas/dia por 1-2 semanas) |
 
 *   **Pico de Fluxo Espiratório (PFE):** Deve-se medir 3 vezes e considerar a **maior medida**. A variabilidade é calculada pela fórmula: $\frac{(Máx - Mín)}{\text{Média}} \times 100$.
 
