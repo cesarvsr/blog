@@ -3,7 +3,7 @@ import { readFile, stat, mkdir, writeFile } from "node:fs/promises";
 import markdownit from "markdown-it";
 import matter from "gray-matter";
 import { renderFile } from "ejs";
-import { buildNavTree, categoryMap, getTitle } from "./sharedUtils.js";
+import { buildNavTree, categoryMap, getTitle, parseDate, normalizeSlug } from "./sharedUtils.js";
 
 const md = markdownit({ html: true });
 
@@ -37,8 +37,6 @@ async function renderTemplateLocal(inputPath, outputPath, data = {}) {
 }
 
 async function getFlexiblePageData(globPath) {
-    // Note: fg is not imported here anymore, we'll use a dynamic import or re-import if needed
-    // Actually, I'll re-import fg keep it simple
     const { default: fg } = await import("fast-glob");
     const posts = await fg(globPath, { onlyFiles: true });
     return Promise.all(posts.map(async (post) => {
@@ -46,7 +44,7 @@ async function getFlexiblePageData(globPath) {
         const stats = await stat(post, { bigint: false });
         const { data, content } = matter(fileContents);
         const htmlContent = md.render(content);
-        const fileName = path.basename(post, ".md");
+        const slug = normalizeSlug(path.basename(post, ".md"));
         
         // Derive breadcrumbs from directory structure
         const relativePath = path.relative("pages/blog/posts", post);
@@ -68,19 +66,21 @@ async function getFlexiblePageData(globPath) {
         const categorySlug = parts.length > 0 ? parts[parts.length - 1] : "blog";
         const categoryTitle = getTitle(categorySlug);
 
+        const dateObj = parseDate(data.date);
+
         return {
             ...data,
             post: htmlContent,
-            postUrl: fileName.toLowerCase().replace(/\s+/g, "-"),
-            postName: data.title ?? fileName,
-            postDate: (data.date instanceof Date) ? data.date.toLocaleDateString("pt-BR") : (data.date ?? new Date(stats.birthtime).toLocaleDateString("pt-BR")),
+            postUrl: slug,
+            postName: data.title ?? slug,
+            postDate: dateObj.getTime() > 0 ? dateObj.toLocaleDateString("pt-BR") : new Date(stats.birthtime).toLocaleDateString("pt-BR"),
             postAuthor: data.author ?? "Anonymous",
             postDescription: data.description ?? "",
             postTime: calculateReadingTime(content),
             coverImage: data.coverImage ?? null,
             categorySlug,
             categoryTitle,
-            breadcrumbs: [...breadcrumbs, { label: data.title ?? fileName, url: "" }]
+            breadcrumbs: [...breadcrumbs, { label: data.title ?? slug, url: "" }]
         };
     }));
 }

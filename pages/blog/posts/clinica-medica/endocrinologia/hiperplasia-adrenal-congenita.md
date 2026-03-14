@@ -3,7 +3,7 @@ title: "Hiperplasia Adrenal Congênita: Protocolo Clínico e Fisiopatologia"
 date: "14/03/2026"
 author: "Equipe MedFocus"
 description: "Estudo aprofundado sobre os defeitos da 21-hidroxilase e outras enzimas da adrenal, abordando diagnóstico neonatal, virilização e manejo hormonal."
-coverImage: "/blog/assets/hiperplasia-adrenal/steroidogenesis_pathway.png"
+coverImage: "/blog/assets/hiperplasia-adrenal/steroidogenesis_pathway.webp"
 ---
 
 A **Hiperplasia Adrenal Congênita (HAC)** é um grupo de doenças autossômicas recessivas caracterizadas pelo bloqueio na síntese de cortisol. O conteúdo a seguir foi estruturado de forma canônica, seguindo rigorosamente a hierarquia e os temas apresentados na literatura técnica de referência.
@@ -13,7 +13,7 @@ A **Hiperplasia Adrenal Congênita (HAC)** é um grupo de doenças autossômicas
 ## Fisiopatologia e Bloqueio Enzimático
 A HAC decorre de um defeito sintético em enzimas esteroidogênicas. O defeito na **21-Hidroxilase (CYP21A2)** é responsável por mais de 90% dos casos.
 
-![Caminhos da Síntese de Esteroides Adrenais](/blog/assets/hiperplasia-adrenal/steroidogenesis_pathway.png)
+![Caminhos da Síntese de Esteroides Adrenais](/blog/assets/hiperplasia-adrenal/steroidogenesis_pathway.webp)
 
 ### Efeitos do Bloqueio:
 *   **Deficiência de Cortisol:** Leva à perda do feedback negativo na hipófise.
@@ -31,7 +31,7 @@ A HAC é uma doença autossômica recessiva ligada ao complexo principal de hist
 2.  **Forma Clássica Virilizante Simples:** Atividade enzimática baixa (1-2%), mas suficiente para produzir aldosterona.
 3.  **Forma Não-Clássica:** Atividade residual de 5-20%. Manifestações tardias na infância ou adolescência.
 
-![Características da Deficiência de 21-Hidroxilase](/blog/assets/hiperplasia-adrenal/hac_characteristics_table.png)
+![Características da Deficiência de 21-Hidroxilase](/blog/assets/hiperplasia-adrenal/hac_characteristics_table.webp)
 
 ### Outras Deficiências:
 *   **11β-Hidroxilase:** Causa hipertensão pela acumulação de desoxicortiscosterona (DOC).
@@ -46,7 +46,7 @@ O espectro da doença varia conforme o grau de deficiência enzimática e o sexo
 ### HAC Clássica (Virilizante Simples)
 *   **Mulheres:** Pseudo-hermafroditismo feminino (46,XX), hipertrofia do clitóris e graus variados de fusão labial.
 
-![Diferentes graus de virilização da genitália externa](/blog/assets/hiperplasia-adrenal/virilization_degrees.png)
+![Diferentes graus de virilização da genitália externa](/blog/assets/hiperplasia-adrenal/virilization_degrees.webp)
 *   **Homens:** Puberdade precoce isossexual (pênis aumentado, pelos pubianos, acne), mas com testículos pré-púberes (pequenos).
 *   **Crescimento:** Idade óssea adiantada levando à baixa estatura final na idade adulta.
 
@@ -64,15 +64,15 @@ O espectro da doença varia conforme o grau de deficiência enzimática e o sexo
 ## Avaliação e Diagnóstico
 A avaliação física da genitália ambígua utiliza a **Escala de Prader** (graus 1 a 5).
 
-![Diagrama da Escala de Prader](/blog/assets/hiperplasia-adrenal/prader_scale_diagram.png)
-![Corte Transversal da Escala de Prader](/blog/assets/hiperplasia-adrenal/prader_scale_cross_section.png)
+![Diagrama da Escala de Prader](/blog/assets/hiperplasia-adrenal/prader_scale_diagram.webp)
+![Corte Transversal da Escala de Prader](/blog/assets/hiperplasia-adrenal/prader_scale_cross_section.webp)
 
 ### Triagem Neonatal (Teste do Pezinho)
 *   Baseado na dosagem de **17-hidroxiprogesterona (17-OHP)**.
 *   **Falsos Positivos:** Comuns em prematuros, baixo peso ao nascer ou recém-nascidos sob estresse agudo grave.
 
-![Valores de 17-OHP no Diagnóstico da HAC](/blog/assets/hiperplasia-adrenal/hac_forms_17ohp_table.png)
-![Triagem Neonatal: Valores de 17-OHP no Teste do Pezinho](/blog/assets/hiperplasia-adrenal/neonatal_screening_17ohp_table.png)
+![Valores de 17-OHP no Diagnóstico da HAC](/blog/assets/hiperplasia-adrenal/hac_forms_17ohp_table.webp)
+![Triagem Neonatal: Valores de 17-OHP no Teste do Pezinho](/blog/assets/hiperplasia-adrenal/neonatal_screening_17ohp_table.webp)
 
 ---
 
@@ -93,4 +93,4 @@ O tratamento visa repor os hormônios deficientes e suprimir o excesso de andró
 
 *Publicado por MedFocus Editorial. Documento de revisão acadêmica baseado em diretrizes vigentes.*
 
-![Quadro de Conceitos Chave](/blog/assets/hiperplasia-adrenal/key_concepts_box.png)
+![Quadro de Conceitos Chave](/blog/assets/hiperplasia-adrenal/key_concepts_box.webp)

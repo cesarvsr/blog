@@ -1,8 +1,8 @@
 import path from "node:path";
 import fs from "node:fs/promises";
-import { getPageData } from "./node_modules/@basic-ssg/core/dist/utils/getPageData.js";
+import { getPageData } from "./sharedUtils.js";
 import { renderTemplate } from "./node_modules/@basic-ssg/core/dist/utils/renderTemplate.js";
-import { buildNavTree, categoryMap, getTitle } from "./sharedUtils.js";
+import { buildNavTree, categoryMap, getTitle, parseDate, normalizeSlug } from "./sharedUtils.js";
 
 export const categoryPlugin = () => ({
     name: "category-filter-plugin",
@@ -50,14 +50,18 @@ export const categoryPlugin = () => ({
                                     { label: item.title, url: item.url }
                                 ];
 
-                                const mappedArticles = articles.map(a => ({
-                                    postName: a.title,
-                                    postUrl: a.slug,
-                                    postDate: (a.date instanceof Date) ? a.date.toLocaleDateString("pt-BR") : (a.date ? new Date(a.date).toLocaleDateString("pt-BR") : ""),
-                                    postDescription: a.description,
-                                    coverImage: a.coverImage,
-                                    tags: a.tags
-                                })).sort((a, b) => new Date(b.postDate) - new Date(a.postDate));
+                                const mappedArticles = articles.map(a => {
+                                    const dateObj = parseDate(a.date);
+                                    return {
+                                        postName: a.title,
+                                        postUrl: a.slug,
+                                        postDate: dateObj.getTime() > 0 ? dateObj.toLocaleDateString("pt-BR") : "",
+                                        postDescription: a.description,
+                                        coverImage: a.coverImage,
+                                        tags: a.tags,
+                                        _date: dateObj
+                                    };
+                                }).sort((a, b) => b._date - a._date);
 
                                 renderPromises.push(renderTemplate(templatePath, outputPath, {
                                     articles: mappedArticles,
@@ -74,29 +78,23 @@ export const categoryPlugin = () => ({
                                 const parentDir = path.dirname(item.path);
                                 const categoryName = parentDir === '.' ? 'Blog' : getTitle(path.basename(parentDir));
                                 
+                                const dateObj = parseDate(item.date);
                                 allArticles.push({
                                     postName: item.title,
                                     postUrl: item.slug,
-                                    postDate: (item.date instanceof Date) ? item.date.toLocaleDateString("pt-BR") : (item.date ? new Date(item.date).toLocaleDateString("pt-BR") : ""),
+                                    postDate: dateObj.getTime() > 0 ? dateObj.toLocaleDateString("pt-BR") : "",
                                     postDescription: item.description,
                                     coverImage: item.coverImage,
                                     tags: item.tags,
                                     category: categoryName,
                                     slug: item.slug,
-                                    // Hidden raw date for sorting
-                                    _date: item.date ? new Date(item.date) : new Date(0)
+                                    _date: dateObj
                                 });
                             }
                         }
                     }
 
                     await generateFolderIndices(navTree);
-                    const debugInfo = {
-                        count: allArticles.length,
-                        sample: allArticles.length > 0 ? allArticles[0] : null,
-                        navTreeSample: navTree.length > 0 ? navTree[0] : null
-                    };
-                    await fs.writeFile(path.join(cfg.paths.dist, "blog", "debug-plugin.json"), JSON.stringify(debugInfo, null, 2));
 
                     // Sort all articles by date descending
                     allArticles.sort((a, b) => b._date - a._date);

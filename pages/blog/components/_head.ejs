@@ -11,4 +11,14 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/blog/assets/favicon/favicon-32x32.webp">
     <link rel="icon" type="image/png" sizes="16x16" href="/blog/assets/favicon/favicon-16x16.webp">
     <link rel="manifest" href="/blog/site.webmanifest">
+    
+    <style>
+        /* Sidebar details/summary cleanup */
+        summary::-webkit-details-marker { display: none; }
+        summary { list-style: none; outline: none; }
+        
+        /* Caret rotation based on details state */
+        details .caret-icon { transition: transform 0.2s ease; }
+        details[open] .caret-icon { transform: rotate(180deg); }
+    </style>
 </head>
