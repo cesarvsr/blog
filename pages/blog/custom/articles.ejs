@@ -10,10 +10,13 @@
             <div class="max-w-7xl mx-auto w-full mb-16">
                 
                 <!-- Breadcrumb -->
-                <%- include("../components/_breadcrumb", { items: [
-                    { label: 'Início', url: '/blog' },
-                    { label: typeof categoryTitle !== 'undefined' ? categoryTitle : 'Atualizações Recentes', url: '' }
-                ] }) %>
+                <% 
+                    const defaultBreadcrumbs = [
+                        { label: 'Início', url: '/blog' },
+                        { label: typeof categoryTitle !== 'undefined' ? categoryTitle : 'Atualizações Recentes', url: '' }
+                    ];
+                %>
+                <%- include("../components/_breadcrumb", { items: typeof breadcrumbs !== 'undefined' ? breadcrumbs : defaultBreadcrumbs }) %>
 
                 <!-- Section Header -->
                 <div class="mb-12">
@@ -29,7 +32,7 @@
 
                 <!-- Articles Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <% articles.slice(0, 6).forEach(post => { %>
+                    <% articles.forEach(post => { %>
                         <%- include("../components/_article-card", { 
                             url: post.postUrl, 
                             title: post.postName, 

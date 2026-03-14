@@ -1,43 +1,25 @@
-# 📚 Guia do Publicador - Como Atualizar o Blog
+# Guia do Publicador - Como Atualizar o Blog
 
-Bem-vindo ao repositório do seu Blog! Este guia foi feito para ser simples e direto. Você não precisa enteder de programação para publicar ou editar textos aqui. 
 
-Tudo o que você precisa é do programa **GitHub Desktop**, do seu editor de textos favorito, e de seguir um fluxo básico.
+
 
 ---
 
 ## 🔄 O Fluxo Básico de Publicação
 
-Sempre que você quiser mudar algo no site, adicionar um artigo novo ou atualizar um resumo, você vai repetir estes **4 passos fundamentais**:
+Sempre que você quiser mudar algo no site, adicionar um artigo novo ou atualizar um resumo, você vai repetir estes passos:
 
-1. **Alterar:** Edite ou crie os arquivos de texto no seu computador.
-2. **Salvar:** Salve as alterações no seu bloco de notas ou editor de código.
-3. **Commit (Registrar):** Abra o GitHub Desktop, escreva o que você fez, e clique em "Commit". Isso empacota as suas mudanças prontas para envio.
-4. **Push (Enviar):** Clique em "Push origin" no GitHub Desktop. Isso envia as mudanças para a internet e o site será atualizado automaticamente em alguns minutos.
-
-> ✨ **Apenas isso!** Altere os arquivos, salve, faça o Commit e dê o Push. O resto é automático.
-
----
-
-## 🛠️ Como usar o GitHub Desktop na Prática
-
-1. **Abra o GitHub Desktop:** Certifique-se de que o repositório do blog está selecionado no canto superior esquerdo (Current Repository).
-2. **Faça suas alterações:** Edite os arquivos normalmente nas pastas explicadas abaixo.
-3. **Revise as mudanças:** Volte ao GitHub Desktop. Na coluna da esquerda ("Changes"), você verá todos os arquivos que você modificou ou criou.
-4. **Faça o Commit:** 
-   - No canto inferior esquerdo, há uma caixinha com título (ex: *Summary*).
-   - Escreva algo simples sobre o que você fez, ex: `"Adicionando diretriz de hipertensão"` ou `"Corrigindo erro de digitação"`.
-   - Clique no botão azul **Commit to master** (ou main).
-5. **Faça o Push:**
-   - Na barra superior do programa, clique no botão **Push origin** (que geralmente tem uma setinha apontando para cima).
-   - Espere carregar. Pronto! O site de produção já está sendo reconstruído sozinho.
+1. Modifique os arquivos / posts.
+2. Va para o menu lateral, faça o commit dos arquivos
+3. Adicione uma mensagem. Faça o push
+4. Automaticamente uma acao sera gerada e publicara a pagina.
 
 ---
 
 ## 📝 Onde Editar e Criar Artigos de Texto (.md)
 
 Os textos normais do blog vivem dentro da pasta:
-👉 `pages/blog/posts`
+👉 `pages/blog/posts/*`
 
 1. **Escolha a Categoria:** Dentro desta pasta, você verá outras pastas (como `clinica-medica`, `pediatria`, etc.). Abra a que faz mais sentido.
 2. **Crie o Arquivo:** Crie um novo arquivo de texto e coloque a extensão `.md` no final. Exemplo: `diretriz-asma.md`.
@@ -96,7 +78,3 @@ Depois que a IA devolver o código HTML:
 4. Salve, Faça o Commit e dê o Push.
 
 ---
-🚀 **Parabéns!** Agora você tem controle total sobre as postagens, edição de textos e criação de aplicativos visuais dentro do seu próprio blog.
-
-
-alteracao
