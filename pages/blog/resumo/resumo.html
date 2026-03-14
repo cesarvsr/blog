@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,351 +26,393 @@
         body.is-iframed header {
             display: none !important;
         }
+
         body.is-iframed {
             background-color: transparent !important;
         }
+
         body.is-iframed main {
             padding-top: 0 !important;
         }
     </style>
 </head>
+
 <body class="bg-slate-50 text-slate-800">
 
-<script>
-    // Detect if inside an iframe to hide header and adjust margins
-    if (window.self !== window.top) {
-        document.body.classList.add('is-iframed');
-    }
-</script>
+    <script>
+        // Detect if inside an iframe to hide header and adjust margins
+        if (window.self !== window.top) {
+            document.body.classList.add('is-iframed');
+        }
+    </script>
 
-<div class="hidden" data-metadata="true" data-palette="Vibrant Blue and Orange" data-plan="1. Diagnostico 2. Estagiamento 3. Fenomenos 4. Fluxograma 5. Farmacos 6. Metas" data-nosvg="Confirmado: NENHUM SVG OU MERMAID JS FOI UTILIZADO NESTE ARQUIVO."></div>
+    <div class="hidden" data-metadata="true" data-palette="Vibrant Blue and Orange"
+        data-plan="1. Diagnostico 2. Estagiamento 3. Fenomenos 4. Fluxograma 5. Farmacos 6. Metas"
+        data-nosvg="Confirmado: NENHUM SVG OU MERMAID JS FOI UTILIZADO NESTE ARQUIVO."></div>
 
-<header class="bg-blue-900 text-white py-12 px-6 shadow-lg mb-10">
-    <div class="max-w-5xl mx-auto text-center">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">HAS 2025</h1>
-        <p class="text-xl md:text-2xl text-orange-400 font-semibold mb-6">Diretriz Brasileira de Hipertensão Arterial</p>
-        <div class="bg-white text-blue-900 rounded-xl p-6 shadow-2xl max-w-3xl mx-auto transform translate-y-12">
-            <p class="text-3xl mb-2">📌</p>
-            <p class="text-lg font-medium leading-relaxed">
-                Condição clínica multifatorial caracterizada por elevação sustentada dos níveis pressóricos <strong>≥ 140 mmHg (sistólica) e/ou ≥ 90 mmHg (diastólica)</strong>, frequentemente associada a distúrbios metabólicos e lesões de órgãos-alvo.
-            </p>
-        </div>
-    </div>
-</header>
-
-<main class="max-w-6xl mx-auto px-6 py-16 space-y-24">
-
-    <section>
-        <div class="mb-10 text-center max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold text-blue-900 mb-4">1. O Novo Padrão Diagnóstico</h2>
-            <p class="text-slate-600 text-lg">
-                O diagnóstico da hipertensão evoluiu. A aferição isolada no consultório perde força para métodos mais precisos como a MAPA (Monitorização Ambulatorial) e a MRPA (Monitorização Residencial). Observe como os limiares variam de acordo com o método escolhido.
-            </p>
-        </div>
-        
-        <div class="bg-white rounded-2xl shadow-xl p-6 md:p-10">
-            <h3 class="text-xl font-bold text-slate-700 mb-2 text-center">Limiares de Pressão Arterial (mmHg)</h3>
-            <p class="text-sm text-slate-500 text-center mb-8">Comparativo entre Pressão Sistólica e Diastólica por Método de Aferição</p>
-            <div class="chart-container">
-                <canvas id="diagnosticoChart" width="1438" height="800" style="display: block; box-sizing: border-box; height: 400px; width: 719px;"></canvas>
-            </div>
-            <div class="mt-8 p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
-                <p class="text-slate-700 font-medium">
-                    <span class="text-xl">💡</span> <strong>Análise:</strong> A MAPA de 24 horas e a MRPA possuem limiares mais rigorosos (≥ 130x80 mmHg) em comparação ao consultório (≥ 140x90 mmHg). A convergência de valores entre MAPA e MRPA é um destaque da diretriz de 2025.
+    <header class="bg-blue-900 text-white py-12 px-6 shadow-lg mb-10">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">HAS 2025</h1>
+            <p class="text-xl md:text-2xl text-orange-400 font-semibold mb-6">Diretriz Brasileira de Hipertensão
+                Arterial</p>
+            <div class="bg-white text-blue-900 rounded-xl p-6 shadow-2xl max-w-3xl mx-auto transform translate-y-12">
+                <p class="text-3xl mb-2">📌</p>
+                <p class="text-lg font-medium leading-relaxed">
+                    Condição clínica multifatorial caracterizada por elevação sustentada dos níveis pressóricos
+                    <strong>≥ 140 mmHg (sistólica) e/ou ≥ 90 mmHg (diastólica)</strong>, frequentemente associada a
+                    distúrbios metabólicos e lesões de órgãos-alvo.
                 </p>
             </div>
         </div>
-    </section>
+    </header>
 
-    <section>
-        <div class="mb-10 text-center max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold text-blue-900 mb-4">2. Estadiamento da Pressão Arterial</h2>
-            <p class="text-slate-600 text-lg">
-                Classificar corretamente a pressão arterial no consultório é o primeiro passo para definir o risco cardiovascular e a urgência da intervenção. A progressão de "Normal" para "Estágio 3" exige condutas radicalmente diferentes.
-            </p>
-        </div>
+    <main class="max-w-6xl mx-auto px-6 py-16 space-y-24">
 
-        <div class="bg-white rounded-2xl shadow-xl p-6 md:p-10">
-            <div class="chart-container">
-                <canvas id="estadiamentoChart" width="1438" height="800" style="display: block; box-sizing: border-box; height: 400px; width: 719px;"></canvas>
-            </div>
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
-                    <p class="text-sm text-slate-600"><strong>Pré-Hipertensão:</strong> Sistólica 121-139 ou Diastólica 81-89. Requer Monitoramento e Mudança de Estilo de Vida (MEV).</p>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
-                    <p class="text-sm text-slate-600"><strong>Estágio 3:</strong> Sistólica ≥ 180 ou Diastólica ≥ 110. Alto risco, intervenção farmacológica imediata obrigatória.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="mb-10 text-center max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold text-blue-900 mb-4">3. Os Perigos Ocultos do Consultório</h2>
-            <p class="text-slate-600 text-lg">
-                Nem sempre o que se mede na frente do médico é a realidade diária do paciente. A discordância entre as medidas de consultório e domiciliares gera dois fenômenos clínicos críticos.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-white rounded-2xl shadow-lg p-8 border-t-8 border-blue-400 transform transition hover:-translate-y-2">
-                <div class="text-5xl mb-4 text-center">🥼</div>
-                <h3 class="text-2xl font-bold text-blue-900 mb-2 text-center">Avental Branco</h3>
-                <p class="text-slate-600 text-center mb-6">Pressão Alta no Consultório <br><span class="font-bold text-blue-600">Normal Fora</span></p>
-                <div class="bg-blue-50 p-4 rounded text-sm text-slate-700">
-                    Geralmente apresenta um <strong>risco cardiovascular intermediário</strong>. É crucial não supertratar esse paciente, baseando-se apenas na medida pontual isolada de consultório.
-                </div>
+        <section>
+            <div class="mb-10 text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">1. O Novo Padrão Diagnóstico</h2>
+                <p class="text-slate-600 text-lg">
+                    O diagnóstico da hipertensão evoluiu. A aferição isolada no consultório perde força para métodos
+                    mais precisos como a MAPA (Monitorização Ambulatorial) e a MRPA (Monitorização Residencial). Observe
+                    como os limiares variam de acordo com o método escolhido.
+                </p>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-lg p-8 border-t-8 border-orange-500 transform transition hover:-translate-y-2">
-                <div class="text-5xl mb-4 text-center">🎭</div>
-                <h3 class="text-2xl font-bold text-orange-600 mb-2 text-center">HAS Mascarada</h3>
-                <p class="text-slate-600 text-center mb-6">Pressão Normal no Consultório <br><span class="font-bold text-orange-600">Alta Fora</span></p>
-                <div class="bg-orange-50 p-4 rounded text-sm text-slate-700">
-                    <span class="font-bold text-red-600">ALTO RISCO!</span> O risco cardiovascular é tão elevado quanto o da hipertensão sustentada. Diagnóstico exige alto nível de suspeição clínica e exames como a MAPA.
+            <div class="bg-white rounded-2xl shadow-xl p-6 md:p-10">
+                <h3 class="text-xl font-bold text-slate-700 mb-2 text-center">Limiares de Pressão Arterial (mmHg)</h3>
+                <p class="text-sm text-slate-500 text-center mb-8">Comparativo entre Pressão Sistólica e Diastólica por
+                    Método de Aferição</p>
+                <div class="chart-container">
+                    <canvas id="diagnosticoChart" width="1438" height="800"
+                        style="display: block; box-sizing: border-box; height: 400px; width: 719px;"></canvas>
+                </div>
+                <div class="mt-8 p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                    <p class="text-slate-700 font-medium">
+                        <span class="text-xl">💡</span> <strong>Análise:</strong> A MAPA de 24 horas e a MRPA possuem
+                        limiares mais rigorosos (≥ 130x80 mmHg) em comparação ao consultório (≥ 140x90 mmHg). A
+                        convergência de valores entre MAPA e MRPA é um destaque da diretriz de 2025.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <div class="mb-10 text-center max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold text-blue-900 mb-4">4. Algoritmo de Conduta Terapêutica</h2>
-            <p class="text-slate-600 text-lg">
-                A decisão de quando e como iniciar medicamentos baseia-se diretamente no cruzamento do Estágio da Pressão Arterial com o Risco Cardiovascular Global do paciente.
-            </p>
-        </div>
+        <section>
+            <div class="mb-10 text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">2. Estadiamento da Pressão Arterial</h2>
+                <p class="text-slate-600 text-lg">
+                    Classificar corretamente a pressão arterial no consultório é o primeiro passo para definir o risco
+                    cardiovascular e a urgência da intervenção. A progressão de "Normal" para "Estágio 3" exige condutas
+                    radicalmente diferentes.
+                </p>
+            </div>
 
-        <div class="bg-white rounded-2xl shadow-xl p-8 overflow-x-auto">
-            <div class="flex flex-col items-center min-w-[700px]">
-                
-                <div class="bg-blue-900 text-white px-8 py-4 rounded-xl font-bold shadow-md text-xl">Diagnóstico de Hipertensão Arterial</div>
-                
-                <div class="h-10 w-1 bg-blue-900 my-2"></div>
-                
-                <div class="bg-orange-500 text-white px-8 py-3 rounded-xl font-bold shadow-md">Avaliar Estágio e Risco Cardiovascular</div>
-                
-                <div class="h-10 w-1 bg-orange-500 my-2"></div>
-                <div class="w-full max-w-3xl h-1 bg-orange-500 relative">
-                    <div class="absolute left-0 top-0 w-1 h-6 bg-orange-500"></div>
-                    <div class="absolute left-1/2 top-0 w-1 h-6 bg-orange-500 transform -translate-x-1/2"></div>
-                    <div class="absolute right-0 top-0 w-1 h-6 bg-orange-500"></div>
+            <div class="bg-white rounded-2xl shadow-xl p-6 md:p-10">
+                <div class="chart-container">
+                    <canvas id="estadiamentoChart" width="1438" height="800"
+                        style="display: block; box-sizing: border-box; height: 400px; width: 719px;"></canvas>
                 </div>
-
-                <div class="flex w-full max-w-4xl justify-between mt-6 px-4">
-                    <div class="w-1/3 flex flex-col items-center px-2 text-center">
-                        <div class="bg-slate-100 border-2 border-slate-300 p-4 rounded-lg shadow-sm w-full h-full flex flex-col justify-center">
-                            <h4 class="font-bold text-slate-700 mb-2">Pré-HAS ou Baixo Risco</h4>
-                            <p class="text-sm text-slate-600">MEV por 3 a 6 meses</p>
-                        </div>
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                        <p class="text-sm text-slate-600"><strong>Pré-Hipertensão:</strong> Sistólica 121-139 ou
+                            Diastólica 81-89. Requer Monitoramento e Mudança de Estilo de Vida (MEV).</p>
                     </div>
-
-                    <div class="w-1/3 flex flex-col items-center px-2 text-center">
-                        <div class="bg-blue-50 border-2 border-blue-300 p-4 rounded-lg shadow-sm w-full h-full flex flex-col justify-center">
-                            <h4 class="font-bold text-blue-800 mb-2">Estágio 1 (Risco Baixo/Mod)</h4>
-                            <p class="text-sm text-blue-600">Monoterapia ou Dupla</p>
-                        </div>
+                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                        <p class="text-sm text-slate-600"><strong>Estágio 3:</strong> Sistólica ≥ 180 ou Diastólica ≥
+                            110. Alto risco, intervenção farmacológica imediata obrigatória.</p>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="w-1/3 flex flex-col items-center px-2 text-center">
-                        <div class="bg-orange-50 border-2 border-orange-300 p-4 rounded-lg shadow-sm w-full h-full flex flex-col justify-center">
-                            <h4 class="font-bold text-orange-800 mb-2">Estágio 1 (Alto Risco) ou Est. 2/3</h4>
-                            <p class="text-sm text-orange-600 font-bold">Iniciar Dupla Combinação Imediata</p>
-                        </div>
+        <section>
+            <div class="mb-10 text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">3. Os Perigos Ocultos do Consultório</h2>
+                <p class="text-slate-600 text-lg">
+                    Nem sempre o que se mede na frente do médico é a realidade diária do paciente. A discordância entre
+                    as medidas de consultório e domiciliares gera dois fenômenos clínicos críticos.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div
+                    class="bg-white rounded-2xl shadow-lg p-8 border-t-8 border-blue-400 transform transition hover:-translate-y-2">
+                    <div class="text-5xl mb-4 text-center">🥼</div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-2 text-center">Avental Branco</h3>
+                    <p class="text-slate-600 text-center mb-6">Pressão Alta no Consultório <br><span
+                            class="font-bold text-blue-600">Normal Fora</span></p>
+                    <div class="bg-blue-50 p-4 rounded text-sm text-slate-700">
+                        Geralmente apresenta um <strong>risco cardiovascular intermediário</strong>. É crucial não
+                        supertratar esse paciente, baseando-se apenas na medida pontual isolada de consultório.
                     </div>
                 </div>
 
-                <div class="w-full flex justify-center mt-6">
-                    <div class="text-3xl text-slate-400">⬇</div>
-                </div>
-
-                <div class="bg-slate-800 text-white px-8 py-3 rounded-xl font-bold shadow-md text-center mt-2 max-w-lg">
-                    Combinações Preferenciais: A + C ou A + D <br>
-                    <span class="text-sm font-normal text-slate-300">(Proibido associar IECA + BRA)</span>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="mb-10 text-center max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold text-blue-900 mb-4">5. O Esquadrão Terapêutico (Mnemônico ABCD)</h2>
-            <p class="text-slate-600 text-lg">
-                As principais classes de medicamentos anti-hipertensivos de primeira linha, fundamentais para a elaboração do plano terapêutico inicial.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white rounded-xl shadow p-6 border-b-4 border-blue-900">
-                <div class="text-4xl text-blue-900 font-black mb-2">A</div>
-                <h3 class="font-bold text-slate-800 mb-2">Antagonistas</h3>
-                <p class="text-sm text-slate-600">Receptores de Angiotensina (BRA) ou IECA. Base do tratamento para proteger órgãos-alvo.</p>
-            </div>
-            <div class="bg-white rounded-xl shadow p-6 border-b-4 border-slate-400">
-                <div class="text-4xl text-slate-400 font-black mb-2">B</div>
-                <h3 class="font-bold text-slate-800 mb-2">Betabloqueadores</h3>
-                <p class="text-sm text-slate-600">Não são mais 1ª linha isolada. Reservados para Insuficiência Cardíaca, pós-IAM e Arritmias.</p>
-            </div>
-            <div class="bg-white rounded-xl shadow p-6 border-b-4 border-orange-500">
-                <div class="text-4xl text-orange-500 font-black mb-2">C</div>
-                <h3 class="font-bold text-slate-800 mb-2">Calcioantagonistas</h3>
-                <p class="text-sm text-slate-600">Bloqueadores de Canais de Cálcio (BCC). Excelentes vasodilatadores e proteção contra AVE.</p>
-            </div>
-            <div class="bg-white rounded-xl shadow p-6 border-b-4 border-blue-500">
-                <div class="text-4xl text-blue-500 font-black mb-2">D</div>
-                <h3 class="font-bold text-slate-800 mb-2">Diuréticos</h3>
-                <p class="text-sm text-slate-600">Tiazídicos. Fundamentais para controle volêmico e sinergia em terapia combinada.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="pb-20">
-        <div class="bg-blue-900 rounded-3xl shadow-2xl p-10 text-center text-white">
-            <h2 class="text-3xl font-bold mb-4">6. O Grande Alvo: Metas Terapêuticas 2025</h2>
-            <p class="text-blue-200 text-lg max-w-2xl mx-auto mb-10">
-                O sucesso do tratamento não é apenas baixar a pressão, mas atingir alvos rigorosos para prevenção de desfechos cardiovasculares fatais.
-            </p>
-
-            <div class="flex flex-col md:flex-row justify-center gap-8">
-                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-white/20">
-                    <p class="text-sm text-blue-300 font-bold tracking-widest uppercase mb-2">Meta Geral, DM e DAC</p>
-                    <div class="text-6xl font-black text-orange-400">&lt; 130/80</div>
-                    <p class="text-sm mt-2 font-medium">mmHg</p>
-                </div>
-                
-                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-white/20">
-                    <p class="text-sm text-blue-300 font-bold tracking-widest uppercase mb-2">Idosos Frágeis</p>
-                    <div class="text-6xl font-black text-blue-300">&lt; 140/90</div>
-                    <p class="text-sm mt-2 font-medium">mmHg</p>
+                <div
+                    class="bg-white rounded-2xl shadow-lg p-8 border-t-8 border-orange-500 transform transition hover:-translate-y-2">
+                    <div class="text-5xl mb-4 text-center">🎭</div>
+                    <h3 class="text-2xl font-bold text-orange-600 mb-2 text-center">HAS Mascarada</h3>
+                    <p class="text-slate-600 text-center mb-6">Pressão Normal no Consultório <br><span
+                            class="font-bold text-orange-600">Alta Fora</span></p>
+                    <div class="bg-orange-50 p-4 rounded text-sm text-slate-700">
+                        <span class="font-bold text-red-600">ALTO RISCO!</span> O risco cardiovascular é tão elevado
+                        quanto o da hipertensão sustentada. Diagnóstico exige alto nível de suspeição clínica e exames
+                        como a MAPA.
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-</main>
+        <section>
+            <div class="mb-10 text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">4. Algoritmo de Conduta Terapêutica</h2>
+                <p class="text-slate-600 text-lg">
+                    A decisão de quando e como iniciar medicamentos baseia-se diretamente no cruzamento do Estágio da
+                    Pressão Arterial com o Risco Cardiovascular Global do paciente.
+                </p>
+            </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    function wrapLabel(label) {
-        if (label.length <= 16) return label;
-        const words = label.split(' ');
-        const lines = [];
-        let currentLine = '';
-        words.forEach(word => {
-            if ((currentLine + word).length > 16) {
-                if (currentLine) lines.push(currentLine.trim());
-                currentLine = word + ' ';
-            } else {
-                currentLine += word + ' ';
+            <div class="bg-white rounded-2xl shadow-xl p-8 overflow-x-auto">
+                <div class="flex flex-col items-center min-w-[700px]">
+
+                    <div class="bg-blue-900 text-white px-8 py-4 rounded-xl font-bold shadow-md text-xl">Diagnóstico de
+                        Hipertensão Arterial</div>
+
+                    <div class="h-10 w-1 bg-blue-900 my-2"></div>
+
+                    <div class="bg-orange-500 text-white px-8 py-3 rounded-xl font-bold shadow-md">Avaliar Estágio e
+                        Risco Cardiovascular</div>
+
+                    <div class="h-10 w-1 bg-orange-500 my-2"></div>
+                    <div class="w-full max-w-3xl h-1 bg-orange-500 relative">
+                        <div class="absolute left-0 top-0 w-1 h-6 bg-orange-500"></div>
+                        <div class="absolute left-1/2 top-0 w-1 h-6 bg-orange-500 transform -translate-x-1/2"></div>
+                        <div class="absolute right-0 top-0 w-1 h-6 bg-orange-500"></div>
+                    </div>
+
+                    <div class="flex w-full max-w-4xl justify-between mt-6 px-4">
+                        <div class="w-1/3 flex flex-col items-center px-2 text-center">
+                            <div
+                                class="bg-slate-100 border-2 border-slate-300 p-4 rounded-lg shadow-sm w-full h-full flex flex-col justify-center">
+                                <h4 class="font-bold text-slate-700 mb-2">Pré-HAS ou Baixo Risco</h4>
+                                <p class="text-sm text-slate-600">MEV por 3 a 6 meses</p>
+                            </div>
+                        </div>
+
+                        <div class="w-1/3 flex flex-col items-center px-2 text-center">
+                            <div
+                                class="bg-blue-50 border-2 border-blue-300 p-4 rounded-lg shadow-sm w-full h-full flex flex-col justify-center">
+                                <h4 class="font-bold text-blue-800 mb-2">Estágio 1 (Risco Baixo/Mod)</h4>
+                                <p class="text-sm text-blue-600">Monoterapia ou Dupla</p>
+                            </div>
+                        </div>
+
+                        <div class="w-1/3 flex flex-col items-center px-2 text-center">
+                            <div
+                                class="bg-orange-50 border-2 border-orange-300 p-4 rounded-lg shadow-sm w-full h-full flex flex-col justify-center">
+                                <h4 class="font-bold text-orange-800 mb-2">Estágio 1 (Alto Risco) ou Est. 2/3</h4>
+                                <p class="text-sm text-orange-600 font-bold">Iniciar Dupla Combinação Imediata</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex justify-center mt-6">
+                        <div class="text-3xl text-slate-400">⬇</div>
+                    </div>
+
+                    <div
+                        class="bg-slate-800 text-white px-8 py-3 rounded-xl font-bold shadow-md text-center mt-2 max-w-lg">
+                        Combinações Preferenciais: A + C ou A + D <br>
+                        <span class="text-sm font-normal text-slate-300">(Proibido associar IECA + BRA)</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="mb-10 text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">5. O Esquadrão Terapêutico (Mnemônico ABCD)</h2>
+                <p class="text-slate-600 text-lg">
+                    As principais classes de medicamentos anti-hipertensivos de primeira linha, fundamentais para a
+                    elaboração do plano terapêutico inicial.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl shadow p-6 border-b-4 border-blue-900">
+                    <div class="text-4xl text-blue-900 font-black mb-2">A</div>
+                    <h3 class="font-bold text-slate-800 mb-2">Antagonistas</h3>
+                    <p class="text-sm text-slate-600">Receptores de Angiotensina (BRA) ou IECA. Base do tratamento para
+                        proteger órgãos-alvo.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow p-6 border-b-4 border-slate-400">
+                    <div class="text-4xl text-slate-400 font-black mb-2">B</div>
+                    <h3 class="font-bold text-slate-800 mb-2">Betabloqueadores</h3>
+                    <p class="text-sm text-slate-600">Não são mais 1ª linha isolada. Reservados para Insuficiência
+                        Cardíaca, pós-IAM e Arritmias.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow p-6 border-b-4 border-orange-500">
+                    <div class="text-4xl text-orange-500 font-black mb-2">C</div>
+                    <h3 class="font-bold text-slate-800 mb-2">Calcioantagonistas</h3>
+                    <p class="text-sm text-slate-600">Bloqueadores de Canais de Cálcio (BCC). Excelentes vasodilatadores
+                        e proteção contra AVE.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow p-6 border-b-4 border-blue-500">
+                    <div class="text-4xl text-blue-500 font-black mb-2">D</div>
+                    <h3 class="font-bold text-slate-800 mb-2">Diuréticos</h3>
+                    <p class="text-sm text-slate-600">Tiazídicos. Fundamentais para controle volêmico e sinergia em
+                        terapia combinada.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-20">
+            <div class="bg-blue-900 rounded-3xl shadow-2xl p-10 text-center text-white">
+                <h2 class="text-3xl font-bold mb-4">6. O Grande Alvo: Metas Terapêuticas 2025</h2>
+                <p class="text-blue-200 text-lg max-w-2xl mx-auto mb-10">
+                    O sucesso do tratamento não é apenas baixar a pressão, mas atingir alvos rigorosos para prevenção de
+                    desfechos cardiovasculares fatais.
+                </p>
+
+                <div class="flex flex-col md:flex-row justify-center gap-8">
+                    <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-white/20">
+                        <p class="text-sm text-blue-300 font-bold tracking-widest uppercase mb-2">Meta Geral, DM e DAC
+                        </p>
+                        <div class="text-6xl font-black text-orange-400">&lt; 130/80</div>
+                        <p class="text-sm mt-2 font-medium">mmHg</p>
+                    </div>
+
+                    <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-white/20">
+                        <p class="text-sm text-blue-300 font-bold tracking-widest uppercase mb-2">Idosos Frágeis</p>
+                        <div class="text-6xl font-black text-blue-300">&lt; 140/90</div>
+                        <p class="text-sm mt-2 font-medium">mmHg</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        function wrapLabel(label) {
+            if (label.length <= 16) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > 16) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const diagLabels = ['Consultório', 'MAPA 24h', 'MAPA Vigília', 'MRPA'].map(wrapLabel);
+        const ctxDiag = document.getElementById('diagnosticoChart').getContext('2d');
+        new Chart(ctxDiag, {
+            type: 'bar',
+            data: {
+                labels: diagLabels,
+                datasets: [
+                    {
+                        label: 'Sistólica (mmHg)',
+                        data: [140, 130, 135, 130],
+                        backgroundColor: '#1E3A8A',
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'Diastólica (mmHg)',
+                        data: [90, 80, 85, 80],
+                        backgroundColor: '#F97316',
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    tooltip: {
+                        callbacks: {
+                            title: function (tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                    return label.join(' ');
+                                } else {
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Pressão Arterial (mmHg)' }
+                    }
+                }
             }
         });
-        if (currentLine) lines.push(currentLine.trim());
-        return lines;
-    }
 
-    const diagLabels = ['Consultório', 'MAPA 24h', 'MAPA Vigília', 'MRPA'].map(wrapLabel);
-    const ctxDiag = document.getElementById('diagnosticoChart').getContext('2d');
-    new Chart(ctxDiag, {
-        type: 'bar',
-        data: {
-            labels: diagLabels,
-            datasets: [
-                {
-                    label: 'Sistólica (mmHg)',
-                    data: [140, 130, 135, 130],
-                    backgroundColor: '#1E3A8A',
-                    borderRadius: 4
-                },
-                {
-                    label: 'Diastólica (mmHg)',
-                    data: [90, 80, 85, 80],
-                    backgroundColor: '#F97316',
-                    borderRadius: 4
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { position: 'top' },
-                tooltip: {
-                    callbacks: {
-                        title: function(tooltipItems) {
-                            const item = tooltipItems[0];
-                            let label = item.chart.data.labels[item.dataIndex];
-                            if (Array.isArray(label)) {
-                                return label.join(' ');
-                            } else {
-                                return label;
+        const estLabels = ['PA Normal', 'Pré-Hipertensão', 'Estágio 1', 'Estágio 2', 'Estágio 3'].map(wrapLabel);
+        const ctxEst = document.getElementById('estadiamentoChart').getContext('2d');
+        new Chart(ctxEst, {
+            type: 'bar',
+            data: {
+                labels: estLabels,
+                datasets: [
+                    {
+                        label: 'Sistólica Base (mmHg)',
+                        data: [120, 139, 159, 179, 200],
+                        backgroundColor: 'rgba(30, 58, 138, 0.8)',
+                        borderColor: '#1E3A8A',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Diastólica Base (mmHg)',
+                        data: [80, 89, 99, 109, 120],
+                        backgroundColor: 'rgba(249, 115, 22, 0.8)',
+                        borderColor: '#F97316',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    tooltip: {
+                        callbacks: {
+                            title: function (tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                    return label.join(' ');
+                                } else {
+                                    return label;
+                                }
                             }
                         }
                     }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: { display: true, text: 'Pressão Arterial (mmHg)' }
-                }
-            }
-        }
-    });
-
-    const estLabels = ['PA Normal', 'Pré-Hipertensão', 'Estágio 1', 'Estágio 2', 'Estágio 3'].map(wrapLabel);
-    const ctxEst = document.getElementById('estadiamentoChart').getContext('2d');
-    new Chart(ctxEst, {
-        type: 'bar',
-        data: {
-            labels: estLabels,
-            datasets: [
-                {
-                    label: 'Sistólica Base (mmHg)',
-                    data: [120, 139, 159, 179, 200],
-                    backgroundColor: 'rgba(30, 58, 138, 0.8)',
-                    borderColor: '#1E3A8A',
-                    borderWidth: 1
                 },
-                {
-                    label: 'Diastólica Base (mmHg)',
-                    data: [80, 89, 99, 109, 120],
-                    backgroundColor: 'rgba(249, 115, 22, 0.8)',
-                    borderColor: '#F97316',
-                    borderWidth: 1
-                }
-            ]
-        },
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { position: 'top' },
-                tooltip: {
-                    callbacks: {
-                        title: function(tooltipItems) {
-                            const item = tooltipItems[0];
-                            let label = item.chart.data.labels[item.dataIndex];
-                            if (Array.isArray(label)) {
-                                return label.join(' ');
-                            } else {
-                                return label;
-                            }
-                        }
+                scales: {
+                    x: {
+                        beginAtZero: false,
+                        min: 60,
+                        title: { display: true, text: 'Pressão Arterial (mmHg)' }
                     }
                 }
-            },
-            scales: {
-                x: {
-                    beginAtZero: false,
-                    min: 60,
-                    title: { display: true, text: 'Pressão Arterial (mmHg)' }
-                }
             }
-        }
-    });
-</script>
+        });
+    </script>
 </body>
+
 </html>
