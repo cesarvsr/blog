@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiperplasia Adrenal Congênita - Resumo Visual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .enzyme-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .enzyme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .pathway-arrow {
+            position: relative;
+        }
+        .pathway-arrow::after {
+            content: "↓";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            color: #cbd5e1;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden antialiased">
+    <script>if (window.self !== window.top) { document.body.style.backgroundColor = 'transparent'; document.body.style.margin = '0'; }</script>
+
+    <div class="max-w-4xl mx-auto py-8 px-4 space-y-12">
+        <!-- Header -->
+        <header class="text-center space-y-4">
+            <div class="inline-block px-4 py-1.5 bg-indigo-50 text-indigo-700 text-xs font-bold tracking-widest uppercase rounded-full border border-indigo-100">
+                Endocrinologia Pediátrica
+            </div>
+            <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
+                Hiperplasia Adrenal <span class="text-indigo-600">Congênita</span>
+            </h1>
+            <p class="text-slate-500 max-w-2xl mx-auto leading-relaxed italic">
+                A principal causa de ambiguidade genital e crise adrenal neonatal: um guia visual sobre os bloqueios enzimáticos.
+            </p>
+        </header>
+
+        <!-- Enzyme Pathway Concept -->
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold flex items-center gap-3 text-slate-800">
+                <span class="w-2 h-8 bg-indigo-600 rounded-full"></span>
+                Fisiopatologia: O Bloqueio Enzimático
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Progesterone Path -->
+                <div class="enzyme-card p-6 bg-white rounded-3xl border border-slate-100 shadow-sm relative pathway-arrow">
+                    <p class="text-xs font-bold text-slate-400 mb-1">PROGESTERONA</p>
+                    <div class="h-2 w-full bg-slate-100 rounded-full mb-4 overflow-hidden">
+                        <div class="h-full bg-red-500 w-full animate-pulse"></div>
+                    </div>
+                    <p class="text-xs font-semibold text-red-600 bg-red-50 inline-block px-2 py-0.5 rounded-md mb-2">Bloqueio: 21-Hidroxilase</p>
+                    <h4 class="font-bold text-slate-700">↓ Aldosterona</h4>
+                    <p class="text-[10px] text-slate-500">Perda de Sal e Hipotensão</p>
+                </div>
+                <!-- 17-OHP Path -->
+                <div class="enzyme-card p-6 bg-white rounded-3xl border border-slate-100 shadow-sm relative pathway-arrow">
+                    <p class="text-xs font-bold text-slate-400 mb-1">17-OH PROGESTERONA</p>
+                    <div class="h-2 w-full bg-slate-100 rounded-full mb-4 overflow-hidden">
+                        <div class="h-full bg-orange-500 w-full animate-pulse"></div>
+                    </div>
+                    <p class="text-xs font-semibold text-orange-600 bg-orange-50 inline-block px-2 py-0.5 rounded-md mb-2">Acúmulo Crítico</p>
+                    <h4 class="font-bold text-slate-700">↓ Cortisol</h4>
+                    <p class="text-[10px] text-slate-500">Crise Adrenal e ↑ ACTH</p>
+                </div>
+                <!-- Androgen Path -->
+                <div class="enzyme-card p-6 bg-indigo-600 rounded-3xl shadow-lg shadow-indigo-200 text-white">
+                    <p class="text-xs font-bold text-indigo-300 mb-1">ANDROGÊNIOS</p>
+                    <div class="h-2 w-full bg-white/20 rounded-full mb-4 overflow-hidden">
+                        <div class="h-full bg-emerald-400 w-full"></div>
+                    </div>
+                    <p class="text-xs font-semibold text-indigo-100 bg-white/10 inline-block px-2 py-0.5 rounded-md mb-2">Via de Desvio</p>
+                    <h4 class="font-bold">↑ Testosterona</h4>
+                    <p class="text-[10px] text-indigo-100">Virilização e Ambiguidade Genital</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clinical Spectrum -->
+        <section class="bg-slate-900 rounded-[2.5rem] p-8 text-white shadow-2xl relative overflow-hidden">
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-black">Espectro Clínico</h2>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white/5 rounded-2xl border border-white/10">
+                            <h4 class="font-bold text-indigo-400">HAC Clássica (Perdedora de Sal)</h4>
+                            <p class="text-sm opacity-80 mt-1">75% dos casos. Choque hipovolêmico, hiponatremia e hipercalemia na 2ª semana de vida.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-2xl border border-white/10">
+                            <h4 class="font-bold text-indigo-400">HAC Clássica (Virilizante Simples)</h4>
+                            <p class="text-sm opacity-80 mt-1">Ambiguidade genital em meninas. Puberdade precoce isossexual em meninos.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-2xl border border-white/10">
+                            <h4 class="font-bold text-indigo-400">HAC Não-Clássica</h4>
+                            <p class="text-sm opacity-80 mt-1">Sinais de hiperandrogenismo na infância ou adolescência (Acne, hirsutismo, irregularidade menstrual).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-indigo-500/10 p-6 rounded-3xl border border-white/10 backdrop-blur-md">
+                    <h4 class="text-center font-bold mb-6 text-indigo-300 uppercase tracking-widest text-xs">Genitália Ambígua: Escala de Prader</h4>
+                    <div class="grid grid-cols-5 gap-2 text-[10px] text-center">
+                        <div class="space-y-2">
+                            <div class="h-16 bg-white/5 rounded-lg border border-white/10 flex items-center justify-center font-bold">P1</div>
+                            <p class="opacity-60 uppercase">Normal</p>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="h-16 bg-white/10 rounded-lg border border-white/10 flex items-center justify-center font-bold">P2</div>
+                            <p class="opacity-80">Clitoromegalia</p>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="h-16 bg-white/10 rounded-lg border border-white/10 flex items-center justify-center font-bold">P3</div>
+                            <p class="opacity-80">Fusão Labial</p>
+                        </div>
+                        <div class="space-y-2 text-indigo-300 font-bold">
+                            <div class="h-16 bg-indigo-500/40 rounded-lg border border-indigo-500/50 flex items-center justify-center font-bold">P4</div>
+                            <p>Falo-símile</p>
+                        </div>
+                        <div class="space-y-2 text-indigo-400 font-black">
+                            <div class="h-16 bg-indigo-500/60 rounded-lg border border-indigo-500/50 flex items-center justify-center font-bold">P5</div>
+                            <p>Masculino</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Glow deco -->
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-indigo-600 rounded-full blur-[100px] opacity-20"></div>
+        </section>
+
+        <!-- Management Cards -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
+            <div class="p-8 bg-white border border-slate-100 rounded-[2rem] shadow-sm">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="p-3 bg-emerald-50 text-emerald-600 rounded-2xl">💊</div>
+                    <h3 class="text-xl font-bold">Manejo Clínico (Reposição)</h3>
+                </div>
+                <ul class="space-y-4">
+                    <li class="flex gap-3">
+                        <span class="text-emerald-500 font-bold">●</span>
+                        <div>
+                            <p class="font-bold text-sm">Glicocorticoide (Hidrocortisona)</p>
+                            <p class="text-xs text-slate-500">10-20 mg/m²/dia em 3 doses. Dobrar dose em estresse.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-emerald-500 font-bold">●</span>
+                        <div>
+                            <p class="font-bold text-sm">Mineralocorticoide (Fludrocortisona)</p>
+                            <p class="text-xs text-slate-500">0.05-0.3 mg/dia. Monitorar Renina e Pressão Arterial.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="p-8 bg-indigo-600 text-white rounded-[2rem] shadow-xl relative overflow-hidden group">
+                <div class="relative z-10">
+                    <h3 class="text-xl font-bold mb-4">Teste do Pezinho</h3>
+                    <p class="text-sm opacity-90 leading-relaxed mb-6">
+                        Triagem neonatal via dosagem de <span class="font-bold underline decoration-indigo-300">17-OHP</span>.
+                    </p>
+                    <div class="p-4 bg-white/10 rounded-2xl border border-white/20">
+                        <h5 class="text-xs font-bold uppercase tracking-widest text-indigo-200 mb-2 underline italic">Alerta de Falso Positivo</h5>
+                        <p class="text-[11px] opacity-80 italic">Cuidado em prematuros, baixo peso ou estresse perinatal graves. Repetir dosagem se houver dúvida clínica.</p>
+                    </div>
+                </div>
+                <!-- Mini diagram deco -->
+                <div class="absolute bottom-4 right-4 text-4xl opacity-10 group-hover:scale-125 transition-transform">🧬</div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-indigo-950 py-10 text-center">
+        <p class="text-indigo-400 text-xs font-bold tracking-widest uppercase">MedFocus • Protocolo de Endocrinologia</p>
+        <p class="text-indigo-700 text-[10px] mt-2">© 2026 Resumo Interativo de Alta Performance</p>
+    </footer>
+</body>
+</html>

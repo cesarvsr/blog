@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleitamento Materno - Guia Visual MedFocus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .milk-gradient { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); }
+        .status-pill { border: 1px solid rgba(14, 165, 233, 0.2); background: rgba(14, 165, 233, 0.05); }
+        .step-card { transition: all 0.3s ease; }
+        .step-card:hover { transform: translateY(-3px); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased overflow-x-hidden italic">
+    <script>if (window.self !== window.top) { document.body.style.backgroundColor = 'transparent'; document.body.style.margin = '0'; }</script>
+
+    <div class="max-w-4xl mx-auto py-8 px-4 space-y-12">
+        <!-- Header -->
+        <header class="text-center space-y-4">
+            <div class="inline-block px-4 py-1.5 bg-sky-50 text-sky-700 text-[10px] font-black tracking-widest uppercase rounded-full border border-sky-100 italic">
+                Pediatria • Ciclos de Vida
+            </div>
+            <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
+                Ouro Branco: <span class="text-sky-600 underline decoration-sky-200">Aleitamento Materno</span>
+            </h1>
+            <p class="text-slate-500 max-w-2xl mx-auto leading-relaxed text-sm italic">
+                Fisiologia da lactação, composição bioquímica e técnicas para o sucesso da amamentação.
+            </p>
+        </header>
+
+        <!-- Types of Breastfeeding -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-6 bg-sky-600 rounded-[2.5rem] text-white shadow-xl relative overflow-hidden">
+                <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                    <span>✨</span> AME (Exclusivo)
+                </h3>
+                <p class="text-sm opacity-90 leading-relaxed italic">
+                    Apenas leite materno. Sem água, chás ou sucos. 
+                    <strong>Exceções:</strong> Vitaminas e medicamentos em gotas/xaropes.
+                </p>
+                <div class="absolute -bottom-4 -right-4 opacity-10 text-6xl">🍼</div>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="p-4 bg-white border border-slate-100 rounded-3xl shadow-sm text-sm">
+                    <span class="font-bold text-sky-600">Predominante:</span> AM + Líquidos não nutritivos.
+                </div>
+                <div class="p-4 bg-white border border-slate-100 rounded-3xl shadow-sm text-sm">
+                    <span class="font-bold text-sky-600">Complementar:</span> AM + Alimentos sólidos (pós 6 meses).
+                </div>
+                <div class="p-4 bg-white border border-slate-100 rounded-3xl shadow-sm text-sm">
+                    <span class="font-bold text-sky-600">Misto:</span> AM + Outros leites/fórmulas.
+                </div>
+            </div>
+        </section>
+
+        <!-- Physiology Roadmap -->
+        <section class="bg-white p-8 rounded-[3rem] shadow-sm border border-slate-100 italic">
+            <h2 class="text-2xl font-black text-slate-900 mb-8 flex items-center gap-3">
+                <span class="h-8 w-1 bg-sky-500 rounded-full"></span>
+                Fisiologia da Lactogênese
+            </h2>
+            <div class="space-y-6 relative">
+                <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="h-8 w-8 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center font-bold text-xs ring-4 ring-white">1</div>
+                        <div class="w-0.5 h-full bg-slate-100"></div>
+                    </div>
+                    <div class="pb-6">
+                        <h4 class="font-black text-slate-800 text-sm uppercase tracking-tight">Fase 1: Preparação</h4>
+                        <p class="text-xs text-slate-500 mt-1 italic">Desde as 16 semanas. Mediação por Progesterona e Estrogênio.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="h-8 w-8 bg-sky-500 text-white rounded-full flex items-center justify-center font-bold text-xs ring-4 ring-white">2</div>
+                        <div class="w-0.5 h-full bg-slate-100"></div>
+                    </div>
+                    <div class="pb-6">
+                        <h4 class="font-black text-sky-600 text-sm uppercase tracking-tight italic">Fase 2: Apojadura</h4>
+                        <p class="text-xs text-slate-700 mt-1 font-medium">2º ao 4º dia. Queda da progesterona + ↑ Prolactina. Independente de sucção!</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="h-8 w-8 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center font-bold text-xs ring-4 ring-white">3</div>
+                    </div>
+                    <div>
+                        <h4 class="font-black text-slate-800 text-sm uppercase tracking-tight">Fase 3: Galactopoese</h4>
+                        <p class="text-xs text-slate-500 mt-1 italic">Manutenção crônica. Agora depende da sucção e esvaziamento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Composition Comparison -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 italic">
+            <div class="space-y-4">
+                <h3 class="font-black text-slate-800 flex items-center gap-2">
+                    <span class="p-2 bg-emerald-50 text-emerald-600 rounded-lg text-xs">💎</span>
+                    Fatores Protetores
+                </h3>
+                <div class="p-5 bg-emerald-50 border border-emerald-100 rounded-3xl space-y-3">
+                    <p class="text-xs"><strong>IgA:</strong> Principal barreira contra microrganismos.</p>
+                    <p class="text-xs"><strong>Lactoferrina:</strong> Compete pelo ferro com bactérias.</p>
+                    <p class="text-xs"><strong>Fator Bífido:</strong> Flora intestinal acidófila.</p>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <h3 class="font-black text-slate-800 flex items-center gap-2">
+                    <span class="p-2 bg-rose-50 text-rose-600 rounded-lg text-xs">⚠️</span>
+                    Alerta de Técnica
+                </h3>
+                <div class="p-5 bg-rose-50 border border-rose-100 rounded-3xl space-y-2 text-xs">
+                    <p class="font-bold text-rose-800">Sinais de Pega Incorreta:</p>
+                    <ul class="list-disc list-inside text-rose-700 opacity-80">
+                        <li>Bochechas encovadas</li>
+                        <li>Estalidos de língua</li>
+                        <li>Escoriações mamamilares</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Storage Bar -->
+        <section class="p-6 bg-slate-900 rounded-[2rem] text-white flex flex-col md:flex-row items-center justify-around gap-6">
+            <div class="text-center">
+                <p class="text-[10px] font-black text-sky-400 uppercase mb-1 italic">Geladeira</p>
+                <p class="text-2xl font-black">12 Horas</p>
+            </div>
+            <div class="h-px w-full md:h-12 md:w-px bg-white/10"></div>
+            <div class="text-center">
+                <p class="text-[10px] font-black text-sky-400 uppercase mb-1 italic">Congelador</p>
+                <p class="text-2xl font-black">15 Dias</p>
+            </div>
+            <div class="h-px w-full md:h-12 md:w-px bg-white/10"></div>
+            <div class="text-center">
+                <p class="text-[10px] font-black text-rose-400 uppercase mb-1 italic">Contraindicação</p>
+                <p class="text-sm font-black underline decoration-rose-500 italic">Galactosemia</p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-sky-950 py-10 text-center">
+        <p class="text-sky-400 text-[10px] font-black tracking-widest uppercase italic">MedFocus • Pediatria & Neonatologia</p>
+        <p class="text-sky-800 text-[8px] mt-2 underline italic">Diretrizes de Proteção à Infância 2026</p>
+    </footer>
+</body>
+</html>
