@@ -3,7 +3,7 @@ title: "Artrite Reumatoide 02: resumo para provas de residência"
 date: "2026-03-08"
 author: "Equipe MedFocus"
 description: "Acesse o resumo interativo completo do ENAMED no formato original nativo."
-coverImage: "artrite-reumatoide.svg"
+coverImage: "/blog/assets/Espondilite Anquilosante - CAPA.webp"
 ---
 # Artrite Reumatoide (AR)
 
