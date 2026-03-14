@@ -18,8 +18,8 @@ export default {
     customBlogPlugin({
       mdPaths: "posts/**/*.md"
     }),
-    categoryPlugin(),
     resumoPlugin(),
+    categoryPlugin(),
   ],
   siteUrls: {
     blog: "https://dgramaciotti.github.io",

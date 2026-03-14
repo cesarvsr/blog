@@ -1,8 +1,4 @@
-<%- include("_breadcrumb", { items: [
-    { label: 'Início', url: '/blog' },
-    { label: categoryTitle, url: '/blog/' + categorySlug },
-    { label: postName, url: '' }
-] }) %>
+<%- include("_breadcrumb", { items: typeof breadcrumbs !== 'undefined' ? breadcrumbs : [] }) %>
 
 <h1 class="text-6xl font-black text-gray-900 leading-[1.05] tracking-tighter mb-8"><%= postName %></h1>
 

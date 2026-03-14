@@ -1,9 +1,9 @@
-import fg from "fast-glob";
 import path from "node:path";
 import { readFile, stat, mkdir, writeFile } from "node:fs/promises";
 import markdownit from "markdown-it";
 import matter from "gray-matter";
 import { renderFile } from "ejs";
+import { buildNavTree, categoryMap, getTitle } from "./sharedUtils.js";
 
 const md = markdownit({ html: true });
 
@@ -36,14 +36,10 @@ async function renderTemplateLocal(inputPath, outputPath, data = {}) {
     });
 }
 
-const categoryMap = {
-    "clinica-medica": "Clínica Médica",
-    "cirurgia": "Cirurgia",
-    "pediatria": "Pediatria",
-    "ginecologia": "Ginecologia & Obstetrícia"
-};
-
 async function getFlexiblePageData(globPath) {
+    // Note: fg is not imported here anymore, we'll use a dynamic import or re-import if needed
+    // Actually, I'll re-import fg keep it simple
+    const { default: fg } = await import("fast-glob");
     const posts = await fg(globPath, { onlyFiles: true });
     return Promise.all(posts.map(async (post) => {
         const fileContents = await readFile(post, "utf-8");
@@ -52,11 +48,25 @@ async function getFlexiblePageData(globPath) {
         const htmlContent = md.render(content);
         const fileName = path.basename(post, ".md");
         
-        // Derive category from directory structure
-        // path looks like: pages/blog/posts/clinica-medica/article.md
-        const pathParts = path.dirname(post).split(path.sep);
-        const categorySlug = pathParts[pathParts.length - 1];
-        const categoryTitle = categoryMap[categorySlug] || (categorySlug.charAt(0).toUpperCase() + categorySlug.slice(1).replace(/-/g, ' '));
+        // Derive breadcrumbs from directory structure
+        const relativePath = path.relative("pages/blog/posts", post);
+        const parts = path.dirname(relativePath).split(path.sep).filter(p => p !== ".");
+        
+        const breadcrumbs = [
+            { label: 'Início', url: '/blog' }
+        ];
+
+        let cumulativePath = "/blog";
+        for (const part of parts) {
+            cumulativePath += `/${part}`;
+            breadcrumbs.push({
+                label: getTitle(part),
+                url: cumulativePath
+            });
+        }
+
+        const categorySlug = parts.length > 0 ? parts[parts.length - 1] : "blog";
+        const categoryTitle = getTitle(categorySlug);
 
         return {
             ...data,
@@ -69,7 +79,8 @@ async function getFlexiblePageData(globPath) {
             postTime: calculateReadingTime(content),
             coverImage: data.coverImage ?? null,
             categorySlug,
-            categoryTitle
+            categoryTitle,
+            breadcrumbs: [...breadcrumbs, { label: data.title ?? fileName, url: "" }]
         };
     }));
 }
@@ -78,24 +89,32 @@ export const customBlogPlugin = (options = {}) => ({
     name: "custom-blog",
     setup: (cfg) => {
         const templatePath = options.templatePath || "pages/**/custom/blog.ejs";
-        const mdPaths = options.mdPaths || "posts/*.md";
+        const mdPaths = options.mdPaths || "posts/**/*.md"; // Support nested folders
         
         return {
             beforeBuild: [
                 {
                     glob: [templatePath],
                     fn: async function buildBlog(files, cfg) {
+                        const { default: fg } = await import("fast-glob");
                         const templates = await fg(templatePath, { objectMode: true });
+                        const postsBase = path.join("pages/blog", "posts");
+                        const navTree = cfg.navTree || await buildNavTree(postsBase, postsBase);
+
                         return Promise.all(templates.map(async (entry) => {
                             const tplPath = entry.path;
-                            const pageDir = path.dirname(path.dirname(tplPath));
+                            const pageDir = path.dirname(path.dirname(tplPath)); // pages/blog
                             const pageName = path.basename(pageDir);
                             const postsGlob = path.join(pageDir, mdPaths);
                             const renderedPosts = await getFlexiblePageData(postsGlob);
                             
                             return Promise.all(renderedPosts.map((postData) => {
                                 const outputPath = path.join(cfg.paths.dist, pageName, "articles", `${postData.postUrl}.html`);
-                                return renderTemplateLocal(tplPath, outputPath, postData);
+                                return renderTemplateLocal(tplPath, outputPath, {
+                                    ...postData,
+                                    navTree,
+                                    currentPath: `/blog/articles/${postData.postUrl}`
+                                });
                             }));
                         }));
                     },

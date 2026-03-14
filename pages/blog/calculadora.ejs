@@ -14,8 +14,8 @@
                 <!-- Section Header -->
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-border pb-12">
                     <div class="space-y-4">
-                        <%- include("components/_breadcrumb", { items: [
-                            { label: 'Guia', url: '/blog/articles' },
+                        <%- include("components/_breadcrumb", { items: typeof breadcrumbs !== 'undefined' ? breadcrumbs : [
+                            { label: 'Início', url: '/blog' },
                             { label: 'Suporte à Decisão', url: '' }
                         ] }) %>
                         <h1 class="text-6xl font-black text-gray-900 leading-tight tracking-tighter">Calculadoras</h1>
@@ -141,4 +141,5 @@
         ::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
     </style>
 </body>
-</html>
+<!-- Re-render trigger -->
+<!DOCTYPE html>

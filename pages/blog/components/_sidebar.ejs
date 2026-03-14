@@ -1,37 +1,59 @@
 <!-- Sidebar Overlay for mobile -->
 <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
 
-<aside id="sidebar" class="fixed inset-y-0 left-0 w-72 border-r border-border overflow-y-auto flex flex-col bg-[#FBFBFB] shrink-0 z-40 transform -translate-x-full transition-transform duration-300 lg:static lg:translate-x-0">
-    <div class="pt-6 pb-4 px-6 mb-4">
-        <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-6">ÁREAS</h3>
-        <nav class="space-y-1.5">
-            <% 
-                const links = [
-                    { href: '/blog/clinica-medica', label: 'Clínica Médica', icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10' },
-                    { href: '/blog/cirurgia', label: 'Cirurgia', icon: 'M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758L5 19m0-14l4.121 4.121' },
-                    { href: '/blog/pediatria', label: 'Pediatria', icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' },
-                    { href: '/blog/ginecologia', label: 'Ginecologia', icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z' }
-                ];
-            %>
-            <% links.forEach(link => { %>
-                <% const isActive = typeof currentPath !== 'undefined' && currentPath === link.href; %>
-                <a href="<%= link.href %>" class="flex items-center gap-4 px-4 py-3.5 text-sm font-bold <%= isActive ? 'text-primary bg-blue-50 border-l-4 border-primary shadow-sm' : 'text-gray-500 hover:bg-white hover:text-primary hover:shadow-sm' %> rounded-2xl transition-all group border border-transparent hover:border-border">
-                    <div class="w-10 h-10 rounded-xl <%= isActive ? 'bg-white text-primary' : 'bg-gray-50 text-gray-400 group-hover:text-primary' %> flex items-center justify-center transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="<%= link.icon %>"/></svg>
-                    </div>
-                    <%= link.label %>
-                </a>
-            <% }) %>
+<aside id="sidebar" class="fixed inset-y-0 left-0 w-64 border-r border-border overflow-y-auto flex flex-col bg-[#FBFBFB] shrink-0 z-40 transform -translate-x-full transition-transform duration-300 lg:static lg:translate-x-0">
+    <%
+        // Include machine-generated navTree data if the plugin hasn't passed it directly
+        if (typeof navTree === 'undefined' || !navTree || navTree.length === 0) {
+            try { %>
+                <%- include("_nav-data") %>
+            <% } catch (e) { }
+            
+            // Re-check after include
+            if (typeof navTree === 'undefined' && typeof locals.navTree !== 'undefined') {
+                navTree = locals.navTree;
+            }
+        }
+        
+        // Final fallback
+        if (typeof navTree === 'undefined') {
+            navTree = [];
+        }
+    %>
+    <!-- Header/Logo Area -->
+    <div class="pt-6 pb-2 px-6">
+        <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Principal</h3>
+        <nav class="space-y-1">
+            <% const isHomeActive = typeof currentPath !== 'undefined' && (currentPath === '/blog' || currentPath === '/blog/index.html' || currentPath === '/blog/articles'); %>
+            <a href="/blog/articles" class="flex items-center gap-3 px-3 py-2 text-xs font-bold rounded-xl transition-all group border <%= isHomeActive ? 'text-primary bg-blue-50/50 border-blue-100 shadow-sm' : 'text-gray-500 hover:bg-white hover:text-primary border-transparent hover:border-gray-200' %>">
+                <div class="w-8 h-8 rounded-lg <%= isHomeActive ? 'bg-white text-primary' : 'bg-gray-50 text-gray-400 group-hover:text-primary' %> flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                </div>
+                Início
+            </a>
         </nav>
     </div>
 
-    <div class="mt-auto p-6">
-        <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-6">FERRAMENTAS</h3>
-        <nav class="space-y-1.5">
-            <% const isCalcActive = typeof currentPath !== 'undefined' && currentPath === '/blog/calculadora'; %>
-            <a href="/blog/calculadora" class="flex items-center gap-4 px-4 py-3 text-sm font-bold <%= isCalcActive ? 'text-primary bg-blue-50 border-l-4 border-primary shadow-sm' : 'text-gray-500 hover:bg-white hover:text-primary hover:shadow-sm' %> rounded-2xl transition-all group border border-transparent hover:border-border">
-                <div class="w-10 h-10 rounded-xl <%= isCalcActive ? 'bg-white text-primary' : 'bg-gray-50 text-gray-400 group-hover:text-primary' %> flex items-center justify-center transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+    <div class="pt-4 pb-4 px-6">
+        <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Categorias</h3>
+        <nav class="space-y-1">
+            <% if (typeof navTree !== 'undefined' && navTree && navTree.length > 0) { %>
+                <% navTree.forEach(item => { %>
+                    <%- include("_nav-item", { item: item, currentPath: typeof currentPath !== 'undefined' ? currentPath : '' }) %>
+                <% }) %>
+            <% } else { %>
+                <p class="text-[10px] text-gray-400 italic px-3">Categorias em breve...</p>
+            <% } %>
+        </nav>
+    </div>
+
+    <div class="mt-auto p-6 border-t border-border/50">
+        <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Suporte</h3>
+        <nav class="space-y-1">
+            <% const isCalcActive = typeof currentPath !== 'undefined' && (currentPath === '/blog/calculadora' || currentPath.includes('calculadora')); %>
+            <a href="/blog/calculadora" class="flex items-center gap-3 px-3 py-2 text-xs font-bold rounded-xl transition-all group border <%= isCalcActive ? 'text-primary bg-blue-50/50 border-blue-100 shadow-sm' : 'text-gray-500 hover:bg-white hover:text-primary border-transparent hover:border-gray-200' %>">
+                <div class="w-8 h-8 rounded-lg <%= isCalcActive ? 'bg-white text-primary' : 'bg-gray-50 text-gray-400 group-hover:text-primary' %> flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                 </div>
                 Calculadoras
             </a>

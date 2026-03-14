@@ -1,75 +1,136 @@
-import fg from "fast-glob";
 import path from "node:path";
 import fs from "node:fs/promises";
 import { getPageData } from "./node_modules/@basic-ssg/core/dist/utils/getPageData.js";
 import { renderTemplate } from "./node_modules/@basic-ssg/core/dist/utils/renderTemplate.js";
-
-const categoryMap = {
-    "clinica-medica": {
-        title: "Clínica Médica",
-        description: "Diretrizes e protocolos atualizados para medicina interna."
-    },
-    "cirurgia": {
-        title: "Cirurgia",
-        description: "Protocolos e condutas em cirurgia geral e especializada."
-    },
-    "pediatria": {
-        title: "Pediatria",
-        description: "Cuidados e diretrizes para neonatologia e pediatria."
-    },
-    "ginecologia": {
-        title: "Ginecologia & Obstetrícia",
-        description: "Protocolos atualizados para saúde da mulher."
-    }
-};
+import { buildNavTree, categoryMap, getTitle } from "./sharedUtils.js";
 
 export const categoryPlugin = () => ({
     name: "category-filter-plugin",
     setup: (config) => ({
         beforeBuild: [
             {
-                glob: ["pages/blog/posts/**"],
+                glob: ["pages/blog/posts/**", "pages/blog/calculadora.ejs", "pages/blog/custom/articles.ejs"],
                 fn: async (files, cfg) => {
                     const blogBase = "pages/blog";
                     const postsBase = path.join(blogBase, "posts");
                     const templatePath = path.join(blogBase, "custom", "articles.ejs");
 
-                    // Find all subdirectories in posts/
-                    const categories = await fg(path.join(postsBase, "*"), { onlyDirectories: true });
+                    // 1. Build the full tree
+                    const navTree = await buildNavTree(postsBase, postsBase);
+                    
+                    // 2. Save navTree to dist/blog/nav-tree.json for client-side/reference
+                    const navTreeJsonPath = path.join(cfg.paths.dist, "blog", "nav-tree.json");
+                    await fs.mkdir(path.dirname(navTreeJsonPath), { recursive: true });
+                    await fs.writeFile(navTreeJsonPath, JSON.stringify(navTree, null, 2));
+
+                    // 3. Write _nav-data.ejs partial for robust data sharing across all EJS pages
+                    const componentsDir = path.join(blogBase, "components");
+                    await fs.mkdir(componentsDir, { recursive: true });
+                    const navDataContent = `<% locals.navTree = ${JSON.stringify(navTree)}; %>`;
+                    await fs.writeFile(path.join(componentsDir, "_nav-data.ejs"), navDataContent);
+
                     const allArticles = [];
+                    const renderPromises = [];
 
-                    await Promise.all(categories.map(async (catDir) => {
-                        const catSlug = path.basename(catDir);
-                        const articles = await getPageData(path.join(catDir, "*.md"));
-                        const outputPath = path.join(cfg.paths.dist, "blog", catSlug, "index.html");
+                    // 4. Recursively generate index pages for all folders
+                    async function generateFolderIndices(items, ancestorBreadcrumbs = [{ label: 'Início', url: '/blog' }]) {
+                        for (const item of items) {
+                            if (item.type === 'folder') {
+                                const folderPath = path.join(postsBase, item.path);
+                                const articles = await getPageData(path.join(folderPath, "*.md"));
+                                const outputPath = path.join(cfg.paths.dist, "blog", item.path, "index.html");
 
-                        const metadata = categoryMap[catSlug] || {
-                            title: catSlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-                            description: `Explorar artigos em ${catSlug}.`
-                        };
+                                const metadata = categoryMap[item.name] || {
+                                    title: item.title,
+                                    description: `Explorar artigos em ${item.title}.`
+                                };
 
-                        // Collect for search index
-                        articles.forEach(art => {
-                            allArticles.push({
-                                title: art.postName,
-                                description: art.postDescription || "",
-                                url: `/blog/articles/${art.postUrl}`,
-                                category: metadata.title,
-                                slug: art.postUrl
-                            });
-                        });
+                                const currentBreadcrumbs = [
+                                    ...ancestorBreadcrumbs,
+                                    { label: item.title, url: item.url }
+                                ];
 
-                        return renderTemplate(templatePath, outputPath, {
-                            articles,
-                            categoryTitle: metadata.title,
-                            categoryDescription: metadata.description,
-                            categorySlug: catSlug
-                        });
-                    }));
+                                const mappedArticles = articles.map(a => ({
+                                    postName: a.title,
+                                    postUrl: a.slug,
+                                    postDate: (a.date instanceof Date) ? a.date.toLocaleDateString("pt-BR") : (a.date ? new Date(a.date).toLocaleDateString("pt-BR") : ""),
+                                    postDescription: a.description,
+                                    coverImage: a.coverImage,
+                                    tags: a.tags
+                                })).sort((a, b) => new Date(b.postDate) - new Date(a.postDate));
 
-                    // Write search index to dist/blog
+                                renderPromises.push(renderTemplate(templatePath, outputPath, {
+                                    articles: mappedArticles,
+                                    categoryTitle: metadata.title,
+                                    categoryDescription: metadata.description,
+                                    categorySlug: item.name,
+                                    navTree,
+                                    currentPath: item.url,
+                                    breadcrumbs: currentBreadcrumbs
+                                }));
+
+                                await generateFolderIndices(item.children, currentBreadcrumbs);
+                            } else {
+                                const parentDir = path.dirname(item.path);
+                                const categoryName = parentDir === '.' ? 'Blog' : getTitle(path.basename(parentDir));
+                                
+                                allArticles.push({
+                                    postName: item.title,
+                                    postUrl: item.slug,
+                                    postDate: (item.date instanceof Date) ? item.date.toLocaleDateString("pt-BR") : (item.date ? new Date(item.date).toLocaleDateString("pt-BR") : ""),
+                                    postDescription: item.description,
+                                    coverImage: item.coverImage,
+                                    tags: item.tags,
+                                    category: categoryName,
+                                    slug: item.slug,
+                                    // Hidden raw date for sorting
+                                    _date: item.date ? new Date(item.date) : new Date(0)
+                                });
+                            }
+                        }
+                    }
+
+                    await generateFolderIndices(navTree);
+                    const debugInfo = {
+                        count: allArticles.length,
+                        sample: allArticles.length > 0 ? allArticles[0] : null,
+                        navTreeSample: navTree.length > 0 ? navTree[0] : null
+                    };
+                    await fs.writeFile(path.join(cfg.paths.dist, "blog", "debug-plugin.json"), JSON.stringify(debugInfo, null, 2));
+
+                    // Sort all articles by date descending
+                    allArticles.sort((a, b) => b._date - a._date);
+
+                    // 5. Explicitly render home and calculadora to ensure they get the navTree
+                    const staticPages = [
+                        { tpl: "pages/blog/custom/articles.ejs", out: "blog/articles/index.html", path: "/blog/articles", title: "Atualizações Recentes" },
+                        { tpl: "pages/blog/calculadora.ejs", out: "blog/calculadora.html", path: "/blog/calculadora", title: "Calculadoras" }
+                    ];
+
+                    for (const page of staticPages) {
+                        try {
+                            const tplPath = path.join(process.cwd(), page.tpl);
+                            if (await fs.stat(tplPath).catch(() => false)) {
+                                renderPromises.push(renderTemplate(page.tpl, path.join(cfg.paths.dist, page.out), {
+                                    articles: allArticles, 
+                                    navTree,
+                                    categoryTitle: page.title,
+                                    currentPath: page.path,
+                                    breadcrumbs: [
+                                        { label: 'Início', url: '/blog' },
+                                        { label: page.title, url: '' }
+                                    ]
+                                }));
+                            }
+                        } catch (e) {
+                            console.error(`Error rendering static page ${page.tpl}:`, e);
+                        }
+                    }
+
+                    await Promise.all(renderPromises);
+
+                    // 6. Write search index
                     const searchIndexPath = path.join(cfg.paths.dist, "blog", "search-index.json");
-                    await fs.mkdir(path.dirname(searchIndexPath), { recursive: true });
                     await fs.writeFile(searchIndexPath, JSON.stringify(allArticles, null, 2));
                 }
             }
