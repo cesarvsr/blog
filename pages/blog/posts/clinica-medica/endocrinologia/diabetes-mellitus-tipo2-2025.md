@@ -8,8 +8,6 @@ coverImage: "https://picsum.photos/seed/diabetes/1200/600"
 
 O manejo do **Diabetes Mellitus Tipo 2 (DM2)** passou por transformações profundas na última década, migrando de uma visão glicocêntrica para uma abordagem de **proteção orgânica e multimetas**. A diretriz de 2025 consolida essa mudança, priorizando fármacos com benefício cardiovascular e renal comprovado.
 
-<iframe src="/blog/diabetes-2025" width="100%" height="750px" style="border:none; margin-bottom: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);"></iframe>
-
 ## Pilares do Diagnóstico
 O diagnóstico deve ser estabelecido por exames laboratoriais alterados em duas ocasiões (jejum, TOTG ou HbA1c) ou um único exame com valor inequívoco em paciente sintomático.
 

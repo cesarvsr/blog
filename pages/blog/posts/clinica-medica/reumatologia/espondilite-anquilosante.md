@@ -8,8 +8,6 @@ coverImage: "/blog/assets/EspondiliteAnquilosante-CAPA.webp"
 
 O conteúdo a seguir foi estruturado de forma canônica, seguindo rigorosamente a hierarquia e os temas apresentados na literatura técnica de referência do setor.
 
-<iframe src="/blog/resumo.html" width="100%" height="600px" style="border:none; margin-bottom: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);"></iframe>
-
 ## Espondiloartropatias Soronegativas
 As espondiloartropatias soronegativas representam um grupo de doenças específicas que são classificadas em conjunto por terem muitas características em comum, especialmente no que diz respeito ao tipo de lesão patológica básica (entesite), às formas clínicas de apresentação e a alguns achados laboratoriais característicos (ausência de fator reumatoide).
 

@@ -8,8 +8,6 @@ coverImage: "https://picsum.photos/seed/breastfeeding/1200/600"
 
 O aleitamento materno é muito mais do que nutrição; é a primeira e mais eficaz intervenção de saúde pública para a redução da mortalidade infantil. O conteúdo a seguir explora os pilares técnicos essenciais para profissionais e estudantes de saúde.
 
-<iframe src="/blog/aleitamento-materno" width="100%" height="750px" style="border:none; margin-bottom: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);"></iframe>
-
 ## 1. Tipos de Aleitamento
 A classificação da OMS e do Ministério da Saúde divide as práticas em categorias claras conforme o que é oferecido à criança:
 

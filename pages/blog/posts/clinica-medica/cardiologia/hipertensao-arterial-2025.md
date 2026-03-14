@@ -10,8 +10,6 @@ A **Hipertensão Arterial Sistêmica (HAS)** permanece como o principal fator de
 
 O conteúdo a seguir foi estruturado de forma canônica, seguindo rigorosamente a hierarquia e os temas apresentados na literatura técnica de referência do setor (SBC, SBH e SBN).
 
-<iframe src="/blog/hipertensao-arterial-2025" width="100%" height="700px" style="border:none; margin-bottom: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);"></iframe>
-
 ## Diagnóstico e Fenótipos
 O diagnóstico de HAS deve ser confirmado quando a PA no consultório for **≥ 140 e/ou 90 mmHg** em pelo menos duas ocasiões diferentes.
 

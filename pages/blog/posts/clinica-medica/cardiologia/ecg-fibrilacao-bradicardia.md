@@ -8,8 +8,6 @@ coverImage: "https://picsum.photos/seed/heart/1200/600"
 
 A interpretação do eletrocardiograma (ECG) em situações de arritmia exige um método sistemático para evitar erros diagnósticos graves. Este guia foca nas duas extremidades dos distúrbios do ritmo: a **Fibrilação Atrial (FA)** e os **Bloqueios Atrioventriculares (BAV)**.
 
-<iframe src="/blog/ecg-arritmias" width="100%" height="750px" style="border:none; margin-bottom: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);"></iframe>
-
 ## A Origem do Ritmo e Condução Normal
 O impulso elétrico fisiológico nasce no **Nódulo Sinusal (NSA)**, propaga-se pelos átrios (gerando a onda P), sofre um atraso no **Nódulo Atrioventricular (NAV)** (intervalo PR) e segue pelo sistema His-Purkinje para despolarizar os ventrículos (complexo QRS).
 
