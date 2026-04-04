@@ -37,7 +37,7 @@ export const categoryPlugin = () => ({
                         for (const item of items) {
                             if (item.type === 'folder') {
                                 const folderPath = path.join(postsBase, item.path);
-                                const articles = await getPageData(path.join(folderPath, "*.md"));
+                                const articles = await getPageData(path.join(folderPath, "**/*.md"));
                                 const outputPath = path.join(cfg.paths.dist, "blog", item.path, "index.html");
 
                                 const metadata = categoryMap[item.name] || {
@@ -101,6 +101,7 @@ export const categoryPlugin = () => ({
 
                     // 5. Explicitly render home and calculadora to ensure they get the navTree
                     const staticPages = [
+                        { tpl: "pages/blog/custom/articles.ejs", out: "blog/index.html", path: "/blog", title: "Atualizações Recentes" },
                         { tpl: "pages/blog/custom/articles.ejs", out: "blog/articles/index.html", path: "/blog/articles", title: "Atualizações Recentes" },
                         { tpl: "pages/blog/calculadora.ejs", out: "blog/calculadora.html", path: "/blog/calculadora", title: "Calculadoras" }
                     ];
