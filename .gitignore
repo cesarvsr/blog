@@ -2,3 +2,4 @@ node_modules
 dist
 dist-*
 .DS_Store
+pages/blog/components/_nav-data.ejs
