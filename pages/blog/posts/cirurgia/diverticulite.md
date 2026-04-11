@@ -3,7 +3,7 @@ title: "Diverticulite Aguda: Guia Completo de Diagnóstico, Classificação e Co
 date: "08/04/2026"
 author: "César Vinícius"
 description: "Uma revisão profunda sobre a fisiopatologia, classificação de Hinchey, critérios de internação e manejo cirúrgico da diverticulite aguda."
-coverImage: "/blog/assets/diverticulite_capa_1775675833561.png"
+coverImage: "/blog/assets/diverticulite_capa_final.webp"
 ---
 
 A **Diverticulite Aguda** é uma das complicações mais comuns da doença diverticular, caracterizada pela inflamação e infecção de um divertículo colônico. Com o envelhecimento da população, torna-se essencial o domínio dos critérios de gravidade e das indicações cirúrgicas de urgência.

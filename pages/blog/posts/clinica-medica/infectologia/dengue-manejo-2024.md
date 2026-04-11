@@ -3,7 +3,7 @@ title: "Dengue: Diagnóstico e Manejo Clínico (MS 2024)"
 date: "05/04/2026"
 author: "César Vinícius"
 description: "Um resumo de focado nas novas diretrizes do Ministério da Saúde (6ª Edição/2024) para o manejo da Dengue, incluindo manejo em populações especiais e situações de risco."
-coverImage: "/blog/assets/dengue-capa.png"
+coverImage: "/blog/assets/dengue-manejo-2024_capa_final.webp"
 iframeSrc: "/blog/dengue-2024.html"
 ---
 
