@@ -10,85 +10,157 @@ A pancreatite aguda é uma condição inflamatória do pâncreas que pode variar
 
 ## Epidemiologia e Características Gerais
 
-A incidência anual da pancreatite aguda varia entre 4 a 35 casos por 100.000 pessoas. Embora a maioria dos casos (80%) seja leve, cerca de 20% evoluem com gravidade, apresentando uma mortalidade que pode chegar a 17%. É mais comum em mulheres entre 50 e 70 anos.
+A incidência anual varia de **4 a 35 casos por 100.000 pessoas**. Aproximadamente 20% dos casos são graves.
+- **Mortalidade:** 1,5% nos casos leves e até 17% nos casos graves.
+- **Perfil:** Mais comum em mulheres, com pico de incidência entre 50 e 70 anos.
 
-- **Fisiopatologia:** Ocorre em fases. A fase neutrófilo-independente envolve a ativação enzimática e lesão acinar. A fase neutrófilo-dependente envolve a ativação de leucócitos e liberação de citocinas, podendo levar à Síndrome de Resposta Inflamatória Sistêmica (SIRS) e falência de múltiplos órgãos (ex: SDRA).
-- **Mecanismo de "Colocalização":** Aumento da pressão biliar ou álcool levam à aproximação de vacúolos de catepsina B com o tripsinogênio, ativando a tripsina e desencadeando uma cascata proteolítica.
+## Fisiopatologia
+
+A doença evolui em fases distintas e apresenta uma **mortalidade bimodal**:
+1. **Fase Precoce:** Marcada pela Síndrome de Resposta Inflamatória Sistêmica (SIRS) e falência de órgãos.
+2. **Fase Tardia:** Marcada por complicações locais (necrose, infecção).
+
+### Mecanismo de "Colocalização"
+Ocorre devido ao aumento da pressão ductal (cálculos) ou toxicidade (álcool):
+1. Aumento da pressão biliar.
+2. Aproximação de vacúolos contendo **catepsina B** (ativador do tripsinogênio) com o tripsinogênio.
+3. Ativação da **tripsina** a partir do tripsinogênio.
+4. Reação em cadeia (ativação de outras pró-enzimas) e proteólise da glândula.
+
+### Fases da Resposta Inflamatória
+- **Fase Neutrófilo-independente:** Ativação enzimática inicial + lesão acinar + aumento de citocinas.
+- **Fase Neutrófilo-dependente:** Ativação de neutrófilos, levando a efeitos sistêmicos como a SDRA (Síndrome do Desconforto Respiratório Agudo).
 
 ## Etiologia: As Causas Principais
 
-A identificação da causa é fundamental para prevenir a recorrência.
+A identificação da etiologia é crucial para o manejo e prevenção de novos episódios.
 
-1. **Cálculos Biliares (40%):** A causa mais comum. O risco é inversamente proporcional ao tamanho do cálculo (< 5mm aumenta o risco em 4x).
-2. **Álcool (35%):** Provoca espasmos no esfíncter de Oddi, toxicidade direta acinar e aumento da permeabilidade ductal. É mais comum em homens.
-3. **Hipertrigliceridemia (1-4%):** Geralmente quando os níveis excedem 1000 mg/dL.
-4. **Medicamentos (2%):** Metronidazol, azatioprina, sulfa, tiazídicos.
-5. **Pós-CPRE (5-10%):** Complicação comum do procedimento.
-6. **Outras:** Trauma abdominal, causas genéticas, idiopática (10%), infecções e causas autoimunes (IgG4).
+### 1. População Geral
+- **Cálculos Biliares (40%):** Causa principal. O risco é inversamente proporcional ao tamanho do cálculo (< 5 mm aumenta o risco em 4x).
+- **Álcool (35%):** Mecanismo envolve espasmos no Esfíncter de Oddi, toxicidade acinar direta, formação de radicais livres e hipertrigliceridemia. Mais comum em homens.
+- **Hipertrigliceridemia (1-4%):** Triglicerídeos > 1000 mg/dL interferem na dosagem da amilase (podendo dar falso negativo).
+- **Medicamentos (2%):** Metronidazol, azatioprina, sulfonamidas, tiazídicos.
+- **Trauma:** Abdominal contuso ou penetrante (1,5%).
+- **Pós-CPRE (5-10%):** Complicação comum do procedimento.
+- **Idiopática (10%):** Frequentemente associada à microlitíase ou lama biliar não detectada.
 
-> **Atenção:** Em crianças, as causas mais comuns são traumas e doenças sistêmicas (como a Síndrome Hemolítico-Urêmica). Na gravidez, a causa biliar predomina.
+### 2. Crianças
+- Traumas abdominais e doenças sistêmicas, especialmente a **Síndrome Hemolítico-Urêmica (SHU)** e doenças do trato biliar.
+
+### 3. Gravidez
+- Doença do trato biliar é a causa predominante, seguida pelo álcool.
+
+### 4. Outras Causas
+- Doenças autoimunes (Sjogren, Hepatite Autoimune, Doença de IgG4).
+- Genética (mutações), hipercalcemia, infecções (virais, bacterianas, fúngicas).
+- Anormalidades vasculares (isquemia, vasculite) e obstruções (Pâncreas divisum).
+- Exposições tóxicas (venenos, inseticidas).
 
 ## Quadro Clínico e Diagnóstico
 
-O diagnóstico baseia-se nos **Critérios de Atlanta**, exigindo pelo menos 2 dos 3 seguintes:
-1. **Dor abdominal característica:** No andar superior, em faixa, que irradia para as costas e piora na posição supinada (pode apresentar alívio na "prece maometana").
+O diagnóstico baseia-se nos **Critérios de Atlanta**, exigindo pelo menos **2 dos 3** seguintes:
+1. **Dor abdominal característica:** No andar superior, em faixa, que irradia para as costas e piora na posição supinada (alívio na "prece maometana"). Associada a náuseas e vômitos.
 2. **Laboratório:** Amilase e/ou lipase sérica > 3x o limite superior do normal.
 3. **Imagem:** Achados característicos em exames de imagem (TC, RM ou USG).
 
-### Marcadores Laboratoriais
-- **Amilase:** Eleva-se em 6-12h, meia-vida curta (10h), retorna ao normal em 3-5 dias. Pode estar normal em pacienes alcoólicos ou com hipertrigliceridemia.
-- **Lipase:** Mais específica. Eleva-se em 4-8h, pico em 24h e permanece alta por 8-14 dias. Útil para diagnósticos tardios (>24h).
-
 ### Sinais Físicos de Gravidade (Hemorrágicos)
-- **Sinal de Cullen:** Equimose periumbilical.
+- **Sinal de Cullen:** Equimose periumbilical (hemorragia central).
 - **Sinal de Grey-Turner:** Equimose em flancos.
-- **Sinal de Fox:** Hemorragia inguinoperineal.
+- **Sinal de Fox:** Hemorragia na base do pênis ou região inguinoperineal.
+
+### Marcadores Laboratoriais
+
+| Marcador | Início | Pico | Normalização | Sensibilidade/Especificidade | Observações |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Amilase** | 6-12h | 24h | 3-5 dias | S: 67-83% / E: 85-95% | Meia-vida 10h. Pode estar normal em alcoólicos ou hipertrigliceridemia. |
+| **Lipase** | 4-8h | 24h | 8-14 dias | S: 82-100% / E: Alta | Mais específica. Útil em diagnósticos tardios (> 24h). |
+
+## Escores Prognósticos
+
+### 1. Escore de Ranson (Grave se ≥ 3)
+Avaliado na admissão e após 48 horas (**LEGAL FECHOU**):
+- **Admissão (LEGAL):** **L**eucócitos (>16k), **E**nzimas/TGO (>250), **G**licose (>200), **A**ge/Idade (>55), **L**DH (>350).
+- **48 Horas (FECHOU):** **F**luidos/sequestro (>6L), **E**xcesso de base (<-4), **C**álcio (<8), **H**ematócrito (queda >10%), **O**xigênio/PaO2 (<60), **U**reia (aumento >5).
+
+### 2. BISAP (Grave se ≥ 2)
+- **B**UN (Ureia > 25 mg/dL), **I**nconsciência, **S**IRS, **A**ge (> 60 anos), **P**leural (derrame).
+
+### 3. APACHE II
+Ponto de corte **≥ 8 pontos** indica gravidade (Mortalidade > 10%).
+
+### 4. Sistema de Balthazar (Índice de Gravidade Tomográfico)
+| Grau | Achado Tomográfico | Pontos | Grau de Necrose | Pontos |
+| :--- | :--- | :--- | :--- | :--- |
+| **A** | Pâncreas normal | 0 | Sem necrose | 0 |
+| **B** | Aumento focal ou difuso | 1 | ≤ 33% | 2 |
+| **C** | Inflamação peripancreática | 2 | 33% - 50% | 4 |
+| **D** | Coleção fluida única | 3 | > 50% | 6 |
+| **E** | ≥ 2 coleções ou gás | 4 | | |
+*Índice de Gravidade (TCSI) = Pontos da Inflamação + Pontos da Necrose (Grave se ≥ 7).*
+
+---
 
 ## Exames de Imagem
 
-- **Ultrassonografia (USG):** Indicada para todos na admissão para pesquisar etiologia biliar.
-- **Tomografia Computadorizada (TC) com Contraste:** É o padrão-ouro para avaliar gravidade e necrose, mas deve ser solicitada preferencialmente **após 48-72 horas** do início dos sintomas para maior acurácia diagnóstica.
-- **Colangio-RM e USG Endoscópica:** Úteis na suspeita de microlitíase ou quando a TC é inconclusiva.
+### 1. Ultrassonografia (USG)
+Indicada para **todos** na admissão.
+- **Objetivo:** Verificar litíase biliar ou sinal de coledocolitíase.
+- **Limitação:** Prejudicada por gás intestinal.
 
-## Classificação de Gravidade (Atlanta)
+### 2. Tomografia (TC) com Contraste
+Padrão-ouro para gravidade, mas deve ser feita após **48-72h**.
+- **Indicações:** Diagnóstico incerto, sem melhora clínica em 48-72h, deterioração clínica ou suspeita de complicações.
 
-| Classificação | Descrição |
+### 3. Outros Exames
+- **Raio-X:** Alça sentinela (duodeno dilatado), apagamento do psoas, derrame pleural.
+- **CPRE:** Indicada se colangite associada (< 24h) ou obstrução biliar persistente (< 72h).
+- **USG Endoscópica:** Exame mais sensível para microlitíase.
+
+---
+
+## Manejo Terapêutico Passo a Passo
+
+### 1. Reposição Volêmica (Prioridade #1)
+- **Fluido:** Ringer Lactato (1,5 mL/kg/h + bolus de 10 mL/kg em hipovolemia).
+- **Metas:** Queda de ureia/creatinina, Débito Urinário > 0,5 mL/kg/h, PA e Hematócrito (35-45%) normais.
+
+### 2. Analgesia
+- **Fentanil:** Maior segurança em insuficiência renal aguda.
+- **Morfina:** Questionável pelo aumento da pressão no Esfíncter de Oddi.
+- **Meperidina:** **Evitar** devido à toxicidade neurológica (convulsões).
+
+### 3. Nutrição
+**A primeira opção é sempre a Enteral.**
+- **Pancreatite Leve:** Dieta oral precoce se houver fome, ausência de náuseas e peristalse presente.
+- **Pancreatite Grave:** Nutrição enteral (nasogástrica ou nasojejunal) em < 72h. Previne translocação bacteriana.
+- **Nutrição Parenteral (NPT):** Apenas se a enteral não for tolerada ou não atingir metas calóricas em 48-72h.
+
+### 4. Antibioticoterapia
+**Proibido o uso profilático.**
+- **Indicações:** Necrose infectada (sinal de gás na TC ou piora clínica após 7-10 dias) ou infecções extrapancreáticas (ITU, Pneumonia).
+- **Escolha:** Carbapenêmicos (**Meropenem/Imipenem**) pela excelente penetração no tecido pancreático.
+
+---
+
+## Complicações Locais e Sistêmicas
+
+As complicações são divididas pelo tempo (**4 semanas**) e pelo tipo de conteúdo (fluido ou necrose).
+
+### Classificação pelo Tempo
+| < 4 Semanas | > 4 Semanas |
 | :--- | :--- |
-| **Leve** | Sem falência de órgãos e sem complicações locais/sistêmicas. |
-| **Moderada** | Falência orgânica transitória (< 48h) ou complicações locais. |
-| **Grave** | Falência de órgãos persistente (> 48h). |
+| **APFC:** Coleção fluida (edematosa). | **Pseudocisto:** Encapsulado, sem necrose. |
+| **ANC:** Coleção necrótica aguda. | **WON:** Necrose encapsulada (Walled-off). |
 
-### Escore de Balthazar (Tomográfico)
-Avalia a inflamação e o grau de necrose pancreática para determinar o índice de gravidade e o risco de mortalidade.
+### Abordagem "Step-up" para Necrose Infectada
+1. Suporte clínico e antibióticos.
+2. Drenagem percutânea ou endoscópica (menos invasiva).
+3. Necrosectomia minimamente invasiva.
+4. Necrosectomia aberta (último recurso, idealmente após 4 semanas).
 
-## Manejo Terapêutico
-
-O tratamento inicial é focado em suporte e prevenção de complicações.
-
-1. **Reposição Volêmica:** Prioritária nas primeiras 24-48h. Preferência pelo **Ringer Lactato** (exceto em hipercalcemia). Meta: redução de ureia/creatinina e débito urinário > 0,5 ml/kg/h.
-2. **Analgesia:** O fentanil é seguro na insuficiência renal. Evitar meperidina (toxicidade neurológica).
-3. **Nutrição:**
-   - **Leve:** Dieta oral zero até melhora da dor e presença de fome/ruídos hidroaéreos.
-   - **Grave/Moderada:** Nutrição **enteral precoce** (< 72h) via sonda nasojejunal/nasogástrica para prevenir translocação bacteriana. NPT é exceção.
-4. **Antibióticos:** Não usar como profilaxia. Indicado apenas se houver suspeita fundamentada ou confirmação de necrose infectada (Meropenem é uma boa escolha pela penetração pancreática).
-
-## Complicações Locais
-
-As coleções líquidas e necróticas são classificadas pelo tempo de evolução:
-
-| Tempo | Edematosa Intersticial | Necrosante |
-| :--- | :--- | :--- |
-| **< 4 semanas** | Coleção Fluida Peripancreática Aguda | Coleção Necrótica Aguda (ANC) |
-| **> 4 semanas** | **Pseudocisto** (Paredes bem definidas) | **Necrose Encapsulada (WON)** |
-
-- **Manejo da Necrose Infectada:** Suspeitar se houver gás na TC ou piora clínica após 7-10 dias. O tratamento envolve antibioticoterapia e, se necessário, necrosectomia (preferencialmente por técnicas minimamente invasivas - *Step-up approach*).
-
-## Abordagem Biliar (CPRE e Colecistectomia)
-
-- **CPRE de Urgência (< 24h):** Indicada se houver colangite associada ou obstrução persistente.
-- **Colecistectomia:** 
-  - Na pancreatite leve: Durante a mesma internação (após 7 dias).
-  - Na pancreatite grave: Aguardar resolução da inflamação (no mínimo 3 a 6 semanas).
+## Abordagem Biliar (Cirurgia)
+- **Pancreatite Leve:** Colecistectomia na mesma internação (após 7 dias).
+- **Pancreatite Grave:** Aguardar resolução da inflamação (mínimo de 3 a 6 semanas) para evitar infecção.
 
 ---
 *Este material é destinado a profissionais e estudantes de saúde. Sempre siga os protocolos institucionais vigentes.*
