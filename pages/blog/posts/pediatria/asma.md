@@ -1,9 +1,11 @@
 ---
 title: "Asma na Pediatria: Do Diagnóstico ao Manejo (GINA 2024)"
 date: "14/03/2026"
-author: "Equipe MedFocus"
+author: "César Vinícius"
 description: "Um guia prático sobre definição, critérios diagnósticos por faixa etária e o tratamento escalonado da asma segundo as diretrizes mais recentes."
 coverImage: "/blog/assets/pediatria/asma-capa.webp"
+category: "Pediatria"
+tags: ["Pediatria", "Saúde Infantil"]
 ---
 
 A **Asma** é uma das doenças crônicas mais comuns na infância, exigindo um diagnóstico preciso e um manejo dinâmico para garantir a qualidade de vida do paciente e evitar exacerbações graves.

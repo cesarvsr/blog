@@ -1,5 +1,11 @@
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // KaTeX is handled by defer + onload, but we can re-trigger if dynamic content appears
+        
         const menuBtn = document.getElementById('mobile-menu-btn');
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('sidebar-overlay');
@@ -50,11 +56,12 @@
                 await fetchIndex();
                 if (!searchIndex) return;
 
-                const filtered = searchIndex.filter(item => 
-                    item.title.toLowerCase().includes(query) || 
-                    item.category.toLowerCase().includes(query) ||
-                    item.description.toLowerCase().includes(query)
-                ).slice(0, 8);
+                const filtered = searchIndex.filter(item => {
+                    const title = (item.postName || '').toLowerCase();
+                    const category = (item.category || '').toLowerCase();
+                    const description = (item.postDescription || '').toLowerCase();
+                    return title.includes(query) || category.includes(query) || description.includes(query);
+                }).slice(0, 8);
 
                 searchItems.innerHTML = '';
                 if (filtered.length === 0) {
@@ -62,12 +69,12 @@
                 } else {
                     filtered.forEach(item => {
                         const link = document.createElement('a');
-                        link.href = item.url;
+                        link.href = item.url || `/blog/articles/${item.postUrl}`;
                         link.className = 'block p-4 hover:bg-gray-50 transition-colors group';
                         link.innerHTML = `
-                            <div class="text-[10px] font-black text-primary uppercase tracking-widest mb-1">${item.category}</div>
-                            <div class="text-xs font-bold text-gray-900 group-hover:text-primary transition-colors">${item.title}</div>
-                            ${item.description ? `<div class="text-[10px] text-gray-500 line-clamp-1 mt-1">${item.description}</div>` : ''}
+                            <div class="text-[10px] font-semibold text-primary uppercase tracking-wider mb-1">${item.category || ''}</div>
+                            <div class="text-xs font-semibold text-gray-900 group-hover:text-primary transition-colors">${item.postName || ''}</div>
+                            ${item.postDescription ? `<div class="text-[10px] text-gray-500 line-clamp-1 mt-1">${item.postDescription}</div>` : ''}
                         `;
                         searchItems.appendChild(link);
                     });

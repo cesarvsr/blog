@@ -4,6 +4,8 @@ date: "20/03/2026"
 author: "César Vinícius"
 description: "Uma revisão exaustiva sobre as distócias funcionais, de trajeto e de dilatação, com guia completo de manobras para distócia de ombro e interpretação de partograma."
 coverImage: "/blog/assets/distocia-capa.webp"
+category: "Obstetrícia"
+tags: ["Obstetrícia", "Emergências", "Urgências"]
 ---
 
 A **Distócia** refere-se a qualquer dificuldade ou anormalidade no progresso do trabalho de parto. Identificar precocemente essas variações através do partograma e dominar as manobras de emergência é essencial para evitar desfechos perinatais adversos.

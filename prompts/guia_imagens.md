@@ -24,19 +24,24 @@ mv ~/Downloads/minha-imagem.webp pages/blog/assets/nome-correto.webp
 ---
 
 ## 3. Como Usar no Post (Markdown)
-Para inserir a imagem dentro do seu texto `.md`, use o caminho absoluto que começa com `/blog/assets/`.
+Para inserir a imagem dentro do seu texto `.md`, use o caminho absoluto que começa com `/blog/assets/`. 
+
+**Nota:** O blog converte automaticamente imagens (JPG, PNG, etc.) para o formato otimizado `.webp` durante o build. Você pode manter a extensão original no seu Markdown que o link será adaptado automaticamente.
 
 ### No Cabeçalho (Imagem de Capa):
 ```yaml
 ---
 title: "Título"
-coverImage: "/blog/assets/nome-da-imagem.webp"
+author: "César Vinícius"
+category: "Área Médica"
+tags: ["Tag1", "Tag2"]
+coverImage: "/blog/assets/nome-da-imagem.jpg"
 ---
 ```
 
 ### No Corpo do Texto:
 ```markdown
-![Descrição da Imagem](/blog/assets/nome-da-imagem.webp)
+![Descrição da Imagem](/blog/assets/nome-da-imagem.png)
 ```
 
 ---
@@ -44,5 +49,5 @@ coverImage: "/blog/assets/nome-da-imagem.webp"
 ## 4. Checklist de Nomenclatura Profissional
 ✅ **Apenas Letras Minúsculas:** Use `foto-hospital.webp` em vez de `FotoHospital.webp`.
 ✅ **Hifens em vez de Espaços:** Use `guia-pratico.webp` em vez de `guia pratico.webp`.
-✅ **Extensões Corretas:** Sempre termine com `.webp` ou `.svg`. (Evite .jpg ou .png para melhor performance).
+✅ **Extensões Corretas:** As imagens serão convertidas para `.webp` automaticamente, mas você pode usar `.jpg`, `.png` ou `.webp` no seu texto. Prefira sempre arquivos de alta qualidade na pasta assets.
 ✅ **Sem Caracteres Especiais:** Evite acentos ou símbolos (ex: use `coracao`, não `coração`).

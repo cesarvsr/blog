@@ -4,6 +4,8 @@ date: "14/03/2026"
 author: "Equipe MedFocus"
 description: "Um manual completo para interpretação de arritmias atriais e bloqueios atrioventriculares, focado no algoritmo de 5 perguntas e manejo clínico."
 coverImage: "https://picsum.photos/seed/heart/1200/600"
+category: "Cardiologia"
+tags: ["Cardiologia", "ECG", "Arritmias"]
 ---
 
 A interpretação do eletrocardiograma (ECG) em situações de arritmia exige um método sistemático para evitar erros diagnósticos graves. Este guia foca nas duas extremidades dos distúrbios do ritmo: a **Fibrilação Atrial (FA)** e os **Bloqueios Atrioventriculares (BAV)**.

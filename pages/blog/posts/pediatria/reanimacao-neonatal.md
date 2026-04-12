@@ -1,9 +1,11 @@
 ---
 title: "Reanimação Neonatal: Protocolo para RN ≥ 34 Semanas"
 date: "14/03/2026"
-author: "Equipe MedFocus"
+author: "César Vinícius"
 description: "Guia completo sobre os passos iniciais, Minuto de Ouro e Ventilação por Pressão Positiva (VPP) segundo as diretrizes mais recentes da Sociedade Brasileira de Pediatria."
 coverImage: "/blog/assets/pediatria/reanimacao-neonatal-capa.webp"
+category: "Pediatria"
+tags: ["Pediatria", "Saúde Infantil"]
 ---
 
 A **Reanimação Neonatal** é um dos procedimentos mais críticos e sensíveis ao tempo na prática pediátrica. O sucesso do atendimento depende de uma equipe preparada, material verificado e, acima de tudo, do respeito ao **Minuto de Ouro**.

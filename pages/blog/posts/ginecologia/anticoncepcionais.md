@@ -4,6 +4,8 @@ date: "20/03/2026"
 author: "César Vinícius"
 description: "Uma revisão exaustiva sobre planejamento familiar, legislação, farmacologia de estrogênios e progestagênios, LARCs, métodos hormonais, de barreira e de emergência."
 coverImage: "/blog/assets/anticoncepcionais-capa.webp"
+category: "Ginecologia"
+tags: ["Ginecologia", "Saúde da Mulher"]
 ---
 
 O planejamento familiar e a anticoncepção são pilares da saúde reprodutiva, garantindo o direito à regulação da fecundidade. Este guia consolida as bases legais, farmacológicas e clínicas para a escolha e o manejo de métodos contraceptivos, baseando-se nas diretrizes mais recentes e nos critérios de elegibilidade da OMS.

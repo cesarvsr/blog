@@ -4,6 +4,8 @@ date: "11/04/2026"
 author: "César Vinícius"
 description: "Uma revisão técnica e atualizada sobre a etiologia, diagnóstico, e o manejo multimodal da pancreatite aguda."
 coverImage: "/blog/assets/pancreatite-aguda.webp"
+category: "Cirurgia"
+tags: ["Cirurgia Geral", "Abdome Agudo"]
 ---
 
 A pancreatite aguda é uma condição inflamatória do pâncreas que pode variar desde uma doença leve e autolimitada até uma síndrome sistêmica grave com alta mortalidade. Caracteriza-se pela ativação intrapancreática de enzimas, resultando em autodigestão tecidual e uma resposta inflamatória sistêmica.

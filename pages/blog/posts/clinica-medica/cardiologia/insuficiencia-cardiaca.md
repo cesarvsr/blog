@@ -4,6 +4,8 @@ date: "14/03/2026"
 author: "Equipe MedFocus"
 description: "Estudo detalhado sobre Insuficiência Cardíaca (IC), abrangendo classificações por FE, NYHA, estágios evolutivos, critérios de Framingham e o moderno manejo medicamentoso."
 coverImage: "https://picsum.photos/seed/cardiology/1200/600"
+category: "Cardiologia"
+tags: ["Cardiologia", "Fisiopatologia", "Insuficiência Cardíaca"]
 ---
 
 A **Insuficiência Cardíaca (IC)** não é uma doença única, mas uma síndrome clínica complexa caracterizada pela incapacidade do coração em bombear sangue adequadamente para suprir as demandas metabólicas dos tecidos ou fazê-lo apenas sob elevadas pressões de enchimento.

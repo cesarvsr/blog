@@ -4,6 +4,8 @@ date: "20/03/2026"
 author: "César Vinícius"
 description: "Um guia técnico de alta densidade integrando todas as fases do TPP, desde o rastreamento bioquímico até os protocolos farmacológicos críticos e assistência ao parto."
 coverImage: "/blog/assets/trabalho-parto-prematuro-capa.webp"
+category: "Obstetrícia"
+tags: ["Obstetrícia", "Prematuridade", "Urgências"]
 ---
 
 O **Trabalho de Parto Prematuro (TPP)** é um dos temas mais críticos da obstetrícia moderna. Este guia exaustivo consolida critérios diagnósticos, protocolos de maturação pulmonar e condutas de inibição, organizados para consulta rápida e profunda.

@@ -4,6 +4,8 @@ date: "20/03/2026"
 author: "César Vinícius"
 description: "Um guia exaustivo sobre a condução do trabalho de parto, incluindo fases clínicas, manejos de 1º a 4º estágio, distocia de ombro, parto operatório e cuidados neonatais imediatos."
 coverImage: "/blog/assets/assistencia-parto-capa.webp"
+category: "Obstetrícia"
+tags: ["Obstetrícia", "Parto", "Urgências"]
 ---
 
 A assistência ao trabalho de parto exige uma vigilância rigorosa e condutas baseadas em evidências para garantir a segurança da díade mãe-filho. Este guia detalha as fases do parto, o manejo clínico, o uso do partograma e a resolução de emergências obstétricas.

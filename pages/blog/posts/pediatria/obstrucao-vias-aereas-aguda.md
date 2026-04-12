@@ -1,14 +1,14 @@
 ---
 title: "Obstrução Inflamatória Aguda das Vias Aéreas Superiores"
 date: "14/03/2026"
-author: "Equipe MedFocus"
+author: "César Vinícius"
 description: "Guia exaustivo sobre Laringotraqueíte viral (Crupe), Epiglotite Aguda e Traqueíte Bacteriana, incluindo escores de gravidade e protocolos de emergência."
 coverImage: "/blog/assets/pediatria/obstrucao-vias-aereas-capa.webp"
+category: "Pediatria"
+tags: ["Pediatria", "Saúde Infantil"]
 ---
 
 As obstruções inflamatórias agudas das vias aéreas superiores (VAS) são emergências pediátricas críticas. Devido ao diâmetro reduzido das vias aéreas em lactentes, qualquer edema inflamatório na região subglótica ou supraglótica pode reduzir drasticamente a área de passagem de ar, aumentando a resistência em até 16 vezes (Lei de Poiseuille).
-
----
 
 ## 0. Resfriado Comum (Nasofaringite Viral)
 

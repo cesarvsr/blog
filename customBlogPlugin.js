@@ -1,11 +1,26 @@
 import path from "node:path";
+import fs from "node:fs";
 import { readFile, stat, mkdir, writeFile } from "node:fs/promises";
 import markdownit from "markdown-it";
 import matter from "gray-matter";
 import { renderFile } from "ejs";
-import { buildNavTree, categoryMap, getTitle, parseDate, normalizeSlug } from "./sharedUtils.js";
+import { buildNavTree, categoryMap, getTitle, parseDate, normalizeSlug, adaptImageUrl } from "./sharedUtils.js";
 
 const md = markdownit({ html: true });
+
+// Rule to adapt image URLs in markdown content
+const defaultImageRender = md.renderer.rules.image || function (tokens, idx, options, env, self) {
+    return self.renderToken(tokens, idx, options);
+};
+
+md.renderer.rules.image = function (tokens, idx, options, env, self) {
+    const token = tokens[idx];
+    const srcIndex = token.attrIndex("src");
+    if (srcIndex >= 0) {
+        token.attrs[srcIndex][1] = adaptImageUrl(token.attrs[srcIndex][1]);
+    }
+    return defaultImageRender(tokens, idx, options, env, self);
+};
 
 function calculateReadingTime(text, wpm = 238, roundUp = true) {
     if (!text || typeof text !== "string") return 0;
@@ -43,7 +58,11 @@ async function getFlexiblePageData(globPath) {
         const fileContents = await readFile(post, "utf-8");
         const stats = await stat(post, { bigint: false });
         const { data, content } = matter(fileContents);
-        const htmlContent = md.render(content);
+        // Apply image adaptation to the body content BEFORE rendering
+        const adaptedContent = content.replace(/(!\[.*?\]\()(.+?)(\))/g, (match, p1, p2, p3) => {
+            return p1 + adaptImageUrl(p2) + p3;
+        });
+        const htmlContent = md.render(adaptedContent);
         const slug = normalizeSlug(path.basename(post, ".md"));
         
         // Derive breadcrumbs from directory structure
@@ -77,9 +96,11 @@ async function getFlexiblePageData(globPath) {
             postAuthor: data.author ?? "Anonymous",
             postDescription: data.description ?? "",
             postTime: calculateReadingTime(content),
-            coverImage: data.coverImage ?? null,
+            coverImage: adaptImageUrl(data.coverImage ?? null),
+            category: categoryTitle,
             categorySlug,
             categoryTitle,
+            tags: data.tags || [],
             breadcrumbs: [...breadcrumbs, { label: data.title ?? slug, url: "" }]
         };
     }));

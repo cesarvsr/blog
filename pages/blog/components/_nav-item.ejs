@@ -15,32 +15,20 @@
 <div class="space-y-0.5">
     <% if (isFolder) { %>
         <details class="group/folder" <%= isOpen ? 'open' : '' %>>
-            <summary class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-gray-500 hover:bg-white hover:text-primary rounded-xl transition-all cursor-pointer list-none group border border-transparent hover:border-gray-200 shadow-none hover:shadow-sm">
-                <div class="w-8 h-8 rounded-lg bg-gray-50 text-gray-400 group-hover:text-primary flex items-center justify-center transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                    </svg>
-                </div>
-                <a href="<%= item.url %>" class="flex-1 hover:text-primary transition-colors"><%= item.title %></a>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 caret-icon text-gray-400 group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
+            <summary class="flex items-center gap-2 px-2 py-1.5 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-black rounded-md transition-all cursor-pointer list-none group">
+                <span class="flex-1 truncate" title="<%= item.title %>"><%= item.title %></span>
+                <span class="text-[10px] text-gray-400 group-hover:text-gray-600 transition-transform duration-200 group-open/folder:rotate-90 shrink-0">▶</span>
             </summary>
             
-            <div class="pl-4 mt-0.5 space-y-0.5 border-l border-gray-100 ml-4">
+            <div class="pl-3 mt-0.5 space-y-0.5 border-l border-gray-200 ml-2.5">
                 <% item.children.forEach(child => { %>
                     <%- include("_nav-item", { item: child, currentPath: currentPath }) %>
                 <% }) %>
             </div>
         </details>
     <% } else { %>
-        <a href="<%= item.url %>" class="flex items-center gap-3 px-3 py-2 text-xs font-bold rounded-xl transition-all group border <%= isActive ? 'text-primary bg-blue-50/50 border-blue-100 shadow-sm' : 'text-gray-500 hover:bg-white hover:text-primary border-transparent hover:border-gray-200' %>">
-            <div class="w-8 h-8 rounded-lg <%= isActive ? 'bg-white text-primary' : 'bg-gray-50 text-gray-400 group-hover:text-primary' %> flex items-center justify-center transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-            </div>
-            <%= item.title %>
+        <a href="<%= item.url %>" class="flex items-center px-2 py-1.5 text-sm font-medium rounded-md transition-all <%= isActive ? 'text-primary bg-blue-50/50' : 'text-gray-600 hover:bg-gray-100 hover:text-black' %>" title="<%= item.title %>">
+            <span class="truncate"><%= item.title %></span>
         </a>
     <% } %>
 </div>

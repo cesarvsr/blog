@@ -1,14 +1,14 @@
 ---
 title: "IVAS na Pediatria: Rinossinusite e Faringoamigdalites"
 date: "14/03/2026"
-author: "Equipe MedFocus"
+author: "César Vinícius"
 description: "Um guia prático sobre diagnóstico, etiologia e manejo das principais infecções de vias aéreas superiores em crianças."
 coverImage: "/blog/assets/pediatria/ivas-capa.webp"
+category: "Pediatria"
+tags: ["Pediatria", "Saúde Infantil"]
 ---
 
 As **Infecções de Vias Aéreas Superiores (IVAS)** representam a maioria dos atendimentos pediátricos. Entre elas, a Rinossinusite e as Faringoamigdalites exigem atenção especial para a correta diferenciação entre quadros virais e bacterianos.
-
----
 
 ## 1. Rinossinusite Bacteriana Aguda
 

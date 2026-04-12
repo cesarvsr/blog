@@ -23,6 +23,18 @@ export const normalizeSlug = (str) => {
         .replace(/^-+|-+$/g, ""); // Trim hyphens
 };
 
+/**
+ * Adapts image URLs by converting raster extensions to .webp
+ * matching the behavior of the built-in assetsPlugin.
+ */
+export const adaptImageUrl = (url) => {
+    if (!url || typeof url !== "string") return url;
+    if (url.startsWith("http") || url.startsWith("data:")) return url;
+    // Don't adapt SVG or other non-raster formats
+    if (url.toLowerCase().endsWith(".svg")) return url;
+    return url.replace(/\.(jpe?g|png|tiff?|gif)$/i, ".webp");
+};
+
 export const parseDate = (dateStr) => {
     if (!dateStr || typeof dateStr !== "string") return new Date(0);
     // Handle DD/MM/YYYY
@@ -59,7 +71,7 @@ export const getPageData = async (globPattern) => {
             url: `/blog/articles/${slug}`,
             slug: slug,
             description: data.description || "",
-            coverImage: data.coverImage || null,
+            coverImage: adaptImageUrl(data.coverImage || null),
             tags: data.tags || []
         };
     });
@@ -103,12 +115,15 @@ export async function buildNavTree(currentDir, baseDir) {
                 slug: slug,
                 date: data.date || "",
                 description: data.description || "",
-                coverImage: data.coverImage || null,
+                coverImage: adaptImageUrl(data.coverImage || null),
                 tags: data.tags || []
             });
         }
     }
-    return items.sort((a, b) => (a.type === "folder" ? -1 : 1));
+    return items.sort((a, b) => {
+        if (a.type !== b.type) return a.type === "folder" ? -1 : 1;
+        return (a.title || a.name).localeCompare(b.title || b.name);
+    });
 }
 
 /**
@@ -149,10 +164,13 @@ export function buildNavTreeSync(currentDir, baseDir) {
                 slug: slug,
                 date: data.date || "",
                 description: data.description || "",
-                coverImage: data.coverImage || null,
+                coverImage: adaptImageUrl(data.coverImage || null),
                 tags: data.tags || []
             });
         }
     }
-    return items.sort((a, b) => (a.type === "folder" ? -1 : 1));
+    return items.sort((a, b) => {
+        if (a.type !== b.type) return a.type === "folder" ? -1 : 1;
+        return (a.title || a.name).localeCompare(b.title || b.name);
+    });
 }

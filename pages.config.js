@@ -1,4 +1,4 @@
-import { ejsPlugin, sitemapPlugin, articlePlugin, tailwindPlugin } from "basic-ssg";
+import { ejsPlugin, sitemapPlugin, tailwindPlugin } from "basic-ssg";
 import { assetsPlugin } from "@basic-ssg/plugin-assets";
 import { categoryPlugin } from "./categoryPlugin.js";
 import { customBlogPlugin } from "./customBlogPlugin.js";
@@ -12,9 +12,6 @@ export default {
     ejsPlugin(),
     tailwindPlugin(),
     sitemapPlugin(),
-    articlePlugin({
-      mdPaths: "posts/**/*.md"
-    }),
     customBlogPlugin({
       mdPaths: "posts/**/*.md"
     }),

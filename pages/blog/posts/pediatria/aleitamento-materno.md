@@ -1,9 +1,11 @@
 ---
 title: "Aleitamento Materno: O Guia Definitivo"
 date: "14/03/2026"
-author: "Equipe MedFocus"
+author: "César Vinícius"
 description: "Estudo abrangente sobre aleitamento materno, abordando desde a fisiologia da apojadura até a composição bioquímica do leite e técnicas de amamentação."
 coverImage: "https://picsum.photos/seed/breastfeeding/1200/600"
+category: "Pediatria"
+tags: ["Pediatria", "Nutrição"]
 ---
 
 O aleitamento materno é muito mais do que nutrição; é a primeira e mais eficaz intervenção de saúde pública para a redução da mortalidade infantil. O conteúdo a seguir explora os pilares técnicos essenciais para profissionais e estudantes de saúde.

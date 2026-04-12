@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:weight@400;600;700&display=swap');
 
 body{
-  font-family: 'Inter';
-  padding-top: 80px; /* Account for fixed header */
+  font-family: 'Inter', sans-serif;
+  padding-top: 0; 
 }
 
 img{
@@ -44,10 +44,7 @@ br {
   --color-accent: #00d084;
 }
 
-body{
-  font-family: 'Outfit', sans-serif;
-  padding-top: 0; 
-}
+
 
 /* Article body styles for rendered markdown */
 .article-body {
@@ -56,31 +53,36 @@ body{
   word-wrap: break-word;
 
   p {
-    line-height: 175%;
-    font-size: 18px;
-    margin: 1rem 0;
+    line-height: 1.6;
+    font-size: 17px;
+    margin: 1.25rem 0;
     max-width: 100%;
+    color: #1F2937;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
   }
 
   h2 {
-    font-size: 32px;
-    font-weight: bold;
-    margin: 2rem 0;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 2.5rem 0 1.25rem;
+    color: #111827;
+    letter-spacing: -0.01em;
   }
 
   h3 {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 2rem 0;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 2.25rem 0 1rem;
+    color: #111827;
   }
 
   h4 {
-    font-size: 22px;
+    font-size: 19px;
     font-weight: 600;
-    margin: 1.5rem 0;
+    margin: 1.75rem 0 0.75rem;
+    color: #374151;
   }
 
   img {
@@ -111,12 +113,10 @@ body{
   }
 
   ul {
-    line-height: 175%;
+    line-height: 1.6;
     list-style: disc;
-    margin-left: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding-left: 0;
+    margin: 1.25rem 0;
+    padding-left: 1.5rem;
   }
 
   ul li {
@@ -144,11 +144,10 @@ body{
 
   table {
     width: 100%;
-    margin: 3rem 0;
-    border-collapse: separate;
-    border-spacing: 0;
-    border: 1px solid var(--color-border);
-    border-radius: 1rem;
+    margin: 2.5rem 0;
+    border-collapse: collapse;
+    border: 1px solid #E5E7EB;
+    border-radius: 0.25rem;
     overflow: hidden;
   }
 
@@ -167,10 +166,10 @@ body{
   table th {
     padding: 1rem;
     text-align: left;
-    font-size: 14px;
-    font-weight: 800;
+    font-size: 13px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.025em;
     color: #4B5563;
     border-bottom: 1px solid var(--color-border);
   }
@@ -190,13 +189,13 @@ body{
     background-color: #FCFDFF;
   }
 
-  /* Article Card Blocks */
+  /* Article Card Blocks - Reframed as Clinical Insights */
   .article-card {
-    background: #FBFBFB;
-    border: 1px solid var(--color-border);
-    border-radius: 2rem;
-    padding: 2rem;
-    margin: 3rem 0;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 0.5rem;
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
     position: relative;
     overflow: hidden;
   }
@@ -206,14 +205,14 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    width: 6px;
+    width: 4px;
     height: 100%;
     background: var(--color-primary);
   }
 
   .article-card.card-warning {
-    background: #FFFBFB;
-    border-color: #FEE2E2;
+    background: #FFFDFD;
+    border-color: #FCA5A5;
   }
 
   .article-card.card-warning::before {
@@ -222,7 +221,11 @@ body{
 
   .article-card h4 {
     margin-top: 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: #111827;
+    margin-bottom: 0.75rem;
   }
 
   /* Table of Contents / Section Index */
@@ -235,12 +238,12 @@ body{
 
   .toc-box h4 {
     margin-top: 0;
-    font-size: 12px;
-    font-weight: 900;
+    font-size: 13px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.05em;
     color: #6B7280;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .toc-box ul {
@@ -267,7 +270,7 @@ body{
 
   iframe {
     width: 100%;
-    border-radius: 1.5rem;
+    border-radius: 0.75rem;
     margin: 3rem 0;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
   }
@@ -282,22 +285,21 @@ body{
   }
 
   blockquote {
-    border-left: 8px solid var(--color-primary);
-    padding: 2.5rem;
-    background-color: #FBFBFB;
-    border-radius: 2rem;
-    margin: 4rem 0;
-    font-size: 20px;
+    border-left: 3px solid #D1D5DB;
+    padding: 1.5rem 2rem;
+    background-color: transparent;
+    border-radius: 0;
+    margin: 2.5rem 0;
+    font-size: 19px;
     line-height: 1.6;
     font-weight: 500;
-    color: #1F2937;
+    color: #4B5563;
     font-style: italic;
-    box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
   }
 
   hr {
     border: none;
-    border-top: 2px solid #F3F4F6;
-    margin: 5rem 0;
+    border-top: 1px solid #E5E7EB;
+    margin: 4rem 0;
   }
 }

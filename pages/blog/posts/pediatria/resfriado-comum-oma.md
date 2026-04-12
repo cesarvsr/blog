@@ -1,10 +1,13 @@
 ---
 title: "IVAS na Pediatria: Resfriado Comum e Otite Média Aguda (OMA)"
 date: "14/03/2026"
-author: "Equipe MedFocus"
+author: "César Vinícius"
 description: "Um guia técnico exaustivo sobre a fisiopatologia, diagnóstico e manejo clínico do resfriado comum e das complicações do ouvido médio."
 coverImage: "/blog/assets/pediatria/resfriado-oma-capa.webp"
+category: "Pediatria"
+tags: ["Pediatria", "Saúde Infantil"]
 ---
+
 
 As infecções das vias aéreas superiores são a causa mais frequente de consultas pediátricas. Compreender a transição entre um quadro viral simples (Resfriado) e suas complicações bacterianas (OMA) é essencial para a prática clínica.
 

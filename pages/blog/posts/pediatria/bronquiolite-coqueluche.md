@@ -1,14 +1,14 @@
 ---
 title: "Bronquiolite e Coqueluche: Guia Completo de Manejo Pediátrico"
 date: "14/03/2026"
-author: "Equipe MedFocus"
+author: "César Vinícius"
 description: "Um guia detalhado sobre Bronquiolite Viral Aguda, Bronquiolite Obliterante e Coqueluche: do diagnóstico clínico às novas profilaxias."
 coverImage: "/blog/assets/pediatria/bronquiolite-coqueluche-capa.webp"
+category: "Pediatria"
+tags: ["Pediatria", "Saúde Infantil"]
 ---
 
 As infecções respiratórias são os principais motivos de consulta e internação na pediatria. Entender a distinção entre Bronquiolite e Coqueluche é fundamental para o manejo adequado.
-
----
 
 ## 1. Bronquiolite Viral Aguda (BVA)
 

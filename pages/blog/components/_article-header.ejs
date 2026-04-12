@@ -1,21 +1,32 @@
 <%- include("_breadcrumb", { items: typeof breadcrumbs !== 'undefined' ? breadcrumbs : [] }) %>
 
-<h1 class="text-6xl font-black text-gray-900 leading-[1.05] tracking-tighter mb-8"><%= postName %></h1>
+<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight tracking-tight mb-8"><%= postName %></h1>
 
-<div class="flex items-center gap-6 mb-16">
+<div class="flex flex-wrap items-center gap-y-4 gap-x-8 mb-6 pb-6 border-b border-gray-100">
     <div class="flex flex-col gap-1">
-        <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest">AUTORIA</p>
-        <p class="text-sm font-bold text-gray-900 border-b-2 border-primary">Cesar Vinicius</p>
+        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">AUTORIA</p>
+        <p class="text-sm font-semibold text-gray-900"><%= typeof postAuthor !== 'undefined' ? postAuthor : (typeof author !== 'undefined' ? author : 'Cesar Vinicius') %></p>
     </div>
-    <div class="h-8 w-px bg-border"></div>
-    <div class="flex flex-col gap-1 text-gray-400">
-        <p class="text-[10px] font-black uppercase tracking-widest">ÚLTIMA ATUALIZAÇÃO</p>
-        <p class="text-sm font-bold text-gray-900"><%= postDate %></p>
+    <div class="flex flex-col gap-1">
+        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">CATEGORIA</p>
+        <p class="text-sm font-semibold text-primary"><%= typeof category !== 'undefined' ? category : (typeof categoryTitle !== 'undefined' ? categoryTitle : '') %></p>
+    </div>
+    <div class="flex flex-col gap-1">
+        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">ÚLTIMA ATUALIZAÇÃO</p>
+        <p class="text-sm font-semibold text-gray-900"><%= postDate %></p>
     </div>
 </div>
 
+<% if (typeof tags !== 'undefined' && tags && tags.length > 0) { %>
+<div class="flex flex-wrap gap-2 mb-10">
+    <% tags.forEach(tag => { %>
+        <span class="px-2 py-1 bg-gray-50 text-gray-600 text-[10px] font-bold uppercase tracking-wider rounded border border-gray-100"><%= tag %></span>
+    <% }) %>
+</div>
+<% } %>
+
 <% if (typeof coverImage !== 'undefined' && coverImage) { %>
-<div class="mb-16 rounded-[2.5rem] overflow-hidden border border-border shadow-lg h-96">
+<div class="mb-12 rounded-xl overflow-hidden border border-border shadow-sm h-64 sm:h-80 md:h-96">
     <img class="w-full h-full object-cover" src="<%= coverImage.startsWith('http') || coverImage.startsWith('/blog/') ? coverImage : '/blog/assets/' + coverImage %>" alt="<%= postName %>">
 </div>
 <% } %>

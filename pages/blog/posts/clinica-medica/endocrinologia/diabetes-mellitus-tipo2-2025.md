@@ -4,6 +4,8 @@ date: "14/03/2026"
 author: "Equipe MedFocus"
 description: "Novos critérios de triagem, pilares de tratamento cardiorrenal e metas individualizadas baseadas na atualização 2025 da Sociedade Brasileira de Diabetes."
 coverImage: "https://picsum.photos/seed/diabetes/1200/600"
+category: "Endocrinologia"
+tags: ["Endocrinologia", "Metabolismo"]
 ---
 
 O manejo do **Diabetes Mellitus Tipo 2 (DM2)** passou por transformações profundas na última década, migrando de uma visão glicocêntrica para uma abordagem de **proteção orgânica e multimetas**. A diretriz de 2025 consolida essa mudança, priorizando fármacos com benefício cardiovascular e renal comprovado.

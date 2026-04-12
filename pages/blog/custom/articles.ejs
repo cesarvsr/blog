@@ -6,8 +6,8 @@
         <%- include("../components/_sidebar", { currentPath: typeof categorySlug !== 'undefined' ? '/blog/' + categorySlug : (typeof categoryTitle !== 'undefined' ? '/blog/' + categoryTitle.toLowerCase().replace(/ /g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "") : '/blog/articles') }) %>
 
         <!-- Main Content Area: Recent Updates Grid -->
-        <main class="flex-1 flex flex-col overflow-y-auto bg-white p-6 md:p-12 lg:p-16">
-            <div class="max-w-7xl mx-auto w-full mb-16">
+        <main class="flex-1 flex flex-col overflow-y-auto bg-white p-4 sm:p-6 lg:p-10">
+            <div class="max-w-7xl mx-auto w-full mb-10">
                 
                 <!-- Breadcrumb -->
                 <% 
@@ -20,9 +20,9 @@
 
                 <!-- Section Header -->
                 <div class="mb-12">
-                    <div class="flex items-center gap-2 mb-2">
-                        <h1 class="text-4xl font-black text-gray-900 tracking-tighter"><%= typeof categoryTitle !== 'undefined' ? categoryTitle : 'Atualizações Recentes' %></h1>
-                        <div class="ml-auto flex items-center gap-2 text-xs font-bold text-gray-400">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 mb-4">
+                        <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 tracking-tight"><%= typeof categoryTitle !== 'undefined' ? categoryTitle : 'Atualizações Recentes' %></h1>
+                        <div class="sm:ml-auto flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-500">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                             <span><%= new Date().toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }) %></span>
                         </div>
@@ -30,8 +30,45 @@
                     <p class="text-gray-500 font-medium"><%= typeof categoryDescription !== 'undefined' ? categoryDescription : 'Mantenha-se atualizado com as últimas mudanças nas diretrizes médicas.' %></p>
                 </div>
 
-                <!-- Articles Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Category Filters (Badges) -->
+                <% 
+                    const categories = [
+                        { label: 'Todos', url: '/blog/articles' },
+                        { label: 'Clínica Médica', url: '/blog/clinica-medica' },
+                        { label: 'Obstetrícia', url: '/blog/obstetricia' },
+                        { label: 'Pediatria', url: '/blog/pediatria' },
+                        { label: 'Cirurgia', url: '/blog/cirurgia' },
+                        { label: 'Ginecologia', url: '/blog/ginecologia' }
+                    ];
+
+                    // Helper to determine active state
+                    const getBadgeClass = (badgeUrl) => {
+                        const isHome = (currentPath === '/blog' || currentPath === '/blog/index.html' || currentPath === '/blog/articles');
+                        const isActive = badgeUrl === '/blog/articles' ? isHome : currentPath.startsWith(badgeUrl);
+                        
+                        return isActive 
+                            ? 'px-4 py-2 bg-gray-900 border border-gray-900 text-white text-sm font-semibold rounded-full shadow-sm hover:bg-black transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2' 
+                            : 'px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-semibold rounded-full shadow-sm hover:border-gray-900 hover:text-gray-900 transition-colors';
+                    };
+                %>
+                <div class="mb-10 w-full overflow-x-auto pb-4 hide-scrollbar">
+                    <div class="flex gap-3 min-w-max">
+                        <% categories.forEach(cat => { %>
+                            <a href="<%= cat.url %>" class="<%= getBadgeClass(cat.url) %>"><%= cat.label %></a>
+                        <% }) %>
+                    </div>
+                </div>
+                <!-- Hide scrollbar utility for badges -->
+                <style>
+                    .hide-scrollbar::-webkit-scrollbar {
+                        display: none;
+                    }
+                    .hide-scrollbar {
+                        -ms-overflow-style: none; /* IE and Edge */
+                        scrollbar-width: none; /* Firefox */
+                    }
+                </style>                <!-- Articles Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     <% articles.forEach(post => { %>
                         <%- include("../components/_article-card", { 
                             url: post.postUrl, 

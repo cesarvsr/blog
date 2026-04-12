@@ -27,7 +27,12 @@ export const categoryPlugin = () => ({
                     const componentsDir = path.join(blogBase, "components");
                     await fs.mkdir(componentsDir, { recursive: true });
                     const navDataContent = `<% locals.navTree = ${JSON.stringify(navTree)}; %>`;
-                    await fs.writeFile(path.join(componentsDir, "_nav-data.ejs"), navDataContent);
+                    const navDataPath = path.join(componentsDir, "_nav-data.ejs");
+                    
+                    const existingContent = await fs.readFile(navDataPath, "utf-8").catch(() => "");
+                    if (existingContent !== navDataContent) {
+                        await fs.writeFile(navDataPath, navDataContent);
+                    }
 
                     const allArticles = [];
                     const renderPromises = [];

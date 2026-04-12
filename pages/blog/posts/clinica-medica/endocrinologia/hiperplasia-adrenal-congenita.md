@@ -4,6 +4,8 @@ date: "14/03/2026"
 author: "Equipe MedFocus"
 description: "Estudo aprofundado sobre os defeitos da 21-hidroxilase e outras enzimas da adrenal, abordando diagnóstico neonatal, virilização e manejo hormonal."
 coverImage: "/blog/assets/hiperplasia-adrenal/steroidogenesis_pathway.webp"
+category: "Endocrinologia"
+tags: ["Endocrinologia", "Metabolismo"]
 ---
 
 A **Hiperplasia Adrenal Congênita (HAC)** é um grupo de doenças autossômicas recessivas caracterizadas pelo bloqueio na síntese de cortisol. O conteúdo a seguir foi estruturado de forma canônica, seguindo rigorosamente a hierarquia e os temas apresentados na literatura técnica de referência.

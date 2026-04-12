@@ -4,6 +4,8 @@ date: "14/03/2026"
 author: "Equipe MedFocus"
 description: "Destaques, atualizações clínicas e condutas práticas da nova diretriz brasileira de hipertensão 2025, integrando SBC, SBH e SBN."
 coverImage: "https://picsum.photos/seed/hipertensao/1200/600"
+category: "Cardiologia"
+tags: ["Cardiologia", "Diretrizes", "Hipertensão"]
 ---
 
 A **Hipertensão Arterial Sistêmica (HAS)** permanece como o principal fator de risco modificável para doenças cardiovasculares e renais. A nova atualização de 2025 foca em diagnósticos precisos fora do consultório e metas mais rigorosas para quase todos os perfis de pacientes.

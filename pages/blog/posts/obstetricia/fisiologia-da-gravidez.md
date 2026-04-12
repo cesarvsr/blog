@@ -4,6 +4,8 @@ date: "20/03/2026"
 author: "César Vinícius"
 description: "Uma revisão das alterações hemodinâmicas, endócrinas, cardiovasculares e metabólicas que ocorrem durante o ciclo gravídico-puerperal."
 coverImage: "/blog/assets/fisiologia-gravidez-capa.webp"
+category: "Obstetrícia"
+tags: ["Obstetrícia", "Fisiologia"]
 ---
 
 A gravidez é um período de intensas modificações fisiológicas no organismo materno, destinadas a suprir as demandas metabólicas do feto em crescimento e preparar a mulher para o parto e a lactação. Compreender essas alterações é fundamental para diferenciar o que é fisiológico do que é patológico no acompanhamento pré-natal.

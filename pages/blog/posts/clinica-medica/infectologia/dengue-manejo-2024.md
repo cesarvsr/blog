@@ -4,7 +4,8 @@ date: "05/04/2026"
 author: "César Vinícius"
 description: "Um resumo de focado nas novas diretrizes do Ministério da Saúde (6ª Edição/2024) para o manejo da Dengue, incluindo manejo em populações especiais e situações de risco."
 coverImage: "/blog/assets/dengue-manejo-2024_capa_final.webp"
-iframeSrc: "/blog/dengue-2024.html"
+category: "Infectologia"
+tags: ["Infectologia", "Epidemiologia"]
 ---
 
 A Dengue (junto com Zika e Chikungunya) é um dos temas mais prevalentes e decisivos nas provas de residência médica no Brasil, como o PSU-MG e ENARE. A edição de 2024 do manual do Ministério da Saúde trouxe refinamentos críticos no manejo, principalmente em populações especiais (cardiopatas, uso de anticoagulantes), e as bancas adoram cobrar essas nuances.

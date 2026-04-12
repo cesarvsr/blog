@@ -4,6 +4,8 @@ date: "20/03/2026"
 author: "César Vinícius"
 description: "Um guia exaustivo sobre a rotina pré-natal, cronograma de exames e manejo das principais patologias como toxoplasmose, ITU, GBS, e polidrâmnio."
 coverImage: "/blog/assets/prenatal-capa.webp"
+category: "Obstetrícia"
+tags: ["Obstetrícia", "Pré-natal"]
 ---
 
 O **Pré-natal** é o pilar da saúde materno-infantil. Este guia unifica o cronograma de assistência, os exames obrigatórios e o manejo das intercorrências gestacionais mais frequentes, garantindo uma abordagem completa e segura.
