@@ -3,7 +3,11 @@
     <%- include("../components/_header") %>
 
     <div class="flex flex-1 overflow-hidden">
-        <%- include("../components/_sidebar", { currentPath: typeof categorySlug !== 'undefined' ? '/blog/' + categorySlug : (typeof categoryTitle !== 'undefined' ? '/blog/' + categoryTitle.toLowerCase().replace(/ /g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "") : '/blog/articles') }) %>
+        <%- include("../components/_sidebar", { 
+            currentPath: typeof categorySlug !== 'undefined' ? '/blog/' + categorySlug : (typeof categoryTitle !== 'undefined' ? '/blog/' + categoryTitle.toLowerCase().replace(/ /g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "") : '/blog/articles'),
+            navTree: locals.navTree,
+            navMapas: locals.navMapas
+        }) %>
 
         <!-- Main Content Area: Recent Updates Grid -->
         <main class="flex-1 flex flex-col overflow-y-auto bg-white p-4 sm:p-6 lg:p-10">

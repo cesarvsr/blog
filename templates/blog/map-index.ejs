@@ -1,0 +1,76 @@
+<%- include("../../pages/blog/components/_head", { title: 'Mapas Mentais - MedFocus' }) %>
+<body class="flex flex-col h-screen overflow-hidden bg-white antialiased">
+    <%- include("../../pages/blog/components/_header") %>
+
+    <div class="flex flex-1 overflow-hidden">
+        <%- include("../../pages/blog/components/_sidebar", { currentPath: '/blog/mapas', navTree: locals.navTree, navMapas: locals.navMapas }) %>
+
+        <!-- Main Content Area: Map Grid -->
+        <main class="flex-1 flex flex-col overflow-y-auto bg-white p-4 sm:p-6 lg:p-10">
+            <div class="max-w-7xl mx-auto w-full mb-10">
+                
+                <!-- Breadcrumb -->
+                <% 
+                    const breadcrumbs = [
+                        { label: 'Início', url: '/blog' },
+                        { label: 'Mapas Mentais', url: '' }
+                    ];
+                %>
+                <%- include("../../pages/blog/components/_breadcrumb", { items: breadcrumbs }) %>
+
+                <!-- Section Header -->
+                <div class="mb-12">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 mb-4">
+                        <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Mapas Mentais Interativos</h1>
+                    </div>
+                    <p class="text-gray-500 font-medium max-w-2xl">Explore nossos recursos visuais de revisão rápida. Condutas, diretrizes e diagnósticos em formato de mapa mental interativo.</p>
+                </div>
+
+                <!-- Maps Grid -->
+                <% if (typeof navMapas !== 'undefined' && navMapas && navMapas.length > 0) { %>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                        <% navMapas.forEach(map => { %>
+                            <%- include("../../pages/blog/components/_article-card", { 
+                                url: map.url, 
+                                title: map.title, 
+                                date: map.date, 
+                                description: map.description || 'Mapa mental interativo.',
+                                coverImage: map.coverImage || 'https://picsum.photos/seed/map/800/400',
+                                tags: map.tags || ['Mapa Mental'],
+                                readingTime: 'Visual'
+                            }) %>
+                        <% }) %>
+                    </div>
+                <% } else { %>
+                    <div class="flex flex-col items-center justify-center py-20 text-center">
+                        <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0121 18.382V7.618a1 1 0 01-1.447-.894L15 7m0 13V7" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Nenhum mapa disponível no momento</h3>
+                        <p class="text-gray-500 max-w-xs mx-auto">Nossos editores estão trabalhando em novas visualizações para você.</p>
+                    </div>
+                <% } %>
+            </div>
+            
+            <%- include("../../pages/blog/components/_footer") %>
+        </main>
+    </div>
+
+    <%- include("../../pages/blog/components/_scripts") %>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D1D5DB;
+            border-radius: 10px;
+        }
+    </style>
+</body>
+</html>

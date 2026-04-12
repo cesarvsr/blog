@@ -1,0 +1,106 @@
+<style>
+    :root { --mapa-accent: #2c3e50; --mapa-medical-blue: #00a8ff; }
+    
+    #mapa-wrapper { display: flex; flex-direction: column; height: 100%; width: 100%; overflow: hidden; }
+    #mapa-layout { display: grid; grid-template-columns: 1fr 350px; flex: 1; min-height: 0; }
+    
+    @media (max-width: 768px) {
+        #mapa-layout { grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
+    }
+    
+    #viz-container { position: relative; background: #f0f2f5; overflow: hidden; border-right: 1px solid #ccc; height: 100%; }
+    #mindmap { width: 100%; height: 100%; }
+
+    #mapa-panel { background: white; padding: 25px; display: flex; flex-direction: column; gap: 20px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); overflow-y: auto; height: 100%; z-index: 10;}
+    
+    .mapa-card { border: 1px solid #eee; padding: 15px; border-radius: 8px; background: #fafafa; border-left: 5px solid var(--mapa-medical-blue); }
+    .node-title { color: var(--mapa-accent); font-weight: bold; font-size: 1.3rem; margin-bottom: 10px; line-height: 1.2; }
+    
+    .markmap-node-selected > circle { fill: #e74c3c !important; r: 10; stroke: #c0392b; stroke-width: 3px; }
+    .markmap-node-selected > text { font-weight: bold; fill: #c0392b !important; font-size: 14px; }
+
+    .controls { position: absolute; bottom: 20px; left: 20px; display: flex; gap: 10px; z-index: 5;}
+    .mapa-btn { cursor: pointer; padding: 10px 15px; border-radius: 6px; border: 1px solid #bbb; background: white; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 14px; color: #333;}
+    .mapa-btn:hover { background: #f0f0f0; }
+    
+    .mapa-header { margin-top: 0; color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.5rem; font-weight: bold; }
+</style>
+
+<div id="mapa-wrapper">
+    <div id="mapa-layout">
+        <div id="viz-container">
+            <svg id="mindmap"></svg>
+            <div class="controls">
+                <button class="mapa-btn" onclick="window.mm?.rescale(1.2)">Zoom +</button>
+                <button class="mapa-btn" onclick="window.mm?.rescale(0.8)">Zoom -</button>
+                <button class="mapa-btn" onclick="window.mm?.fit()">Centralizar</button>
+            </div>
+        </div>
+
+        <div id="mapa-panel">
+            <h2 class="mapa-header"><%= categoryTitle %> / <br><span style="font-size: 1.1rem; color: #555;"><%= postName %></span></h2>
+            
+            <div id="info-box" class="mapa-card">
+                <div id="node-label" class="node-title">Selecione um tópico</div>
+                <div id="node-meta" style="color: #444; font-size: 0.95rem; line-height: 1.5;">
+                    Clique nos nós do mapa para ver os detalhes da conduta ou diagnóstico.
+                </div>
+            </div>
+            
+            <div class="mapa-card" style="border-left-color: #7f8c8d;">
+                <strong style="display: block; margin-bottom: 5px; color: #333;">Resumo de Navegação</strong>
+                <p style="font-size: 0.85rem; color: #666; margin: 0;">Use o Scroll para zoom e arraste para navegar. Tópicos com círculos brancos podem ser expandidos/recolhidos.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hidden data source to prevent SyntaxErrors from multi-line strings or special characters -->
+<script id="markdown-source" type="text/plain"><%- rawContent %></script>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.14.4/dist/browser/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.14.4/dist/index.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const { markmap } = window;
+        const sourceElement = document.getElementById('markdown-source');
+        const rawMarkdown = sourceElement ? sourceElement.textContent : '';
+
+        if (markmap && rawMarkdown && rawMarkdown.trim().length > 0) {
+            const transformer = new markmap.Transformer();
+            const { root } = transformer.transform(rawMarkdown);
+            
+            window.mm = markmap.Markmap.create('#mindmap', {
+                autoFit: true,
+                duration: 400,
+                nodeMinHeight: 16,
+                spacingHorizontal: 80,
+                spacingVertical: 5
+            }, root);
+
+            // Lógica de seleção
+            d3.selectAll('.markmap-node').on('click', function(event, d) {
+                d3.selectAll('.markmap-node').classed('markmap-node-selected', false);
+                d3.select(this).classed('markmap-node-selected', true);
+
+                const label = document.getElementById('node-label');
+                const meta = document.getElementById('node-meta');
+                
+                label.innerText = d.data.content;
+                
+                var info = 'N\u00EDvel de hierarquia: ' + d.depth + '<br>';
+                if (d.children) {
+                    info += 'Cont\u00E9m <strong>' + d.children.length + '</strong> sub-t\u00F3picos.';
+                } else {
+                    info += 'Este \u00E9 um ponto final da conduta.';
+                }
+                
+                meta.innerHTML = info;
+            });
+
+            setTimeout(function() { if(window.mm) window.mm.fit(); }, 500);
+        }
+    });
+</script>

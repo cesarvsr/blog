@@ -19,20 +19,56 @@
         if (typeof navTree === 'undefined') {
             navTree = [];
         }
+
+        // Include machine-generated navMapas data
+        if (typeof navMapas === 'undefined' || !navMapas || navMapas.length === 0) {
+            try { %>
+                <%- include("_mapas-nav-data") %>
+            <% } catch (e) { }
+            
+            if (typeof navMapas === 'undefined' && typeof locals.navMapas !== 'undefined') {
+                navMapas = locals.navMapas;
+            }
+        }
     %>
-    <!-- Header/Logo Area -->
+    <!-- Navigation Area -->
     <div class="pt-6 pb-2 px-4">
-        <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Principal</h3>
+        <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Navegação</h3>
         <nav class="space-y-0.5">
             <% const isHomeActive = typeof currentPath !== 'undefined' && (currentPath === '/blog' || currentPath === '/blog/index.html' || currentPath === '/blog/articles'); %>
             <a href="/blog/articles" class="flex items-center px-2 py-1.5 text-sm font-medium rounded-md transition-all <%= isHomeActive ? 'text-primary bg-blue-50/50' : 'text-gray-600 hover:bg-gray-100 hover:text-black' %>">
                 Início
             </a>
+            <% const isMapasActive = typeof currentPath !== 'undefined' && (currentPath === '/blog/mapas' || currentPath === '/blog/mapas/index.html'); %>
+            <a href="/blog/mapas" class="flex items-center px-2 py-1.5 text-sm font-medium rounded-md transition-all <%= isMapasActive ? 'text-primary bg-blue-50/50' : 'text-gray-600 hover:bg-gray-100 hover:text-black' %>">
+                Mapas Mentais
+            </a>
+            <% const isCalcActive = typeof currentPath !== 'undefined' && (currentPath === '/blog/calculadora' || currentPath.includes('calculadora')); %>
+            <a href="/blog/calculadora" class="flex items-center px-2 py-1.5 text-sm font-medium rounded-md transition-all <%= isCalcActive ? 'text-primary bg-blue-50/50' : 'text-gray-600 hover:bg-gray-100 hover:text-black' %>">
+                Calculadoras
+            </a>
         </nav>
     </div>
 
+    <!-- Mapas Index -->
     <div class="pt-4 pb-4 px-4">
-        <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Categorias</h3>
+        <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Recursos Visuais</h3>
+        <nav class="space-y-px">
+            <% if (typeof navMapas !== 'undefined' && navMapas && navMapas.length > 0) { %>
+                <% navMapas.forEach(map => { %>
+                    <a href="<%= map.url %>" class="flex items-center px-2 py-1.5 text-sm font-medium rounded-md transition-all <%= (typeof currentPath !== 'undefined' && currentPath === map.url) ? 'text-primary bg-blue-50/50' : 'text-gray-600 hover:bg-gray-100 hover:text-black' %>">
+                        <span class="truncate" title="<%= map.title %>"><%= map.title %></span>
+                    </a>
+                <% }) %>
+            <% } else { %>
+                <p class="text-xs text-gray-400 italic px-2">Mapas em breve...</p>
+            <% } %>
+        </nav>
+    </div>
+
+    <!-- Blog Categories -->
+    <div class="pt-4 pb-4 px-4 overflow-y-auto">
+        <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Blog</h3>
         <nav class="space-y-px">
             <% if (typeof navTree !== 'undefined' && navTree && navTree.length > 0) { %>
                 <% navTree.forEach(item => { %>
@@ -41,16 +77,6 @@
             <% } else { %>
                 <p class="text-xs text-gray-400 italic px-2">Categorias em breve...</p>
             <% } %>
-        </nav>
-    </div>
-
-    <div class="mt-auto p-4 border-t border-border/50">
-        <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Suporte</h3>
-        <nav class="space-y-0.5">
-            <% const isCalcActive = typeof currentPath !== 'undefined' && (currentPath === '/blog/calculadora' || currentPath.includes('calculadora')); %>
-            <a href="/blog/calculadora" class="flex items-center px-2 py-1.5 text-sm font-medium rounded-md transition-all <%= isCalcActive ? 'text-primary bg-blue-50/50' : 'text-gray-600 hover:bg-gray-100 hover:text-black' %>">
-                Calculadoras
-            </a>
         </nav>
     </div>
 </aside>

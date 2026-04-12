@@ -9,7 +9,7 @@ export const categoryPlugin = () => ({
     setup: (config) => ({
         beforeBuild: [
             {
-                glob: ["pages/blog/posts/**", "pages/blog/calculadora.ejs", "pages/blog/custom/articles.ejs"],
+                glob: ["pages/blog/posts/**", "pages/blog/mapas/**", "pages/blog/calculadora.ejs", "pages/blog/custom/articles.ejs"],
                 fn: async (files, cfg) => {
                     const blogBase = "pages/blog";
                     const postsBase = path.join(blogBase, "posts");
@@ -17,6 +17,7 @@ export const categoryPlugin = () => ({
 
                     // 1. Build the full tree
                     const navTree = await buildNavTree(postsBase, postsBase);
+                    cfg.navTree = navTree;
                     
                     // 2. Save navTree to dist/blog/nav-tree.json for client-side/reference
                     const navTreeJsonPath = path.join(cfg.paths.dist, "blog", "nav-tree.json");
@@ -74,6 +75,7 @@ export const categoryPlugin = () => ({
                                     categoryDescription: metadata.description,
                                     categorySlug: item.name,
                                     navTree,
+                                    navMapas: cfg.navMapas || [],
                                     currentPath: item.url,
                                     breadcrumbs: currentBreadcrumbs
                                 }));
@@ -118,6 +120,7 @@ export const categoryPlugin = () => ({
                                 renderPromises.push(renderTemplate(page.tpl, path.join(cfg.paths.dist, page.out), {
                                     articles: allArticles, 
                                     navTree,
+                                    navMapas: cfg.navMapas || [],
                                     categoryTitle: page.title,
                                     currentPath: page.path,
                                     breadcrumbs: [

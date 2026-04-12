@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Hierárquico: Pancreatite</title>
+    <style>
+        :root { --accent: #2c3e50; --medical-blue: #00a8ff; }
+        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', system-ui, sans-serif; overflow: hidden; }
+        
+        #layout { display: grid; grid-template-columns: 1fr 350px; height: 100vh; }
+        
+        #viz-container { position: relative; background: #f0f2f5; overflow: hidden; border-right: 1px solid #ccc; }
+        #mindmap { width: 100%; height: 100%; }
+
+        #panel { background: white; padding: 25px; display: flex; flex-direction: column; gap: 20px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); overflow-y: auto; }
+        
+        .card { border: 1px solid #eee; padding: 15px; border-radius: 8px; background: #fafafa; border-left: 5px solid var(--medical-blue); }
+        .node-title { color: var(--accent); font-weight: bold; font-size: 1.3rem; margin-bottom: 10px; line-height: 1.2; }
+        
+        .markmap-node-selected > circle { fill: #e74c3c !important; r: 10; stroke: #c0392b; stroke-width: 3px; }
+        .markmap-node-selected > text { font-weight: bold; fill: #c0392b !important; font-size: 14px; }
+
+        .controls { position: absolute; bottom: 20px; left: 20px; display: flex; gap: 10px; }
+        button { cursor: pointer; padding: 10px 15px; border-radius: 6px; border: 1px solid #bbb; background: white; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button:hover { background: #f0f0f0; }
+        
+        h2 { margin-top: 0; color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.14.4/dist/browser/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.14.4/dist/index.min.js"></script>
+</head>
+<body>
+
+<div id="layout">
+    <div id="viz-container">
+        <svg id="mindmap"></svg>
+        <div class="controls">
+            <button onclick="window.mm.rescale(1.2)">Zoom +</button>
+            <button onclick="window.mm.rescale(0.8)">Zoom -</button>
+            <button onclick="window.mm.fit()">Centralizar</button>
+        </div>
+    </div>
+
+    <div id="panel">
+        <h2>Médico / Pancreatite</h2>
+        <div id="info-box" class="card">
+            <div id="node-label" class="node-title">Selecione um tópico</div>
+            <div id="node-meta" style="color: #444; font-size: 0.95rem; line-height: 1.5;">
+                Clique nos nós do mapa para ver os detalhes da conduta ou diagnóstico.
+            </div>
+        </div>
+        <div class="card" style="border-left-color: #7f8c8d;">
+            <strong>Resumo de Navegação</strong>
+            <p style="font-size: 0.85rem; color: #666;">Use o Scroll para zoom e arraste para navegar. Tópicos com círculos brancos podem ser expandidos/recolhidos.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const { markmap } = window;
+    
+    // Suas notas convertidas para Markdown estruturado
+    const medicalData = `
+# Pancreatite Aguda
+## 📝 Definição e Fisio
+### Fisiopatologia
+#### Co-localização
+* Ativação de tripsina por Catepsina B
+* Reação em cadeia enzimática
+* Proteólise e lesão acinar
+#### Fases
+* Fase neutrófilo-independente (citocinas)
+* Fase neutrófilo-dependente
+#### Mortalidade Bimodal
+* Precoce: SIRS / Resposta inflamatória
+* Tardia: Complicações / Infecção
+## 🔍 Diagnóstico (Atlanta)
+### Critérios (2 de 3)
+* Dor abdominal característica (faixa)
+* Amilase/Lipase > 3x limite superior
+* Imagem característica (TC/USG)
+### Laboratório
+#### Amilase
+* Útil < 24h (Pico precoce)
+* Retorna normal 3-5 dias
+* Falso negativo: Hipertrigliceridemia
+#### Lipase
+* Mais específica
+* Útil > 24h (Pico 24h)
+* Retorna normal 8-14 dias
+### Sinais Clínicos
+* Sinal de Cullen (periumbilical)
+* Sinal de Grey-Turner (flancos)
+* Sinal de Fox (inguinal)
+## 🛠 Etiologia
+### Principais
+* Litíase Biliar (40%) - Cálculos < 5mm
+* Álcool (35%) - Espasmo de Oddi / Toxicidade
+### Outras
+* Hipertrigliceridemia (> 1-4%)
+* Medicamentos (Metronidazol, Sulfa, Tiazídicos)
+* Pós-CPRE
+* Idiopática (10%)
+## 📊 Classificação e Score
+### Gravidade (Atlanta)
+#### Leve
+* Sem falência de órgãos ou complicações
+#### Moderada
+* Falência orgânica transitória (< 48h)
+#### Grave
+* Falência orgânica persistente (> 48h)
+### Scores de Prognóstico
+* Ranson (GAL-LECHO)
+* Apache II (≥ 8 pontos = Grave)
+* BISAP (BUN, Inconsciência, SIRS, Age, Pleural)
+* Balthazar (Tomográfico)
+## 💊 Manejo e Conduta
+### Primeiro Passo (Suporte)
+#### Reposição Volêmica
+* Ringer Lactato (1,5 ml/kg/h)
+* Meta: Reduzir Ureia/Creatinina
+#### Analgesia
+* Fentanil (Seguro na IRA)
+* Morfina (Controverso: Esfíncter de Oddi)
+### Nutrição
+* Leve: VO precoce (se fome/sem náusea)
+* Grave: Enteral precoce (< 72h) - Previne translocação
+* Parenteral: Apenas se não tolerar enteral
+### Antibióticos
+* **NÃO** fazer profilaxia
+* Indicação: Necrose infectada (Gás na TC) ou deterioração
+* Droga: Carbapenêmicos (Imipenem)
+## ⚠️ Complicações
+### Coleções (< 4 semanas)
+* Coleção fluida aguda (APFC)
+* Coleção necrótica aguda (ANC)
+### Coleções (> 4 semanas)
+* Pseudocisto (Fluido homogêneo encapsulado)
+* Walled-off Necrosis (WON)
+### Conduta Necrose
+* Estéril: Conservadora
+* Infectada: Antibiótico + Step-up approach (Drenagem → Cirurgia)
+    `;
+
+    const transformer = new markmap.Transformer();
+    const { root } = transformer.transform(medicalData);
+    
+    window.mm = markmap.Markmap.create('#mindmap', {
+        autoFit: true,
+        duration: 400,
+        nodeMinHeight: 16,
+        spacingHorizontal: 80,
+        spacingVertical: 5
+    }, root);
+
+    // Lógica de seleção
+    d3.selectAll('.markmap-node').on('click', function(event, d) {
+        d3.selectAll('.markmap-node').classed('markmap-node-selected', false);
+        d3.select(this).classed('markmap-node-selected', true);
+
+        const label = document.getElementById('node-label');
+        const meta = document.getElementById('node-meta');
+        
+        label.innerText = d.data.content;
+        
+        // Lógica para mostrar se tem sub-itens ou notas
+        let info = `Nível de hierarquia: ${d.depth}<br>`;
+        if (d.children) {
+            info += `Contém <strong>${d.children.length}</strong> sub-tópicos.`;
+        } else {
+            info += `Este é um ponto final da conduta.`;
+        }
+        
+        meta.innerHTML = info;
+    });
+
+    // Ajuste inicial para garantir que o mapa apareça centralizado
+    setTimeout(() => { window.mm.fit(); }, 500);
+</script>
+
+</body>
+</html>

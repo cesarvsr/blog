@@ -34,7 +34,7 @@ async function renderTemplateLocal(inputPath, outputPath, data = {}) {
     const fileName = path.basename(outputPath, ".html");
     const renderData = { ...data, fileName };
     return new Promise((res, rej) => {
-        renderFile(inputPath, renderData, async (error, html) => {
+        renderFile(inputPath, { ...renderData, filename: inputPath }, async (error, html) => {
             if (error) {
                 rej(error);
                 return;
@@ -134,6 +134,7 @@ export const customBlogPlugin = (options = {}) => ({
                                 return renderTemplateLocal(tplPath, outputPath, {
                                     ...postData,
                                     navTree,
+                                    navMapas: cfg.navMapas || [],
                                     currentPath: `/blog/articles/${postData.postUrl}`
                                 });
                             }));

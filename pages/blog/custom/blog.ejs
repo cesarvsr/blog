@@ -3,7 +3,7 @@
     <%- include("../components/_header") %>
 
     <div class="flex flex-1 overflow-hidden">
-        <%- include("../components/_sidebar", { currentPath: '/blog/articles' }) %>
+        <%- include("../components/_sidebar", { currentPath: '/blog/articles', navTree: locals.navTree, navMapas: locals.navMapas }) %>
 
         <!-- Main Content Area -->
         <main class="flex-1 flex flex-col overflow-y-auto bg-white <%= (typeof iframeOnly !== 'undefined' && iframeOnly) ? 'p-0' : 'p-6 md:p-12 lg:p-24 lg:pt-16' %>">

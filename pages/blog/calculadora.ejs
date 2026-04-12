@@ -5,7 +5,7 @@
 
     <div class="flex flex-1 overflow-hidden">
         
-        <%- include("components/_sidebar", { currentPath: '/blog/calculadora' }) %>
+        <%- include("components/_sidebar", { currentPath: '/blog/calculadora', navTree: locals.navTree, navMapas: locals.navMapas }) %>
 
         <!-- Main Content Area: Calculators -->
         <main class="flex-1 flex flex-col overflow-y-auto bg-white p-4 sm:p-6 lg:p-12">
