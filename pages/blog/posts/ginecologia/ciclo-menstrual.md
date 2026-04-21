@@ -3,12 +3,12 @@ title: "Ciclo Menstrual: Fisiologia, Regulação Hormonal e Fases Endometriais"
 date: "21/04/2026"
 author: "César Vinícius"
 description: "Uma análise técnica sobre a regulação do eixo HHO, as variações hormonais cíclicas e as correlações clínicas essenciais para a ginecologia."
-coverImage: "/blog/assets/ciclomenstrual.webp"
+coverImage: "/blog/assets/ciclomenstrual.jpg"
 category: "Ginecologia"
 tags: ["Ginecologia", "Saúde da Mulher", "Fisiologia"]
 ---
 # Ciclo Menstrual e Eixo Hipotálamo-Hipófise-Ovário (HHO)
-![Ciclo Menstrual](/blog/assets/ciclomenstrual.webp)
+![Ciclo Menstrual](/blog/assets/ciclomenstrual.jpg)
 
 ## Eixo Hipotálamo-Hipófise-Ovário
 ### Hipotálamo
@@ -41,6 +41,7 @@ tags: ["Ginecologia", "Saúde da Mulher", "Fisiologia"]
 *   **Neuro-hipófise (Posterior)**
     *   Ocitocina.
     *   Vasopressina.
+
  Célula | Hormônio | Regulação principal |
 |---|---|---|
 | **Gonadotrofo**  | FSH e LH | GnRH (+); Inibinas, estrogênio (−) |
@@ -173,21 +174,6 @@ tags: ["Ginecologia", "Saúde da Mulher", "Fisiologia"]
 *   **Camada Basal:** Camada profunda que permanece após a menstruação para regenerar o tecido.
 *   **Camada Funcional:** Camada superficial que sofre proliferação, diferenciação e descamação cíclica.
 
-
----
-
-## 9. Referências
-
-1. **FEBRASGO.** Manual de Ginecologia Endócrina. 2ª ed., 2021.
-2. **Strauss JF, Barbieri RL.** Yen & Jaffe's Reproductive Endocrinology. 8ª ed. Philadelphia: Elsevier; 2019.
-3. **Speroff L, Fritz MA.** Clinical Gynecologic Endocrinology and Infertility. 9ª ed. Philadelphia: Lippincott Williams & Wilkins; 2019.
-4. **Cunningham FG et al.** Williams Gynecology. 4ª ed. New York: McGraw-Hill; 2020.
-5. **FIGO.** Munro MG et al. FIGO classification system (PALM-COEIN) for causes of abnormal uterine bleeding. Int J Gynaecol Obstet. 2011;113(1):3-13.
-6. **Rotterdam ESHRE/ASRM-Sponsored PCOS Consensus Workshop Group.** Revised 2003 consensus on diagnostic criteria and long-term health risks related to polycystic ovary syndrome. Fertil Steril. 2004;81(1):19-25.
-7. **Teede HJ et al.** International evidence-based guideline for the assessment and management of PCOS. Monash University; 2023.
-8. **Dekel N et al.** Molecular mechanisms of ovulation. Endocr Rev. 2023;44(1):1-29.
-9. **Messinis IE et al.** Endocrinology of the menstrual cycle. Ann N Y Acad Sci. 2010;1205:82-9.
-10. **UpToDate.** Normal menstrual cycle (overview). 2024.
 ---
 
 ## 9. Referências
