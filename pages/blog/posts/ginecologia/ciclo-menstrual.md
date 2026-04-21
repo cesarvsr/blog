@@ -3,12 +3,12 @@ title: "Ciclo Menstrual: Fisiologia, Regulação Hormonal e Fases Endometriais"
 date: "21/04/2026"
 author: "César Vinícius"
 description: "Uma análise técnica sobre a regulação do eixo HHO, as variações hormonais cíclicas e as correlações clínicas essenciais para a ginecologia."
-coverImage: "/blog/assets/ciclomenstrual.jpg"
+coverImage: "/blog/assets/ciclomenstrualmap.webp"
 category: "Ginecologia"
 tags: ["Ginecologia", "Saúde da Mulher", "Fisiologia"]
 ---
 # Ciclo Menstrual e Eixo Hipotálamo-Hipófise-Ovário (HHO)
-![Ciclo Menstrual](/blog/assets/ciclomenstrual.jpg)
+![Ciclo Menstrual](/blog/assets/ciclomenstrualmap.webp)
 
 ## Eixo Hipotálamo-Hipófise-Ovário
 ### Hipotálamo
