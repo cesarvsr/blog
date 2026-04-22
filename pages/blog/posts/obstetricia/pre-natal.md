@@ -226,6 +226,49 @@ Rastreio com Swab Vaginal/Retal entre **35 e 37 semanas**.
 *   **Anemia:** Hb < 11 g/dL. Tratar com 160-200 mg de ferro elementar.
 *   **Polidrâmnio:** ILA > 24 cm. Associado a DM ou causas idiopáticas.
 
+### 8.9 Diabetes Mellitus Gestacional (DMG)
+
+O DMG é a hiperglicemia detectada pela primeira vez durante a gestação, sem critérios para DM pré-gestacional.
+
+#### A. Rastreio e Diagnóstico (Consenso FEBRASGO/SBD/MS)
+Toda gestante deve realizar a **Glicemia de Jejum** na 1ª consulta.
+
+| Exame | Resultado | Diagnóstico |
+| :--- | :--- | :--- |
+| **Glicemia em Jejum (1º Tri)** | ≥ 126 mg/dL | **DM Pré-gestacional** (Overt) |
+| **Glicemia em Jejum (1º Tri)** | 92 – 125 mg/dL | **DMG** |
+| **Glicemia em Jejum (1º Tri)** | < 92 mg/dL | Normal (Repetir TOTG 24-28 sem) |
+
+#### B. TOTG 75g (24–28 semanas)
+O diagnóstico de DMG é feito se **pelo menos um** valor estiver alterado:
+*   **Jejum:** ≥ 92 mg/dL
+*   **1 hora:** ≥ 180 mg/dL
+*   **2 horas:** ≥ 153 mg/dL
+
+#### C. Tratamento e Metas
+*   **1ª Linha:** Dieta fracionada e atividade física por 2 semanas.
+*   **Farmacológico:** Insulina (escolha) ou Metformina (alternativa selecionada).
+*   **Metas:** Jejum < 95 | 1h pós-prandial < 140 | 2h pós-prandial < 120 mg/dL.
+*   **Pós-parto:** Repetir TOTG 75g após 6–12 semanas.
+
+### 8.10 Incompatibilidade Rh / Doença Hemolítica Perinatal (DHPN)
+
+#### A. Rastreio Inicial
+Tipagem ABO/Rh e **Coombs Indireto (CI)** na 1ª consulta.
+
+| Resultado do CI | Conduta |
+| :--- | :--- |
+| **CI Negativo** | Repetir mensalmente (até 28 sem); Profilaxia Anti-D. |
+| **CI Positivo** | Gestante sensibilizada → Encaminhar para PNAR. |
+
+#### B. Profilaxia com Imunoglobulina Anti-D (300 µg)
+Indicada para gestantes Rh negativo e CI negativo em situações de risco de sangramento feto-materno:
+*   **Rotina:** 28 semanas de gestação.
+*   **Pós-parto:** Se o RN for Rh positivo (em até 72h).
+*   **Intercorrências:** Abortamento, gestação ectópica, trauma abdominal, procedimentos invasivos (amniocentese).
+
+**Nota:** A imunoglobulina **não** deve ser feita se o CI já for positivo (sensibilização estabelecida).
+
 ## 9. Queixas Comuns no Pré-Natal e Condutas
 
 | Queixa | Conduta |
